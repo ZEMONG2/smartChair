@@ -7,5 +7,3 @@ U_EMAIL varchar(100),
 
 
 select * from USER_INFO;
-
-drop table user_info;
