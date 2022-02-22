@@ -16,7 +16,7 @@ public class JoinCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		String email = request.getParameter("email");
 		String firstname = request.getParameter("firstname");
@@ -24,6 +24,9 @@ public class JoinCon extends HttpServlet {
 		String pw = request.getParameter("pw");
 		
 		String name = firstname + lastname;
+		System.out.println(firstname);
+		System.out.println(lastname);
+		System.out.println(name);
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		try {
