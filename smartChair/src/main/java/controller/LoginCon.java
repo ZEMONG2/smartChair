@@ -1,46 +1,43 @@
 package controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.memberDAO;
 import vo.memberVO;
 
-@WebServlet("/JoinCon")
-public class JoinCon extends HttpServlet {
+
+@WebServlet("/LoginCon")
+public class LoginCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		request.setCharacterEncoding("utf-8");
-
 		String email = request.getParameter("email");
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
 		String pw = request.getParameter("pw");
 		
-		String name = firstname + lastname;
-		System.out.println(firstname);
-		System.out.println(lastname);
-		System.out.println(name);
-		
 		memberDAO dao = new memberDAO();
-		int cnt = dao.join(email,pw,name);
+		memberVO vo = dao.login(email,pw);
 		
-		if (cnt > 0) {
-			System.out.println("회원가입 성공");
-			response.sendRedirect("login.html");
+		if(vo!=null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginVO", vo);
+			
+			System.out.println("로그인 성공");
+			response.sendRedirect("index.html");
 		}else {
-			System.out.println("회원가입 실패");
-			response.sendRedirect("register.html");
+			System.out.println("로그인 실패");
+			response.sendRedirect("index.html");
 		}
+		
+		
 	}
 
 }
