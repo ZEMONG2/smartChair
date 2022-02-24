@@ -82,7 +82,7 @@ public class memberDAO {
 		try {
 			connect();
 
-			String sql = "select * from user_info where email = ? and pw = ?";
+			String sql = "select * from user_info where u_email = ? and u_pw = ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);

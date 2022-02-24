@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
+        <%@page import="vo.memberVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,9 @@
 </head>
 
 <body id="page-top">
-
+<%
+memberVO vo = (memberVO)session.getAttribute("loginVO");
+%>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -65,7 +68,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                 <div class="sidebar-brand-icon rotate-n-0">
                     <img src="img/ㄴㅇ.png" ><br>
                    
@@ -79,7 +82,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>메인화면</span></a>
             </li>
@@ -353,7 +356,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">춘식</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=vo.getName()%></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -405,7 +408,7 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 사용자 이름</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">춘식이</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=vo.getName()%></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>

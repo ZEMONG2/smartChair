@@ -31,10 +31,10 @@ public class LoginCon extends HttpServlet {
 			session.setAttribute("loginVO", vo);
 			
 			System.out.println("로그인 성공");
-			response.sendRedirect("index.html");
+			response.sendRedirect("index.jsp");
 		}else {
 			System.out.println("로그인 실패");
-			response.sendRedirect("index.html");
+			response.sendRedirect("index.jsp");
 		}
 		
 		
