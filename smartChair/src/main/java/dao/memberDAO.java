@@ -107,6 +107,25 @@ public class memberDAO {
 		return vo;
 	}
 	
+	public int reset(String email, String name, String pw) {
+		
+		int cnt = 0;
+		try {
+			connect();
 
+			String sql2 = "update user_info set u_pw = ? where u_email = ? and u_name = ?";
+			psmt = conn.prepareStatement(sql2);
+			psmt.setString(1, pw);
+			psmt.setString(2, email);
+			psmt.setString(3, name);
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 	
 }
