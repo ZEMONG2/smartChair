@@ -43,18 +43,29 @@ public class memberDAO {
 	
 	public int join(String email, String pw, String name) {
 		int cnt = 0;
+		String dbEmail = "";
 		try {
 			connect();
-
+			String sql2 ="select * from user_info";
 			String sql = "insert into USER_INFO values(?, ?, ?)";
-
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, email);
-			psmt.setString(2, pw);
-			psmt.setString(3, name);
 			
-			cnt = psmt.executeUpdate();
+			psmt = conn.prepareStatement(sql2);
+			rs = psmt.executeQuery();
+			if (rs.next()) {				
+				dbEmail = rs.getString(1);
+				System.out.println("1Â÷");
+			}
+				
+			if(!email.equals(dbEmail)) {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, email);
+				psmt.setString(2, pw);
+				psmt.setString(3, name);
+				System.out.println("2Â÷");
+				cnt = psmt.executeUpdate();
 
+			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,13 +76,13 @@ public class memberDAO {
 		
 		return cnt;
 	}
-
+	
 	public memberVO login(String email, String pw) {
 		memberVO vo = null;
 		try {
 			connect();
 
-			String sql = "select * from message_member where email = ? and pw = ?";
+			String sql = "select * from user_info where email = ? and pw = ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, email);
