@@ -17,10 +17,10 @@ public class ResetCon extends HttpServlet {
 	
 		request.setCharacterEncoding("utf-8");
 		String email = request.getParameter("email");
-		String name = request.getParameter("name");
+		String nick = request.getParameter("nick");
 		String pw = request.getParameter("pw");
 		memberDAO dao = new memberDAO();
-		int cnt = dao.reset(email,name,pw);
+		int cnt = dao.reset(email,nick,pw);
 		
 		if(cnt>0) {
 			System.out.println("재설정 성공");

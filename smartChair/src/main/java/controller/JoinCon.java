@@ -22,15 +22,11 @@ public class JoinCon extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 
 		String email = request.getParameter("email");
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
 		String pw = request.getParameter("pw");
 		String nick = request.getParameter("nick");
 		
-		String name = firstname + lastname;
-		
 		memberDAO dao = new memberDAO();
-		int cnt = dao.join(email,pw,name,nick);
+		int cnt = dao.join(email,pw,nick);
 		
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");

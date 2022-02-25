@@ -41,13 +41,13 @@ public class memberDAO {
 		}
 	}
 	
-	public int join(String email, String pw, String name, String nick) {
+	public int join(String email, String pw, String nick) {
 		int cnt = 0;
 		String dbEmail = "";
 		try {
 			connect();
 			String sql2 ="select * from user_info";
-			String sql = "insert into USER_INFO values(?, ?, ?, ?)";
+			String sql = "insert into USER_INFO values(?, ?, ?)";
 			
 			psmt = conn.prepareStatement(sql2);
 			rs = psmt.executeQuery();
@@ -59,8 +59,7 @@ public class memberDAO {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, email);
 				psmt.setString(2, pw);
-				psmt.setString(3, name);
-				psmt.setString(4, nick);
+				psmt.setString(3, nick);
 				cnt = psmt.executeUpdate();
 
 			}
@@ -91,9 +90,8 @@ public class memberDAO {
 			if (rs.next()) {				
 				String dbEmail = rs.getString(1);
 				String dbPw = rs.getString(2);
-				String dbName = rs.getString(3);
-				String dbNick = rs.getString(4);
-				vo = new memberVO(dbEmail, dbName, dbNick);
+				String dbNick = rs.getString(3);
+				vo = new memberVO(dbEmail, dbNick);
 				
 
 			} else {
@@ -108,17 +106,17 @@ public class memberDAO {
 		return vo;
 	}
 	
-	public int reset(String email, String name, String pw) {
+	public int reset(String email, String nick, String pw) {
 		
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql2 = "update user_info set u_pw = ? where u_email = ? and u_name = ?";
+			String sql2 = "update user_info set u_pw = ? where u_email = ? and u_nick = ?";
 			psmt = conn.prepareStatement(sql2);
 			psmt.setString(1, pw);
 			psmt.setString(2, email);
-			psmt.setString(3, name);
+			psmt.setString(3, nick);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {

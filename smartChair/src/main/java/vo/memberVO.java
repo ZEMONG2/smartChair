@@ -3,7 +3,6 @@ package vo;
 public class memberVO {
 	String email;
 	String pw;
-	String name;
 	String nick;
 	
 	public String getEmail() {
@@ -18,12 +17,6 @@ public class memberVO {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public String getNick() {
 		return nick;
 	}
@@ -31,10 +24,9 @@ public class memberVO {
 		this.nick = nick;
 	}
 	
-	public memberVO(String email, String name, String nick) {
+	public memberVO(String email, String nick) {
 		super();
 		this.email = email;
-		this.name = name;
 		this.nick = nick;
 	}
 	
