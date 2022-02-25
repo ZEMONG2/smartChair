@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
-        <%@page import="vo.memberVO"%>
+        <%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +59,7 @@
 
 <body id="page-top">
 <%
-memberVO vo = (memberVO)session.getAttribute("loginVO");
+tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -356,7 +356,7 @@ memberVO vo = (memberVO)session.getAttribute("loginVO");
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=vo.getNick()%></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=vo.getUser_nick()%></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -404,7 +404,7 @@ memberVO vo = (memberVO)session.getAttribute("loginVO");
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 사용자 이름</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=vo.getNick()%></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=vo.getUser_nick()%></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>

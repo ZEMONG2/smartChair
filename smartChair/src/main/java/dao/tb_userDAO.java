@@ -110,17 +110,17 @@ public class tb_userDAO {
 		return vo;
 	}
 	
-	public int reset(String user_id, String user_nick, String user_pw) {
+	public int reset(String user_id, String user_name, String user_pw) {
 		
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql2 = "update tb_user set user_pw = ? where user_id = ? and user_nick = ?";
+			String sql2 = "update tb_user set user_pw = ? where user_id = ? and user_name = ?";
 			psmt = conn.prepareStatement(sql2);
 			psmt.setString(1, user_pw);
 			psmt.setString(2, user_id);
-			psmt.setString(3, user_nick);
+			psmt.setString(3, user_name);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -130,7 +130,7 @@ public class tb_userDAO {
 		}
 		return cnt;
 	}
-/*public int modify(String user_id, String user_pw, String user_name, String user_nick) {
+public int modify(String user_id, String user_pw, String user_name, String user_nick) {
 		
 		int cnt = 0;
 		try {
@@ -138,9 +138,10 @@ public class tb_userDAO {
 
 			String sql = "update tb_user set user_pw = ?, user_name = ?, user_nick = ? where user_id = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, pw);
-			psmt.setString(2, nick);
-			psmt.setString(3, email);			
+			psmt.setString(1, user_pw);
+			psmt.setString(2, user_name);
+			psmt.setString(3, user_nick);			
+			psmt.setString(4, user_id);			
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -164,9 +165,12 @@ public ArrayList<tb_userVO> profile() {
 		rs = psmt.executeQuery();
 		
 		while (rs.next()) {
-			String dbEmail = rs.getString(1);
-			String dbNick = rs.getString(2);
-			tb_userVO vo = new tb_userVO(dbEmail, dbNick);
+			String db_user_id = rs.getString(1);
+			String db_user_pw = rs.getString(2);
+			String db_user_name = rs.getString(3);
+			String db_user_nick = rs.getString(4);
+			Date db_user_joindate = rs.getDate(5);
+			tb_userVO vo = new tb_userVO(db_user_id, db_user_pw, db_user_name, db_user_nick, db_user_joindate);
 			al.add(vo);				
 		}
 
@@ -177,7 +181,7 @@ public ArrayList<tb_userVO> profile() {
 	}
 	return al;
 }
-*/	
+
 	}
 	
 

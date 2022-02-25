@@ -14,15 +14,10 @@ public class LogoutCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
-
 		HttpSession session = request.getSession();
 
 		session.removeAttribute("loginVO");
 		response.sendRedirect("login.html");
-		
-		
-		
 		
 	}
 

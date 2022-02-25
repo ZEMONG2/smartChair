@@ -28,7 +28,6 @@ public class LoginCon extends HttpServlet {
 		
 		tb_userDAO dao = new tb_userDAO();
 		tb_userVO vo = dao.login(user_id,user_pw);
-		PrintWriter out = response.getWriter();
 		if(vo!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginVO", vo);

@@ -44,16 +44,23 @@
                                             and we'll modify your information!</p>
                                     </div>
                                     <form class="user" action = "ModifyCon" method = "post">
+                                        
+                                           <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                   id="user_pw" aria-describedby="emailHelp" name = "user_pw"
+                                                   placeholder="Enter new Password...">
+                                           </div> 
                                         <div class="form-group">
-                                         <input type="nick" class="form-control form-control-user"
-                                                id="nick" aria-describedby="emailHelp"name = "nick"
-                                                placeholder="Enter Your Nickname...">
+                                         <input type="name" class="form-control form-control-user"
+                                                id="user_name" aria-describedby="emailHelp"name = "user_name"
+                                                placeholder="Enter Your Name...">
                                         </div>
                                         <div class="form-group">
-                                         <input type="password" class="form-control form-control-user"
-                                                id="pw" aria-describedby="emailHelp" name = "pw"
-                                                placeholder="Enter new Password...">
-                                        </div>       
+                                            <input type="nick" class="form-control form-control-user"
+                                                   id="user_nick" aria-describedby="emailHelp"name = "user_nick"
+                                                   placeholder="Enter Your Nickname...">
+                                           </div>
+                                              
                                          <div class="form-group">
                                           <input type="submit" class="btn btn-primary btn-user btn-block" value = "Modify Information">
                                          </div>   
