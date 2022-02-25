@@ -25,10 +25,10 @@ public class ResetCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("재설정 성공");
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 		}else {
 			System.out.println("재설정 실패");
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 		}
 		
 		

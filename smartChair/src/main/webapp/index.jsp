@@ -139,7 +139,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">로그인</a>
+                        <a class="collapse-item" href="login.jsp">로그인</a>
                         <a class="collapse-item" href="register.html">회원가입</a>
                         <a class="collapse-item" href="forgot-password.html">비밀번호 찾기</a>
                         <!-- <div class="collapse-divider"></div>
@@ -659,7 +659,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.jsp">Logout</a>
                 </div>
             </div>
         </div>
