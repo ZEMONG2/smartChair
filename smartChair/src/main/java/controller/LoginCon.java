@@ -33,7 +33,8 @@ public class LoginCon extends HttpServlet {
 		tb_userVO vo = dao.login(user_id,user_pw);
 		
 		if(id_remb != null && id_remb.trim().equals("on")) {
-			cookie = new Cookie("id", java.net.URLEncoder.encode(user_id));
+			cookie = new Cookie("id", java.net.URLEncoder.encode(user_id, "utf-8"));
+			cookie = new Cookie("id", java.net.URLDecoder.decode(user_id, "utf-8"));
 			cookie.setMaxAge(60*60*24*30);
 			response.addCookie(cookie);
 		}else{
