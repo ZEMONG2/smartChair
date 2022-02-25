@@ -4,6 +4,7 @@ public class memberVO {
 	String email;
 	String pw;
 	String name;
+	String nick;
 	
 	public String getEmail() {
 		return email;
@@ -23,11 +24,18 @@ public class memberVO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	
-	public memberVO(String email, String name) {
+	public memberVO(String email, String name, String nick) {
 		super();
 		this.email = email;
 		this.name = name;
+		this.nick = nick;
 	}
 	
 	

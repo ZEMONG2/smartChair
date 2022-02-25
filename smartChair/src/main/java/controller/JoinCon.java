@@ -25,14 +25,12 @@ public class JoinCon extends HttpServlet {
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String pw = request.getParameter("pw");
+		String nick = request.getParameter("nick");
 		
 		String name = firstname + lastname;
-		System.out.println(firstname);
-		System.out.println(lastname);
-		System.out.println(name);
 		
 		memberDAO dao = new memberDAO();
-		int cnt = dao.join(email,pw,name);
+		int cnt = dao.join(email,pw,name,nick);
 		
 		if (cnt > 0) {
 			System.out.println("회원가입 성공");

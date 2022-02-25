@@ -41,19 +41,18 @@ public class memberDAO {
 		}
 	}
 	
-	public int join(String email, String pw, String name) {
+	public int join(String email, String pw, String name, String nick) {
 		int cnt = 0;
 		String dbEmail = "";
 		try {
 			connect();
 			String sql2 ="select * from user_info";
-			String sql = "insert into USER_INFO values(?, ?, ?)";
+			String sql = "insert into USER_INFO values(?, ?, ?, ?)";
 			
 			psmt = conn.prepareStatement(sql2);
 			rs = psmt.executeQuery();
 			if (rs.next()) {				
 				dbEmail = rs.getString(1);
-				System.out.println("1차");
 			}
 				
 			if(!email.equals(dbEmail)) {
@@ -61,7 +60,7 @@ public class memberDAO {
 				psmt.setString(1, email);
 				psmt.setString(2, pw);
 				psmt.setString(3, name);
-				System.out.println("2차");
+				psmt.setString(4, nick);
 				cnt = psmt.executeUpdate();
 
 			}
@@ -93,7 +92,9 @@ public class memberDAO {
 				String dbEmail = rs.getString(1);
 				String dbPw = rs.getString(2);
 				String dbName = rs.getString(3);
-				vo = new memberVO(dbEmail, dbName);
+				String dbNick = rs.getString(4);
+				vo = new memberVO(dbEmail, dbName, dbNick);
+				
 
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -128,4 +129,7 @@ public class memberDAO {
 		return cnt;
 	}
 	
-}
+	
+	}
+	
+
