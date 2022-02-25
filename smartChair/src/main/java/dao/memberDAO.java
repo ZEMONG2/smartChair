@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import vo.memberVO;
 
@@ -126,7 +127,53 @@ public class memberDAO {
 		}
 		return cnt;
 	}
+public int modify(String email, String nick, String pw) {
+		
+		int cnt = 0;
+		try {
+			connect();
+
+			String sql2 = "update user_info set u_pw = ?, u_nick = ? where u_email = ?";
+			psmt = conn.prepareStatement(sql2);
+			psmt.setString(1, pw);
+			psmt.setString(2, nick);
+			psmt.setString(3, email);			
+			cnt = psmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
 	
+public ArrayList<memberVO> profile() {
+	
+	ArrayList<memberVO> al = new ArrayList<memberVO>();
+	
+	try {
+		connect();
+		String sql = "select u_email, u_nick from user_info";
+
+		psmt = conn.prepareStatement(sql);
+		
+		rs = psmt.executeQuery();
+		
+		while (rs.next()) {
+			String dbEmail = rs.getString(1);
+			String dbNick = rs.getString(2);
+			memberVO vo = new memberVO(dbEmail, dbNick);
+			al.add(vo);				
+		}
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return al;
+}
 	
 	}
 	
