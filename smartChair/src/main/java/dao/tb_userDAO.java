@@ -50,7 +50,7 @@ public class tb_userDAO {
 		try {
 			connect();
 			
-			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate,'n')";
+			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate,'N')";
 			String sql2 ="select * from tb_user";
 			
 			psmt = conn.prepareStatement(sql2);
