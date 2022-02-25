@@ -50,7 +50,7 @@ public class tb_userDAO {
 		try {
 			connect();
 			
-			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate)";
+			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate,'n')";
 			String sql2 ="select * from tb_user";
 			
 			psmt = conn.prepareStatement(sql2);
@@ -130,7 +130,7 @@ public class tb_userDAO {
 		}
 		return cnt;
 	}
-public int modify(String user_id, String user_pw, String user_name, String user_nick) {
+/*public int modify(String user_id, String user_pw, String user_name, String user_nick) {
 		
 		int cnt = 0;
 		try {
@@ -177,7 +177,7 @@ public ArrayList<tb_userVO> profile() {
 	}
 	return al;
 }
-	
+*/	
 	}
 	
 

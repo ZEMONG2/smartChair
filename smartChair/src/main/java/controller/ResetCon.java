@@ -7,14 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.memberDAO;
 
 @WebServlet("/ResetCon")
 public class ResetCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	/*
 		request.setCharacterEncoding("utf-8");
 		String email = request.getParameter("email");
 		String nick = request.getParameter("nick");
@@ -29,7 +28,7 @@ public class ResetCon extends HttpServlet {
 			System.out.println("재설정 실패");
 			response.sendRedirect("login.html");
 		}
-		
+		*/
 		
 	}
 

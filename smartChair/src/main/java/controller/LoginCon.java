@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.memberDAO;
-import vo.memberVO;
+
+import dao.tb_userDAO;
+import vo.tb_userVO;
 
 
 @WebServlet("/LoginCon")
@@ -22,11 +23,11 @@ public class LoginCon extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("utf-8");
-		String email = request.getParameter("email");
-		String pw = request.getParameter("pw");
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
 		
-		memberDAO dao = new memberDAO();
-		memberVO vo = dao.login(email,pw);
+		tb_userDAO dao = new tb_userDAO();
+		tb_userVO vo = dao.login(user_id,user_pw);
 		PrintWriter out = response.getWriter();
 		if(vo!=null) {
 			HttpSession session = request.getSession();

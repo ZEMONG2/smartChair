@@ -8,15 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.memberDAO;
-import vo.memberVO;
 
 @WebServlet("/ModifyCon")
 public class ModifyCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+	/*	request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		memberVO vo = (memberVO)session.getAttribute("loginVO");
 	
@@ -34,7 +32,7 @@ public class ModifyCon extends HttpServlet {
 			response.sendRedirect("modify.html");
 		}
 		
-		
+		*/
 	}
 
 }
