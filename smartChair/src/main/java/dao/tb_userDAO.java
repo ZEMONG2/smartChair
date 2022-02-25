@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
-import vo.memberVO;
+import vo.tb_userVO;
 
-public class memberDAO {
+
+public class tb_userDAO {
 
 	PreparedStatement psmt = null;
 	Connection conn = null;
@@ -42,25 +44,27 @@ public class memberDAO {
 		}
 	}
 	
-	public int join(String email, String pw, String nick) {
+	public int join(String user_id, String user_pw, String user_name, String user_nick) {
 		int cnt = 0;
-		String dbEmail = "";
+		String db_user_id = "";
 		try {
 			connect();
-			String sql2 ="select * from user_info";
-			String sql = "insert into USER_INFO values(?, ?, ?)";
+			
+			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate)";
+			String sql2 ="select * from tb_user";
 			
 			psmt = conn.prepareStatement(sql2);
 			rs = psmt.executeQuery();
 			if (rs.next()) {				
-				dbEmail = rs.getString(1);
+				db_user_id = rs.getString(1);
 			}
 				
-			if(!email.equals(dbEmail)) {
+			if(!db_user_id.equals(user_id)) {
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, email);
-				psmt.setString(2, pw);
-				psmt.setString(3, nick);
+				psmt.setString(1, user_id);
+				psmt.setString(2, user_pw);
+				psmt.setString(3, user_name);
+				psmt.setString(4, user_nick);
 				cnt = psmt.executeUpdate();
 
 			}
@@ -76,24 +80,23 @@ public class memberDAO {
 		return cnt;
 	}
 	
-	public memberVO login(String email, String pw) {
-		memberVO vo = null;
+	public tb_userVO login(String user_id, String user_pw) {
+		tb_userVO vo = null;
 		try {
 			connect();
-
-			String sql = "select * from user_info where u_email = ? and u_pw = ?";
+			
+			String sql = "select * from tb_user where user_id = ? and user_pw = ?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, email);
-			psmt.setString(2, pw);
+			psmt.setString(1, user_id);
+			psmt.setString(2, user_pw);
 			rs = psmt.executeQuery();
 			
 			if (rs.next()) {				
-				String dbEmail = rs.getString(1);
-				String dbPw = rs.getString(2);
-				String dbNick = rs.getString(3);
-				vo = new memberVO(dbEmail, dbNick);
-				
+				String db_user_id = rs.getString(1);
+				String db_user_name = rs.getString(3);
+				String db_user_nick = rs.getString(4);
+				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick);
 
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -107,17 +110,17 @@ public class memberDAO {
 		return vo;
 	}
 	
-	public int reset(String email, String nick, String pw) {
+	public int reset(String user_id, String user_nick, String user_pw) {
 		
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql2 = "update user_info set u_pw = ? where u_email = ? and u_nick = ?";
+			String sql2 = "update tb_user set user_pw = ? where user_id = ? and user_nick = ?";
 			psmt = conn.prepareStatement(sql2);
-			psmt.setString(1, pw);
-			psmt.setString(2, email);
-			psmt.setString(3, nick);
+			psmt.setString(1, user_pw);
+			psmt.setString(2, user_id);
+			psmt.setString(3, user_nick);
 			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -127,14 +130,14 @@ public class memberDAO {
 		}
 		return cnt;
 	}
-public int modify(String email, String nick, String pw) {
+public int modify(String user_id, String user_pw, String user_name, String user_nick) {
 		
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql2 = "update user_info set u_pw = ?, u_nick = ? where u_email = ?";
-			psmt = conn.prepareStatement(sql2);
+			String sql = "update tb_user set user_pw = ?, user_name = ?, user_nick = ? where user_id = ?";
+			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pw);
 			psmt.setString(2, nick);
 			psmt.setString(3, email);			
@@ -148,9 +151,9 @@ public int modify(String email, String nick, String pw) {
 		return cnt;
 	}
 	
-public ArrayList<memberVO> profile() {
+public ArrayList<tb_userVO> profile() {
 	
-	ArrayList<memberVO> al = new ArrayList<memberVO>();
+	ArrayList<tb_userVO> al = new ArrayList<tb_userVO>();
 	
 	try {
 		connect();
@@ -163,7 +166,7 @@ public ArrayList<memberVO> profile() {
 		while (rs.next()) {
 			String dbEmail = rs.getString(1);
 			String dbNick = rs.getString(2);
-			memberVO vo = new memberVO(dbEmail, dbNick);
+			tb_userVO vo = new tb_userVO(dbEmail, dbNick);
 			al.add(vo);				
 		}
 

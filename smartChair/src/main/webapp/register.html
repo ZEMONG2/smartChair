@@ -38,24 +38,12 @@
                             <form class="user" action = "JoinCon" method="post">
                                 
                                 <div class="form-group">
-                                	
-                                    <input type="nick" name = "nick" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Nick Name">
-                                 </div>
-                                 <div class="form-group">
-                                     <button type="button" style="border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;
-                                     background-color : white" 
-                                     onclick="id_overlap_check()">중복검사</button>
-                                </div>
-                                   
-                                
-                                <div class="form-group">
-                                    <input type="email" name = "email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" name = "user_id" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" name = "pw" class="form-control form-control-user"
+                                        <input type="password" name = "user_pw" class="form-control form-control-user"
                                             id="exampleInputPassword" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
@@ -63,6 +51,20 @@
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <input type="name" name = "user_name" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Name">
+                                 </div>
+                                <div class="form-group">
+                                    <input type="nick" name = "user_nick" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Nick Name">
+                                 </div>
+                                 <div class="form-group">
+                                     <button type="button" style="border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;
+                                     background-color : white" 
+                                     onclick="id_overlap_check()">중복검사</button>
+                                </div>
+                                
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
                                 <hr>
                                 <a href="index.jsp" class="btn btn-google btn-user btn-block">
