@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,7 @@ public class LoginCon extends HttpServlet {
 		
 		memberDAO dao = new memberDAO();
 		memberVO vo = dao.login(email,pw);
-		
+		PrintWriter out = response.getWriter();
 		if(vo!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginVO", vo);
@@ -34,7 +36,7 @@ public class LoginCon extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}else {
 			System.out.println("로그인 실패");
-			response.sendRedirect("login.html");
+			response.sendRedirect("loginF.jsp");
 		}
 		
 		
