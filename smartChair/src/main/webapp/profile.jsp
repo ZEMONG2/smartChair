@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    <%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +26,9 @@
 </head>
 
 <body id="page-top">
+<%
+tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+%>
 
     
         <!-- Page Wrapper -->
@@ -34,7 +40,7 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                     <div class="sidebar-brand-icon rotate-n-0">
-                        <img src="img/„Ñ¥„Öá.png" ><br>
+                        <img src="img/§§§∑.png" ><br>
                        
                     </div>
                     
@@ -48,7 +54,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.jsp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Î©îÏù∏ÌôîÎ©¥</span></a>
+                        <span>∏ﬁ¿Œ»≠∏È</span></a>
                 </li>
     
                 <!-- Divider -->
@@ -63,7 +69,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="buttons.html">
                         <i class="fas fa-fw fa-cogs"></i>
-                        <span>ÎÜíÏù¥Ï°∞Ï†à</span></a>
+                        <span>≥Ù¿Ã¡∂¿˝</span></a>
                 </li>
     
                 <!-- Nav Item - Utilities Collapse Menu -->
@@ -71,7 +77,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-wrench"></i>
-                        <span>Í∏∞Îä•</span>
+                        <span>±‚¥…</span>
                     </a>
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                         data-parent="#accordionSidebar">
@@ -98,14 +104,14 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                         aria-expanded="true" aria-controls="collapsePages">
                         <i class="fas fa-fw fa-folder"></i>
-                        <span>ÌéòÏù¥ÏßÄ</span>
+                        <span>∆‰¿Ã¡ˆ</span>
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Login Screens:</h6>
-                            <a class="collapse-item" href="login.jsp">Î°úÍ∑∏Ïù∏</a>
-                            <a class="collapse-item" href="register.html">ÌöåÏõêÍ∞ÄÏûÖ</a>
-                            <a class="collapse-item" href="forgot-password.html">ÎπÑÎ∞ÄÎ≤àÌò∏ Ï∞æÍ∏∞</a>
+                            <a class="collapse-item" href="login.jsp">∑Œ±◊¿Œ</a>
+                            <a class="collapse-item" href="register.html">»∏ø¯∞°¿‘</a>
+                            <a class="collapse-item" href="forgot-password.html">∫Òπ–π¯»£ √£±‚</a>
                             <!-- <div class="collapse-divider"></div>
                             <h6 class="collapse-header">Other Pages:</h6>
                             <a class="collapse-item" href="404.html">404 Page</a>
@@ -118,14 +124,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="charts.html">
                         <i class="fas fa-fw fa-chart-area"></i>
-                        <span>Ï∞®Ìä∏</span></a>
+                        <span>¬˜∆Æ</span></a>
                 </li>
     
                 <!-- Nav Item - Tables -->
                 <li class="nav-item">
                     <a class="nav-link" href="tables.html">
                         <i class="fas fa-fw fa-table"></i>
-                        <span>ÏÇ¨Ïö©ÏûêÌÖåÏù¥Î∏î</span></a>
+                        <span>ªÁøÎ¿⁄≈◊¿Ã∫Ì</span></a>
                 </li>
     
                 <!-- Divider -->
@@ -271,7 +277,7 @@
                                         <div class="font-weight-bold">
                                             <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                                 problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler ¬∑ 58m</div>
+                                            <div class="small text-gray-500">Emily Fowler °§ 58m</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -283,7 +289,7 @@
                                         <div>
                                             <div class="text-truncate">I have the photos that you ordered last month, how
                                                 would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun ¬∑ 1d</div>
+                                            <div class="small text-gray-500">Jae Chun °§ 1d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -295,7 +301,7 @@
                                         <div>
                                             <div class="text-truncate">Last month's report looks great, I am very happy with
                                                 the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez ¬∑ 2d</div>
+                                            <div class="small text-gray-500">Morgan Alvarez °§ 2d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -307,7 +313,7 @@
                                         <div>
                                             <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                                 told me that people say this to all dogs, even if they aren't good...</div>
-                                            <div class="small text-gray-500">Chicken the Dog ¬∑ 2w</div>
+                                            <div class="small text-gray-500">Chicken the Dog °§ 2w</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -366,12 +372,12 @@
                                     <ul class = "amount">
                                         <li>
                                             <div>
-                                                <div class="name">Ïù¥Î¶Ñ</div>
+                                                <div class="name">¿Ã∏ß</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name">Ï∂òÏãù</div>
+                                                <div class="name"><%=vo.getUser_name()%></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -384,12 +390,12 @@
                                     <ul class = "amount">
                                         <li>
                                             <div>
-                                                <div class="name">ÎãâÎÑ§ÏûÑ</div>
+                                                <div class="name">¥–≥◊¿”</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name">nickname</div>
+                                                <div class="name"><%=vo.getUser_nick()%></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -401,12 +407,12 @@
                                     <ul class = "amount">
                                         <li>
                                             <div>
-                                                <div class="name">Ïù¥Î©îÏùº</div>
+                                                <div class="name">¿Ã∏ﬁ¿œ</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name">test111@naver.com</div>
+                                                <div class="name"><%=vo.getUser_id()%></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -418,12 +424,12 @@
                                     <ul class = "amount">
                                         <li>
                                             <div>
-                                                <div class="name">Í∞ÄÏûÖÎÇ†Ïßú</div>
+                                                <div class="name">∞°¿‘≥Ø¬•</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name">2022ÎÖÑ 02Ïõî 26Ïùº</div>
+                                                <div class="name"><%=vo.getUser_joindate()%></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -489,7 +495,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">√ó</span>
+                        <span aria-hidden="true">°ø</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

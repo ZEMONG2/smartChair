@@ -19,13 +19,10 @@ public class ProfileCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
-		
 		String user_id = request.getParameter("user_id");
 		
-		
 		tb_userDAO dao = new tb_userDAO();
-		tb_userVO cnt = dao.profile(user_id);
-		
+		tb_userVO vo = dao.profile(user_id);
 		
 	}
 
