@@ -152,13 +152,13 @@ public int modify(String user_id, String user_pw, String user_name, String user_
 		return cnt;
 	}
 	
-public ArrayList<tb_userVO> profile() {
+public ArrayList<tb_userVO> selectAll() {
 	
 	ArrayList<tb_userVO> al = new ArrayList<tb_userVO>();
 	
 	try {
 		connect();
-		String sql = "select u_email, u_nick from user_info";
+		String sql = "select * from tb_user";
 
 		psmt = conn.prepareStatement(sql);
 		
@@ -170,7 +170,8 @@ public ArrayList<tb_userVO> profile() {
 			String db_user_name = rs.getString(3);
 			String db_user_nick = rs.getString(4);
 			Date db_user_joindate = rs.getDate(5);
-			tb_userVO vo = new tb_userVO(db_user_id, db_user_pw, db_user_name, db_user_nick, db_user_joindate);
+			String db_admin_yesno = rs.getString(6);
+			tb_userVO vo = new tb_userVO(db_user_id, db_user_pw, db_user_name, db_user_nick, db_user_joindate, db_admin_yesno);
 			al.add(vo);				
 		}
 
@@ -180,6 +181,35 @@ public ArrayList<tb_userVO> profile() {
 		close();
 	}
 	return al;
+}
+
+public tb_userVO profile(String user_id) {
+	tb_userVO vo = null;
+	try {
+		connect();
+		
+		String sql = "select * from tb_user where user_id = ?";
+
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, user_id);
+		rs = psmt.executeQuery();
+		
+		if (rs.next()) {				
+			String db_user_id = rs.getString(1);
+			String db_user_pw = rs.getString(2);
+			String db_user_name = rs.getString(3);
+			String db_user_nick = rs.getString(4);
+			Date db_user_joindate = rs.getDate(5);
+			vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate);
+
+		}
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return vo;
 }
 
 	}
