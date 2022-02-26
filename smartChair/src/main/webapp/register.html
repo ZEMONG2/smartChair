@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -38,9 +38,13 @@
                             <form class="user" action = "JoinCon" method="post">
                                 
                                 <div class="form-group">
-                                    <input type="email" name = "user_id" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email"  name = "user_id" class="form-control form-control-user" id="email"
                                         placeholder="Email Address">
                                 </div>
+                                 <div class="form-group">
+                                     <input type="button" value ="중복확인" onclick="emailCheck()">
+                                </div>
+                                <span id = "checkEmail"></span>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name = "user_pw" class="form-control form-control-user"
@@ -52,18 +56,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="name" name = "user_name" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="name" name = "user_name" class="form-control form-control-user" id="exampleInputName"
                                         placeholder="Name">
                                  </div>
                                 <div class="form-group">
-                                    <input type="nick" name = "user_nick" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="nick" name = "user_nick" class="form-control form-control-user" id="exampleInputNick"
                                         placeholder="Nick Name">
                                  </div>
-                                 <div class="form-group">
-                                     <button type="button" style="border-top-left-radius: 30px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;border-bottom-right-radius: 30px;
-                                     background-color : white" 
-                                     onclick="id_overlap_check()">중복검사</button>
-                                </div>
                                 
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
                                 <hr>
@@ -96,7 +95,41 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+	
+	<script>
+			function emailCheck(){
+				let email = document.querySelector('#email')  //이메일 작성창
+			     let span = document.querySelector('#checkEmail')
+			      let xhr = new XMLHttpRequest()
+			      
+			      //요청방식 , 요청경로
+			      xhr.open('get', 'IdCheckCon?email='+email.value)
+			      //전송데이터의 형식
+			      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+			      //요청 & 전송할 데이터
+			      xhr.send()
+			      
+			      xhr.onreadystatechange = function(){
+					 if(xhr.readyState===XMLHttpRequest.DONE){  //요청성공
+			            if(xhr.status===200){ //응답성공
+			               console.log("응답성공")
+			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
+			            if(xhr.responseText==="true"){
+			            	span.innerText = '사용할 수 없는 아이디'
+			            	
+			            }else{
+			            	span.innerText = '사용할 수 있는 아이디'
+			            }
+			            }else{
+			               console.log("응답실패")
+			            }
+			         }else{  //요청실패
+			            console.log("요청실패")
+			         }
+			      }
+			}
+			
+			</script>
 </body>
 
 </html>

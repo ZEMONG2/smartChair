@@ -213,6 +213,33 @@ public tb_userVO profile(String user_id) {
 	return vo;
 }
 */
+public boolean idCheck(String email) {
+    boolean check = false;  
+	try {
+         connect();
+         
+         String sql = "select user_id from tb_user where user_id = ?";
+         psmt = conn.prepareStatement(sql);
+         psmt.setString(1, email);
+         
+         rs = psmt.executeQuery();
+      
+         if(rs.next()){
+            check = true;
+         }else {
+        	 check = false;
+         }
+         
+      }catch(Exception e) {
+         e.printStackTrace();
+      }finally {
+   
+         close();
+         
+      }
+      return check;
+	
+}
 	}
 	
 
