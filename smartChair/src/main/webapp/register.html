@@ -29,7 +29,7 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"><img src="img/desk2.jpg" ></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"><img src="img/desk2.jpg" class = "img"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
@@ -38,13 +38,13 @@
                             <form class="user" action = "JoinCon" method="post">
                                 
                                 <div class="form-group">
-                                    <input type="email"  name = "user_id" class="form-control form-control-user" id="email"
+                                    <input type="email"  name = "user_id" class="form-control2 form-control-user" id="email"
                                         placeholder="Email Address">
+                                     <div class = "ckck"><input type="button" id = "emailck" value = "중복확인" onclick="emailCheck()"></div>
+                                     
                                 </div>
-                                 <div class="form-group">
-                                     <input type="button" value ="중복확인" onclick="emailCheck()">
-                                </div>
-                                <span id = "checkEmail"></span>
+                                 
+                               
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name = "user_pw" class="form-control form-control-user"
@@ -96,10 +96,10 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 	
-	<script>
+	 	 <script>
 			function emailCheck(){
 				let email = document.querySelector('#email')  //이메일 작성창
-			     let span = document.querySelector('#checkEmail')
+			    
 			      let xhr = new XMLHttpRequest()
 			      
 			      //요청방식 , 요청경로
@@ -115,11 +115,11 @@
 			               console.log("응답성공")
 			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
 			            if(xhr.responseText==="true"){
-			            	span.innerText = '사용할 수 없는 아이디'
-			            	
+			            	alert('이미 등록되어있는 이메일입니다.')
 			            }else{
-			            	span.innerText = '사용할 수 있는 아이디'
+			            	alert('사용할 수 있는 이메일입니다.')
 			            }
+			            
 			            }else{
 			               console.log("응답실패")
 			            }
@@ -127,9 +127,20 @@
 			            console.log("요청실패")
 			         }
 			      }
+				
 			}
 			
 			</script>
+			
+			<script>
+			$(document).ready(function(){
+				$("#emailck").click(function(){
+					if($("#email").val().length==0){alert('이메일을 입력하세요');$("#email").focus(); return false;}
+				})
+			})
+			
+			</script>
+			
 </body>
 
 </html>

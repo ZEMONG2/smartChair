@@ -30,6 +30,7 @@ public class IdCheckCon extends HttpServlet {
 		tb_userDAO dao = new tb_userDAO();
 		boolean check = dao.idCheck(email);
 		
+		
 		//3. console에 true/false(반환값) 출력
 		PrintWriter out = response.getWriter();
 		out.print(check);
