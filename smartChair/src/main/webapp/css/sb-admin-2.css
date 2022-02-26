@@ -11286,6 +11286,33 @@ body.card-body.table{
   width: 500px;
 
 }
+.amount{
+  position: relative;
+  display: flex;
+  width: auto;
+  background-color: #fff;
+ 
+  margin: auto;
+}
+
+.amount > li{
+  flex: 1;
+  height: auto;
+}
+
+.amount > li > div {
+  text-align: center;
+  height: auto;
+  margin-top: auto;
+}
+
+.amount > li:not(:last-child) > div{
+  border-right: 1px solid #e1e1e1;
+}
+.amount {
+  list-style: none;
+  padding-left: 0px;
+}
 
 
 
