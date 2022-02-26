@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
     <%@page import="vo.tb_userVO"%>
+    <%@page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -333,7 +334,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="ProfileCon">
+                                    <a class="dropdown-item" href="profile.jsp">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>

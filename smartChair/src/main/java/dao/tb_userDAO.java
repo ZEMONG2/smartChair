@@ -96,7 +96,8 @@ public class tb_userDAO {
 				String db_user_id = rs.getString(1);
 				String db_user_name = rs.getString(3);
 				String db_user_nick = rs.getString(4);
-				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick);
+				Date db_user_joindate = rs.getDate(5);
+				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate);
 
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -182,7 +183,7 @@ public ArrayList<tb_userVO> selectAll() {
 	}
 	return al;
 }
-
+/*
 public tb_userVO profile(String user_id) {
 	tb_userVO vo = null;
 	try {
@@ -211,7 +212,7 @@ public tb_userVO profile(String user_id) {
 	}
 	return vo;
 }
-
+*/
 	}
 	
 
