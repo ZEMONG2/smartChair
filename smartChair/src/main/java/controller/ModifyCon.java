@@ -34,12 +34,12 @@ public class ModifyCon extends HttpServlet {
 		int cnt = dao.modify(user_id, user_pw, user_name, user_nick, admin_yesno);
 		
 		if(cnt>0) {
-			System.out.println("È¸¿øÁ¤º¸¼öÁ¤ ¼º°ø");
+			System.out.println("íšŒì›ì •ë³´ìˆ˜ì • ì„±ê³µ");
 			vo = new tb_userVO(user_id, user_name, user_nick, user_joindate);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("index.jsp");
 		}else {
-			System.out.println("È¸¿øÁ¤º¸¼öÁ¤ ½ÇÆĞ");
+			System.out.println("íšŒì›ì •ë³´ìˆ˜ì • ì‹¤íŒ¨");
 			response.sendRedirect("modify.html");
 		}
 		

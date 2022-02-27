@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class tb_commentVO {
 
-    // ´ñ±Û ¼ø¹ø 
+    // ëŒ“ê¸€ ìˆœë²ˆ 
     private Double comment_seq;
 
-    // ¿ø±Û ¼ø¹ø 
+    // ì›ê¸€ ìˆœë²ˆ 
     private Double article_seq;
 
-    // ´ñ±Û ³»¿ë 
+    // ëŒ“ê¸€ ë‚´ìš© 
     private String comment_content;
 
-    // ´ñ±Û ÀÛ¼ºÀÏÀÚ 
+    // ëŒ“ê¸€ ì‘ì„±ì¼ì 
     private Date comment_date;
 
-    // ´ñ±Û ÀÛ¼ºÀÚ 
+    // ëŒ“ê¸€ ì‘ì„±ì 
     private String user_id;
 
 	public Double getComment_seq() {

@@ -100,7 +100,7 @@ public class tb_userDAO {
 				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate);
 
 			} else {
-				System.out.println("ÀÏÄ¡ÇÏ´Â È¸¿ø ¾øÀ½");
+				System.out.println("ì¼ì¹˜í•˜ëŠ” íšŒì› ì—†ìŒ");
 			}
 
 		} catch (Exception e) {

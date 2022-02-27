@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class tb_controlVO {
 	 
-	// Á¦¾î ¼ø¹ø 
+	// ì œì–´ ìˆœë²ˆ 
     private Double control_seq;
 
-    // »ç¿ëÀÚ ¼³Á¤ ³ôÀÌ 
+    // ì‚¬ìš©ì ì„¤ì • ë†’ì´ 
     private Double user_height;
 
-    // »ç¿ëÀÚ ÀÌÀü ³ôÀÌ 
+    // ì‚¬ìš©ì ì´ì „ ë†’ì´ 
     private Double user_prev_height;
 
-    // ÀÚ¼¼ »óÅÂ 
+    // ìì„¸ ìƒíƒœ 
     private String pose_status;
 
-    // »ç¿ëÀÚ ¾ÆÀÌµğ 
+    // ì‚¬ìš©ì ì•„ì´ë”” 
     private String user_id;
 
-    // µî·Ï ½Ã°£ 
+    // ë“±ë¡ ì‹œê°„ 
     private Date reg_date;
 
 	public Double getControl_seq() {

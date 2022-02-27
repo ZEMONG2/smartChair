@@ -46,10 +46,10 @@ public class LoginCon extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginVO", vo);
 			
-			System.out.println("·Î±×ÀÎ ¼º°ø");
+			System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 			response.sendRedirect("index.jsp");
 		}else {
-			System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+			System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 			response.sendRedirect("loginF.jsp");
 		}
 		

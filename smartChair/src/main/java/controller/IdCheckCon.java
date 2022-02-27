@@ -20,18 +20,18 @@ public class IdCheckCon extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//1. email °ª ¹Ş±â(getParameter»ç¿ë)
+		//1. email ê°’ ë°›ê¸°(getParameterì‚¬ìš©)
 		request.setCharacterEncoding("euc-kr");
 		
 		String email = request.getParameter("email");
 		
-		//2. memberDAO emailÀÌ »ç¿ëÇÒ ¼ö ÀÖ´Â ÀÌ¸ŞÀÏÀÎÁö È®ÀÎÇØÁÖ´Â ¸Ş¼­µå (idCheck())
-		//¹İÈ¯°ª : ÀÖ´Â ¾ÆÀÌµğ¸é true /¾ø´Â ¾ÆÀÌµğ¸é false
+		//2. memberDAO emailì´ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì´ë©”ì¼ì¸ì§€ í™•ì¸í•´ì£¼ëŠ” ë©”ì„œë“œ (idCheck())
+		//ë°˜í™˜ê°’ : ìˆëŠ” ì•„ì´ë””ë©´ true /ì—†ëŠ” ì•„ì´ë””ë©´ false
 		tb_userDAO dao = new tb_userDAO();
 		String check = dao.idCheck(email);
 		
 		
-		//3. console¿¡ true/false(¹İÈ¯°ª) Ãâ·Â
+		//3. consoleì— true/false(ë°˜í™˜ê°’) ì¶œë ¥
 		PrintWriter out = response.getWriter();
 		out.print(check);
 	

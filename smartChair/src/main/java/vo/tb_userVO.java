@@ -2,25 +2,25 @@ package vo;
 
 import java.util.Date;
 
-// »ç¿ëÀÚ Å×ÀÌºí 
+// ì‚¬ìš©ì í…Œì´ë¸” 
 public class tb_userVO {
 
-    // »ç¿ëÀÚ ¾ÆÀÌµğ 
+    // ì‚¬ìš©ì ì•„ì´ë”” 
     private String user_id;
 
-    // »ç¿ëÀÚ ºñ¹Ğ¹øÈ£ 
+    // ì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸ 
     private String user_pw;
 
-    // »ç¿ëÀÚ ÀÌ¸§ 
+    // ì‚¬ìš©ì ì´ë¦„ 
     private String user_name;
 
-    // »ç¿ëÀÚ ´Ğ³×ÀÓ 
+    // ì‚¬ìš©ì ë‹‰ë„¤ì„ 
     private String user_nick;
 
-    // »ç¿ëÀÚ °¡ÀÔÀÏÀÚ 
+    // ì‚¬ìš©ì ê°€ì…ì¼ì 
     private Date user_joindate;
 
-    // °ü¸®ÀÚ ¿©ºÎ 
+    // ê´€ë¦¬ì ì—¬ë¶€ 
     private String admin_yesno;
 
 	public String getUser_id() {

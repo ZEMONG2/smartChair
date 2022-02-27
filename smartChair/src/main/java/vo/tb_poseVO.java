@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class tb_poseVO {
 	
-	 // ÀÚ¼¼ ¼ø¹ø 
+	 // ìì„¸ ìˆœë²ˆ 
     private Double pose_seq;
 
-    // ÀÚ¼¼ À¯Çü 
+    // ìì„¸ ìœ í˜• 
     private String pose_type;
 
-    // ÀÚ¼¼ ½ÃÀÛ½Ã°£ 
+    // ìì„¸ ì‹œì‘ì‹œê°„ 
     private Date pose_start_dt;
 
-    // ÀÚ¼¼ Á¾·á½Ã°£ 
+    // ìì„¸ ì¢…ë£Œì‹œê°„ 
     private Date pose_end_dt;
 
-    // µî·Ï ½Ã°£ 
+    // ë“±ë¡ ì‹œê°„ 
     private Date reg_date;
 
-    // µî·ÏÀÚ ¾ÆÀÌµğ 
+    // ë“±ë¡ì ì•„ì´ë”” 
     private String user_id;
 
 	public Double getPose_seq() {

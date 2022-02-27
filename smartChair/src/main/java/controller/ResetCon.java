@@ -24,10 +24,10 @@ public class ResetCon extends HttpServlet {
 		int cnt = dao.reset(user_id,user_name,user_pw);
 		
 		if(cnt>0) {
-			System.out.println("Àç¼³Á¤ ¼º°ø");
+			System.out.println("ìž¬ì„¤ì • ì„±ê³µ");
 			response.sendRedirect("login.jsp");
 		}else {
-			System.out.println("Àç¼³Á¤ ½ÇÆÐ");
+			System.out.println("ìž¬ì„¤ì • ì‹¤íŒ¨");
 			response.sendRedirect("login.jsp");
 		}
 		

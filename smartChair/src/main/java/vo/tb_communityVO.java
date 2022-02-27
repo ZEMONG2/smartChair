@@ -4,28 +4,28 @@ import java.util.Date;
 
 public class tb_communityVO {
 
-    // ±Û ¼ø¹ø 
+    // ê¸€ ìˆœë²ˆ 
     private Double article_seq;
 
-    // ±Û Á¦¸ñ 
+    // ê¸€ ì œëª© 
     private String article_title;
 
-    // ±Û ³»¿ë 
+    // ê¸€ ë‚´ìš© 
     private String article_content;
 
-    // ±Û Ã·ºÎÆÄÀÏ 
+    // ê¸€ ì²¨ë¶€íŒŒì¼ 
     private String article_file;
 
-    // ±Û ÀÛ¼ºÀÏÀÚ 
+    // ê¸€ ì‘ì„±ì¼ì 
     private Date article_date;
 
-    // ±Û ÀÛ¼ºÀÚ 
+    // ê¸€ ì‘ì„±ì 
     private String user_id;
 
-    // ±Û Á¶È¸¼ö 
+    // ê¸€ ì¡°íšŒìˆ˜ 
     private Double article_cnt;
 
-    // ±Û ÁÁ¾Æ¿ä¼ö 
+    // ê¸€ ì¢‹ì•„ìš”ìˆ˜ 
     private Double article_likes;
 
 	public Double getArticle_seq() {
