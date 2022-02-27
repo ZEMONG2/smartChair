@@ -1,38 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@page import="vo.tb_userVO"%>
+    pageEncoding="utf-8"%>
+        <%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no, user-scalable = yes">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>SB Admin 2 - Dashboard</title>
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+   
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 </head>
 
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 %>
-       <!-- Page Wrapper -->
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -41,7 +38,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                 <div class="sidebar-brand-icon rotate-n-0">
-                    <img src="img/§§§∑.png" ><br>
+                    <img src="img/„Ñ¥„Öá.png" ><br>
                    
                 </div>
                 
@@ -55,7 +52,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>∏ﬁ¿Œ»≠∏È</span></a>
+                    <span>Î©îÏù∏ÌôîÎ©¥</span></a>
             </li>
 
             <!-- Divider -->
@@ -68,9 +65,9 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="buttons.html">
+                <a class="nav-link" href="buttons.jsp">
                     <i class="fas fa-fw fa-cogs"></i>
-                    <span>≥Ù¿Ã¡∂¿˝</span></a>
+                    <span>ÎÜíÏù¥Ï°∞Ï†à</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -78,7 +75,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>±‚¥…</span>
+                    <span>Í∏∞Îä•</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
@@ -105,14 +102,14 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>∆‰¿Ã¡ˆ</span>
+                    <span>ÌéòÏù¥ÏßÄ</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.jsp">∑Œ±◊¿Œ</a>
-                        <a class="collapse-item" href="register.html">»∏ø¯∞°¿‘</a>
-                        <a class="collapse-item" href="forgot-password.html">∫Òπ–π¯»£ √£±‚</a>
+                        <a class="collapse-item" href="login.jsp">Î°úÍ∑∏Ïù∏</a>
+                        <a class="collapse-item" href="register.html">ÌöåÏõêÍ∞ÄÏûÖ</a>
+                        <a class="collapse-item" href="forgot-password.html">ÎπÑÎ∞ÄÎ≤àÌò∏ Ï∞æÍ∏∞</a>
                         <!-- <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -125,14 +122,19 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item">
                 <a class="nav-link" href="charts.jsp">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>¬˜∆Æ</span></a>
+                    <span>Ï∞®Ìä∏</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>ªÁøÎ¿⁄≈◊¿Ã∫Ì</span></a>
+                    <span>ÏÇ¨Ïö©ÏûêÌÖåÏù¥Î∏î</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="list.jsp">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Í≤åÏãúÌåê</span></a>
             </li>
 
             <!-- Divider -->
@@ -148,10 +150,6 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
         </ul>
         <!-- End of Sidebar -->
-                
-    
-            </ul>
-            <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -163,11 +161,9 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                    </form>
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
                     <form
@@ -284,7 +280,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                             problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler °§ 58m</div>
+                                        <div class="small text-gray-500">Emily Fowler ¬∑ 58m</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -296,7 +292,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
                                             would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun °§ 1d</div>
+                                        <div class="small text-gray-500">Jae Chun ¬∑ 1d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -308,7 +304,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Last month's report looks great, I am very happy with
                                             the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez °§ 2d</div>
+                                        <div class="small text-gray-500">Morgan Alvarez ¬∑ 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -320,7 +316,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                             told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog °§ 2w</div>
+                                        <div class="small text-gray-500">Chicken the Dog ¬∑ 2w</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -338,7 +334,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                          <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="profile.jsp">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -896,7 +892,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">°ø</span>
+                        <span aria-hidden="true">√ó</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

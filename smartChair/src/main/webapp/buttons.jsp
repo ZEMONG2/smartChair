@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-    <%@page import="vo.tb_userVO"%>
+    pageEncoding="utf-8"%>
+        <%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no, user-scalable = yes">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Buttons</title>
+    <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -21,15 +19,17 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+   
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
 </head>
 
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 %>
-       <!-- Page Wrapper -->
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -38,7 +38,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                 <div class="sidebar-brand-icon rotate-n-0">
-                    <img src="img/¤¤¤·.png" ><br>
+                    <img src="img/ã„´ã…‡.png" ><br>
                    
                 </div>
                 
@@ -52,7 +52,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>¸ŞÀÎÈ­¸é</span></a>
+                    <span>ë©”ì¸í™”ë©´</span></a>
             </li>
 
             <!-- Divider -->
@@ -67,7 +67,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item">
                 <a class="nav-link" href="buttons.html">
                     <i class="fas fa-fw fa-cogs"></i>
-                    <span>³ôÀÌÁ¶Àı</span></a>
+                    <span>ë†’ì´ì¡°ì ˆ</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -75,7 +75,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>±â´É</span>
+                    <span>ê¸°ëŠ¥</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
@@ -102,14 +102,14 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>ÆäÀÌÁö</span>
+                    <span>í˜ì´ì§€</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.jsp">·Î±×ÀÎ</a>
-                        <a class="collapse-item" href="register.html">È¸¿ø°¡ÀÔ</a>
-                        <a class="collapse-item" href="forgot-password.html">ºñ¹Ğ¹øÈ£ Ã£±â</a>
+                        <a class="collapse-item" href="login.jsp">ë¡œê·¸ì¸</a>
+                        <a class="collapse-item" href="register.html">íšŒì›ê°€ì…</a>
+                        <a class="collapse-item" href="forgot-password.html">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
                         <!-- <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -122,14 +122,19 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item">
                 <a class="nav-link" href="charts.jsp">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Â÷Æ®</span></a>
+                    <span>ì°¨íŠ¸</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>»ç¿ëÀÚÅ×ÀÌºí</span></a>
+                    <span>ì‚¬ìš©ìí…Œì´ë¸”</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="list.jsp">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>ê²Œì‹œíŒ</span></a>
             </li>
 
             <!-- Divider -->
@@ -275,7 +280,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                             problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler ¡¤ 58m</div>
+                                        <div class="small text-gray-500">Emily Fowler Â· 58m</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -287,7 +292,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
                                             would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun ¡¤ 1d</div>
+                                        <div class="small text-gray-500">Jae Chun Â· 1d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -299,7 +304,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Last month's report looks great, I am very happy with
                                             the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez ¡¤ 2d</div>
+                                        <div class="small text-gray-500">Morgan Alvarez Â· 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -311,7 +316,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                             told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog ¡¤ 2w</div>
+                                        <div class="small text-gray-500">Chicken the Dog Â· 2w</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -356,7 +361,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">³ô³·ÀÌ Á¶Àı</h1>
+                    <h1 class="h3 mb-4 text-gray-800">ë†’ë‚®ì´ ì¡°ì ˆ</h1>
 
                      <!-- Content Row -->
                      <div class="row">
@@ -367,7 +372,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                »ç¿ëÀÚ ÀÌ¸§</div>
+                                                ì‚¬ìš©ì ì´ë¦„</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><%=vo.getUser_nick()%></div>
                                         </div>
                                         <div class="col-auto">
@@ -385,8 +390,8 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                ÀÏÀÏ ¾É¾ÆÀÖ´ø ½Ã°£</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">8½Ã°£</div>
+                                                ì¼ì¼ ì•‰ì•„ìˆë˜ ì‹œê°„</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">8ì‹œê°„</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clock fa-2x text-gray-300"></i>
@@ -402,11 +407,11 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ÁÖ°£ Æò±Õ ¾É¾ÆÀÖ´ø ½Ã°£
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ì£¼ê°„ í‰ê·  ì•‰ì•„ìˆë˜ ì‹œê°„
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">8½Ã°£</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">8ì‹œê°„</div>
                                                 </div>
                                                 <div class="col">
                                                     
@@ -428,8 +433,8 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                               ÀÏ°£ Á¤ÀÚ¼¼·Î ¾É¾ÆÀÖ´ø ½Ã°£</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2½Ã°£</div>
+                                               ì¼ê°„ ì •ìì„¸ë¡œ ì•‰ì•„ìˆë˜ ì‹œê°„</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2ì‹œê°„</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
@@ -446,43 +451,43 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                             <!-- Circle Buttons -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">ÇöÀç Ã¥»ó ³ôÀÌ</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">í˜„ì¬ ì±…ìƒ ë†’ì´</h6>
                                 </div>
                                 <div class="card-body text-center ">
-                                    <h2>ÇöÀç Ã¥»ó ³ôÀÌ : 70cm</h2>
+                                    <h2>í˜„ì¬ ì±…ìƒ ë†’ì´ : 70cm</h2>
                                 </div>
                             </div>
 
                             <!-- Brand Buttons -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">³ôÀÌ Á¶ÀÛ ³ôÀÌÁ¶Àı</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">ë†’ì´ ì¡°ì‘ ë†’ì´ì¡°ì ˆ</h6>
                                 </div>
                                 <div class="card-body ">
                                     <a href="#" class="btn btn-primary btn-icon-split btn-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-up"></i>
                                         </span>
-                                        <span class="text">Ã¥»ó ³ôÀÌ Áõ°¡</span>
+                                        <span class="text">ì±…ìƒ ë†’ì´ ì¦ê°€</span>
                                     </a><br><br>
                                     <a href="#" class="btn btn-primary btn-icon-split btn-lg">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-down"></i>
                                         </span>
-                                        <span class="text">Ã¥»ó ³ôÀÌ °¨¼Ò</span>
+                                        <span class="text">ì±…ìƒ ë†’ì´ ê°ì†Œ</span>
                                     </a><br><br>
                                     
                                     <a href="#" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-check"></i>
                                         </span>
-                                        <span class="text">³ôÀÌ ÀúÀå</span>
+                                        <span class="text">ë†’ì´ ì €ì¥</span>
                                     </a>
                                     <a href="#" class="btn btn-danger btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-trash"></i>
                                         </span>
-                                        <span class="text">³ôÀÌ µ¥ÀÌÅÍ »èÁ¦</span>
+                                        <span class="text">ë†’ì´ ë°ì´í„° ì‚­ì œ</span>
                                     </a>
                                    
                                     
@@ -496,14 +501,14 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">½ÅÀå¿¡ µû¸¥ ¹Ù¶÷Á÷ÇÑ Ã¥»óÀÇ ³ôÀÌ</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">ì‹ ì¥ì— ë”°ë¥¸ ë°”ëŒì§í•œ ì±…ìƒì˜ ë†’ì´</h6>
                                 </div>
                                 <div class="card-body">
                                     <table border="1px" width = "100%" >
                                         <tr bgcolor = "reduce" align="center">
-                                            <th>½ÅÀå</th>
-                                            <th>Ã¥»ó³ôÀÌ</th>
-                                            <th>ÀÇÀÚ³ôÀÌ</th>
+                                            <th>ì‹ ì¥</th>
+                                            <th>ì±…ìƒë†’ì´</th>
+                                            <th>ì˜ìë†’ì´</th>
                                         </tr>
 
                                         <tr align="center">
@@ -683,7 +688,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">¡¿</span>
+                        <span aria-hidden="true">Ã—</span>
                     </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

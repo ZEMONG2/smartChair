@@ -361,111 +361,106 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-1 text-gray-800">User Profile</h1>
-                    
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Border Left Utilities -->
-                        <div class="col-lg-8">
-
-                            <div class="card mb-4 py-3 border-left-primary">
-                                <div class="card-body">
-                                    <ul class = "amount">
-                                        <li>
-                                            <div>
-                                                <div class="name">이름</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <div class="name"><%=vo.getUser_name()%></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                   
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-secondary">
-                                <div class="card-body">
-                                    <ul class = "amount">
-                                        <li>
-                                            <div>
-                                                <div class="name">닉네임</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <div class="name"><%=vo.getUser_nick()%></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-success">
-                                <div class="card-body">
-                                    <ul class = "amount">
-                                        <li>
-                                            <div>
-                                                <div class="name">이메일</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <div class="name"><%=vo.getUser_id()%></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-info">
-                                <div class="card-body">
-                                    <ul class = "amount">
-                                        <li>
-                                            <div>
-                                                <div class="name">가입날짜</div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <div class="name"><%=vo.getUser_joindate()%></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-<!-- 
-                            <div class="card mb-4 py-3 border-left-warning">
-                                <div class="card-body">
-                                    .border-left-warning
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-danger">
-                                <div class="card-body">
-                                    .border-left-danger
-                                </div>
-                            </div>
-
-                            <div class="card mb-4 py-3 border-left-dark">
-                                <div class="card-body">
-                                    .border-left-dark
-                                </div>
-                            </div> -->
-
-                        </div>
-
-                       
-
-                    </div>
-
+                    <h1 class="h3 mb-4 text-gray-800">게시판</h1>
+					
                 </div>
                 <!-- /.container-fluid -->
+					<section class="mt-5">
+  <div class="container mx-auto px-3">
+    <div class="flex">
+      <div>
+        게시물 개수 :
+        <span class="badge badge-primary">${articlesCount}</span>
+        개
+      </div>
+      <div class="flex-grow"></div>
+      <form class="flex">
+        <input type="hidden" name="boardId" value="${param.boardId}" />
 
+        <select data-value="${param.searchKeywordTypeCode}" name="searchKeywordTypeCode" class="select select-bordered">
+          <option disabled="disabled">검색타입</option>
+          <option value="title">제목</option>
+          <option value="body">내용</option>
+          <option value="title,body">제목,내용</option>
+        </select>
+
+        <input name="searchKeyword" type="text" class="ml-2 w-72 input input-bordered" placeholder="검색어" maxlength="20"
+          value="${param.searchKeyword}" />
+
+        <button type="submit" class="ml-2 btn btn-primary">검색</button>
+      </form>
+    </div>
+    <div class="mt-3">
+      <table class="table table-fixed w-full" style = "width :100%">
+        <colgroup>
+          <col width="300px" />
+          <col width="300px" />
+          <col width="300px" />
+          <col width="300px" />
+          <col width="300px" />
+          <col width="300px" />
+          <col width="1000px"/>
+        </colgroup>
+        <thead>
+          <tr style = "text-align : center">
+            <th>번호</th>
+            <th>작성날짜</th>
+            <th>수정날짜</th>
+            <th>조회</th>
+            <th>추천</th>
+            <th>작성자</th>
+            <th>제목</th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach var="article" items="${articles}">
+            <tr>
+              <th>${article.id}</th>
+              <td>${article.forPrintType1RegDate}</td>
+              <td>${article.forPrintType1UpdateDate}</td>
+              <td>${article.hitCount}</td>
+              <td>${article.goodReactionPoint}</td>
+              <td>${article.extra__writerName}</td>
+              <td>
+                <a class="btn-text-link block w-full truncate" href="../article/detail?id=${article.id}">
+                  ${article.title} </a>
+              </td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="page-menu mt-3">
+      <div class="btn-group justify-center">
+        <c:set var="pageMenuArmLen" value="6" />
+        <c:set var="startPage" value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
+        <c:set var="endPage" value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
+
+        <c:set var="pageBaseUri" value="?boardId=${boardId}" />
+        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
+        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
+
+        <c:if test="${startPage > 1}">
+          <a class="btn btn-sm" href="${pageBaseUri}&page=1">1</a>
+          <c:if test="${startPage > 2}">
+            <a class="btn btn-sm btn-disabled">...</a>
+          </c:if>
+        </c:if>
+        <c:forEach begin="${startPage}" end="${endPage}" var="i">
+          <a class="btn btn-sm ${page == i ? 'btn-active' : ''}" href="${pageBaseUri}&page=${i}">${i}</a>
+        </c:forEach>
+        <c:if test="${endPage < pagesCount}">
+          <c:if test="${endPage < pagesCount - 1}">
+            <a class="btn btn-sm btn-disabled">...</a>
+          </c:if>
+          <a class="btn btn-sm" href="${pageBaseUri}&page=${pagesCount}">${pagesCount}</a>
+        </c:if>
+      </div>
+    </div>
+
+  </div>
+</section>
             </div>
             <!-- End of Main Content -->
 
@@ -504,7 +499,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.jsp">spdLogout</a>
+                    <a class="btn btn-primary" href="login.jsp">Logout</a>
                 </div>
             </div>
         </div>

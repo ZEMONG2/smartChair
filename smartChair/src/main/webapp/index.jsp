@@ -19,7 +19,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -97,7 +97,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="buttons.html">
+                <a class="nav-link" href="buttons.jsp">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>높이조절</span></a>
             </li>
@@ -162,6 +162,11 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
                     <span>사용자테이블</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="list.jsp">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>게시판</span></a>
             </li>
 
             <!-- Divider -->
