@@ -244,6 +244,36 @@ public String idCheck(String email) {
       return check;
 	
 }
+public String nickCheck(String nick) {
+	String check = "";  
+	try {
+		connect();
+		
+		String sql = "select user_nick from tb_user where user_nick = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, nick);
+		
+		rs = psmt.executeQuery();
+		
+		if(rs.next()){
+			check = "true";
+		}else {
+			check = "false";
+		}
+		if(nick=="") {
+			check = "empty";
+		}
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		
+		close();
+		
+	}
+	return check;
+	
+}
 	}
 	
 
