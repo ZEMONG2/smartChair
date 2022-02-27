@@ -60,8 +60,9 @@
                                         placeholder="Name">
                                  </div>
                                 <div class="form-group">
-                                    <input type="nick" name = "user_nick" class="form-control form-control-user" id="exampleInputNick"
+                                    <input type="text" name = "user_nick" class="form-control2 form-control-user" id="nick"
                                         placeholder="Nick Name">
+                                        <div class = "nickckck"><input type="button" id = "nickck" value = "중복확인" onclick="nickCheck()"></div>
                                  </div>
                                 
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
@@ -131,11 +132,54 @@
 			}
 			
 			</script>
+			<script>
+			function nickCheck(){
+				let nick = document.querySelector('#nick')  //이메일 작성창
+			    
+			      let xhr = new XMLHttpRequest()
+			      
+			      //요청방식 , 요청경로
+			      xhr.open('get', 'NickCheckCon?nick='+nick.value)
+			      //전송데이터의 형식
+			      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+			      //요청 & 전송할 데이터
+			      xhr.send()
+			      
+			      xhr.onreadystatechange = function(){
+					 if(xhr.readyState===XMLHttpRequest.DONE){  //요청성공
+			            if(xhr.status===200){ //응답성공
+			               console.log("응답성공")
+			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
+			            if(xhr.responseText==="true"){
+			            	alert('이미 등록되어있는 닉네임입니다.')
+			            }else if(xhr.responseText==="false"){
+			            	alert('사용할 수 있는 닉네임입니다.')
+			            }
+			            
+			            }else{
+			               console.log("응답실패")
+			            }
+			         }else{  //요청실패
+			            console.log("요청실패")
+			         }
+			      }
+				
+			}
+			
+			</script>
 			
 			<script>
 			$(document).ready(function(){
 				$("#emailck").click(function(){
 					if($("#email").val().length==0){alert('이메일을 입력하세요');$("#email").focus(); return false;}
+				})
+			})
+			
+			</script>
+			<script>
+			$(document).ready(function(){
+				$("#nickck").click(function(){
+					if($("#nick").val().length==0){alert('닉네임을 입력하세요');$("#nick").focus(); return false;}
 				})
 			})
 			
