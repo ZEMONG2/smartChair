@@ -25,7 +25,7 @@ if(cookie != null){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MESSIAH Login</title>
+    <title>MESSIAH - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
