@@ -117,6 +117,7 @@
 			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
 			            if(xhr.responseText==="true"){
 			            	alert('이미 등록되어있는 이메일입니다.')
+			            	email.value = ""
 			            }else if(xhr.responseText==="false"){
 			            	alert('사용할 수 있는 이메일입니다.')
 			            }
@@ -152,6 +153,7 @@
 			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
 			            if(xhr.responseText==="true"){
 			            	alert('이미 등록되어있는 닉네임입니다.')
+			            	nick.value = ""
 			            }else if(xhr.responseText==="false"){
 			            	alert('사용할 수 있는 닉네임입니다.')
 			            }
