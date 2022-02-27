@@ -213,8 +213,8 @@ public tb_userVO profile(String user_id) {
 	return vo;
 }
 */
-public boolean idCheck(String email) {
-    boolean check = false;  
+public String idCheck(String email) {
+    String check = "";  
 	try {
          connect();
          
@@ -225,9 +225,12 @@ public boolean idCheck(String email) {
          rs = psmt.executeQuery();
       
          if(rs.next()){
-            check = true;
+            check = "true";
          }else {
-        	 check = false;
+        	 check = "false";
+         }
+         if(email=="") {
+        	 check = "empty";
          }
          
       }catch(Exception e) {
