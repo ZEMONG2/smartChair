@@ -87,7 +87,7 @@ public class tb_userVO {
 		this.user_nick = user_nick;
 	}
 
-	public tb_userVO(String user_id, String user_pw, String user_name, String user_nick, Date user_joindate,
+	public tb_userVO(String user_id, String user_name, String user_nick, Date user_joindate,
 			String admin_yesno) {
 		super();
 		this.user_id = user_id;

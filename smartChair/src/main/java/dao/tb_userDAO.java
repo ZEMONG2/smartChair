@@ -131,8 +131,8 @@ public class tb_userDAO {
 		}
 		return cnt;
 	}
-public int modify(String user_id, String user_pw, String user_name, String user_nick) {
-		
+public int modify(String user_id, String user_pw, String user_name, String user_nick, String admin_yesno) {
+	
 		int cnt = 0;
 		try {
 			connect();
@@ -144,6 +144,8 @@ public int modify(String user_id, String user_pw, String user_name, String user_
 			psmt.setString(3, user_nick);			
 			psmt.setString(4, user_id);			
 			cnt = psmt.executeUpdate();
+			
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -167,12 +169,11 @@ public ArrayList<tb_userVO> selectAll() {
 		
 		while (rs.next()) {
 			String db_user_id = rs.getString(1);
-			String db_user_pw = rs.getString(2);
 			String db_user_name = rs.getString(3);
 			String db_user_nick = rs.getString(4);
 			Date db_user_joindate = rs.getDate(5);
 			String db_admin_yesno = rs.getString(6);
-			tb_userVO vo = new tb_userVO(db_user_id, db_user_pw, db_user_name, db_user_nick, db_user_joindate, db_admin_yesno);
+			tb_userVO vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate, db_admin_yesno);
 			al.add(vo);				
 		}
 
