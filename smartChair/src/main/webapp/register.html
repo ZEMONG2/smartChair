@@ -48,13 +48,18 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" name = "user_pw" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="user_pw" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <input type="password" name = "user_pw2"class="form-control form-control-user"
+                                            id="user_pw2" placeholder="Repeat Password">
+                                           
                                     </div>
+                                    
                                 </div>
+                                <div class="form-group">
+                                    <p type= "text" id = "pwck" class="form-control form-control-user"  align = "center">동일한 비밀번호 인지 체크</p> 
+                                     </div>
                                 <div class="form-group">
                                     <input type="name" name = "user_name" class="form-control form-control-user" 
                                         placeholder="Name">
@@ -106,10 +111,25 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="js/jquery-3.6.0.min.js"></script>
+
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <!--비밀번호 확인  -->
+    <Script>
+    $("#user_pw2").blur(function(){
+    		let pw = $("#user_pw").val();
+    		let pw2 = $("#user_pw2").val();
+    		if(pw == pw2){
+    			 $('#pwck').text('비밀번호가 동일합니다')
+    			 $('#pwck').attr('style', 'color: blue;')
+    		}else{
+    			 $('#pwck').text('비밀번호가 동일하지 않습니다')
+    			 $('#pwck').attr('style', 'color: red;')
+    		}
+    		
+    });
     
+    </Script>
     <!--핸드폰번호 자동 하이픈(-)  -->
     	<script>
     	function autoHypenPhone(str){
