@@ -52,7 +52,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>메인화면</span></a>
+                    <span>프로필</span></a>
             </li>
 
             <!-- Divider -->
