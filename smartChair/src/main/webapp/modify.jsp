@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+     <%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +26,9 @@
 </head>
 
 <body class="bg-gradient-primary">
-
+<%
+tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+%>
     <div class="container">
 
         <!-- Outer Row -->
@@ -51,14 +56,14 @@
                                                    placeholder="Enter new Password...">
                                            </div> 
                                         <div class="form-group">
-                                         <input type="name" class="form-control form-control-user"
-                                                id="user_name" aria-describedby="emailHelp"name = "user_name"
-                                                placeholder="Enter Your Name...">
-                                        </div>
-                                        <div class="form-group">
                                             <input type="nick" class="form-control form-control-user"
                                                    id="user_nick" aria-describedby="emailHelp"name = "user_nick"
-                                                   placeholder="Enter Your Nickname...">
+                                                   placeholder="Enter Your New Nickname...">
+                                           </div>
+                                           <div class="form-group">
+                                            <input type="tel" class="form-control form-control-user"
+                                                   id="user_tel" aria-describedby="emailHelp"name = "user_tel"
+                                                   placeholder="Enter Your New PhoneNumber...">
                                            </div>
                                               
                                          <div class="form-group">
@@ -66,7 +71,7 @@
                                          </div>   
                                     
                                     </form>
-                                    <hr>
+                                    <hr> 
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
                                     </div>

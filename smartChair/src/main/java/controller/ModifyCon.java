@@ -25,22 +25,25 @@ public class ModifyCon extends HttpServlet {
 	
 		String user_id = vo.getUser_id();
 		String user_pw = request.getParameter("user_pw");
-		String user_name = request.getParameter("user_name");
+		String user_name = vo.getUser_name();
 		String user_nick = request.getParameter("user_nick");
+		String user_tel = request.getParameter("user_tel");
+		String user_gender = vo.getUser_gender();
+		String user_birthday = vo.getUser_birthday();
 		Date user_joindate = vo.getUser_joindate();
 		String admin_yesno = vo.getAdmin_yesno();
 		
 		tb_userDAO dao = new tb_userDAO();
-		int cnt = dao.modify(user_id, user_pw, user_name, user_nick, admin_yesno);
+		int cnt = dao.modify(user_id, user_pw, user_nick, user_tel);
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");
-			vo = new tb_userVO(user_id, user_name, user_nick, user_joindate);
+			vo = new tb_userVO(user_id, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("index.jsp");
 		}else {
 			System.out.println("회원정보수정 실패");
-			response.sendRedirect("modify.html");
+			response.sendRedirect("modify.jsp");
 		}
 		
 		

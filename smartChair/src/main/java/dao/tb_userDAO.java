@@ -44,13 +44,13 @@ public class tb_userDAO {
 		}
 	}
 	
-	public int join(String user_id, String user_pw, String user_name, String user_nick) {
+	public int join(String user_id, String user_pw, String user_name, String user_nick, String user_tel, String user_gender, String user_birthday) {
 		int cnt = 0;
 		String db_user_id = "";
 		try {
 			connect();
 			
-			String sql = "insert into tb_user values(?, ?, ?, ?, sysdate,'N')";
+			String sql = "insert into tb_user values(?, ?, ?, ?, ?, ?, ?, sysdate,'N')";
 			String sql2 ="select * from tb_user";
 			
 			psmt = conn.prepareStatement(sql2);
@@ -65,6 +65,9 @@ public class tb_userDAO {
 				psmt.setString(2, user_pw);
 				psmt.setString(3, user_name);
 				psmt.setString(4, user_nick);
+				psmt.setString(5, user_tel);
+				psmt.setString(6, user_gender);
+				psmt.setString(7, user_birthday);
 				cnt = psmt.executeUpdate();
 
 			}
@@ -96,8 +99,12 @@ public class tb_userDAO {
 				String db_user_id = rs.getString(1);
 				String db_user_name = rs.getString(3);
 				String db_user_nick = rs.getString(4);
-				Date db_user_joindate = rs.getDate(5);
-				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate);
+				String db_user_tel = rs.getString(5);
+				String db_user_gender = rs.getString(6);
+				String db_user_birthday = rs.getString(7);
+				Date db_user_joindate = rs.getDate(8);
+				String db_admin_yesno = rs.getString(9);
+				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_tel, db_user_gender, db_user_birthday, db_user_joindate, db_admin_yesno);
 
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -131,17 +138,17 @@ public class tb_userDAO {
 		}
 		return cnt;
 	}
-public int modify(String user_id, String user_pw, String user_name, String user_nick, String admin_yesno) {
+public int modify(String user_id, String user_pw, String user_nick, String user_tel) {
 	
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql = "update tb_user set user_pw = ?, user_name = ?, user_nick = ? where user_id = ?";
+			String sql = "update tb_user set user_pw = ?, user_nick = ?, user_tel = ? where user_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_pw);
-			psmt.setString(2, user_name);
-			psmt.setString(3, user_nick);			
+			psmt.setString(2, user_nick);			
+			psmt.setString(3, user_tel);			
 			psmt.setString(4, user_id);			
 			cnt = psmt.executeUpdate();
 			
@@ -171,9 +178,12 @@ public ArrayList<tb_userVO> selectAll() {
 			String db_user_id = rs.getString(1);
 			String db_user_name = rs.getString(3);
 			String db_user_nick = rs.getString(4);
-			Date db_user_joindate = rs.getDate(5);
-			String db_admin_yesno = rs.getString(6);
-			tb_userVO vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_joindate, db_admin_yesno);
+			String db_user_tel = rs.getString(5);
+			String db_user_gender = rs.getString(6);
+			String db_user_birthday = rs.getString(7);
+			Date db_user_joindate = rs.getDate(8);
+			String db_admin_yesno = rs.getString(9);
+			tb_userVO vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_tel, db_user_gender, db_user_birthday, db_user_joindate, db_admin_yesno);
 			al.add(vo);				
 		}
 

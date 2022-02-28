@@ -16,9 +16,6 @@ public class tb_poseVO {
     // 자세 종료시간 
     private Date pose_end_dt;
 
-    // 등록 시간 
-    private Date reg_date;
-
     // 등록자 아이디 
     private String user_id;
 
@@ -52,14 +49,6 @@ public class tb_poseVO {
 
 	public void setPose_end_dt(Date pose_end_dt) {
 		this.pose_end_dt = pose_end_dt;
-	}
-
-	public Date getReg_date() {
-		return reg_date;
-	}
-
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
 	}
 
 	public String getUser_id() {

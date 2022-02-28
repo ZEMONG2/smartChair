@@ -340,7 +340,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="modify.html">
+                                <a class="dropdown-item" href="modify.jsp">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Modify
                                 </a>

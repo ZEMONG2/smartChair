@@ -28,6 +28,8 @@
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+
+String birthday = vo.getUser_birthday().substring(0, 10);
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -340,7 +342,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="modify.html">
+                                <a class="dropdown-item" href="modify.jsp">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Modify
                                 </a>
@@ -370,6 +372,23 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                         <!-- Border Left Utilities -->
                         <div class="col-lg-8">
 
+
+							<div class="card mb-4 py-3 border-left-success">
+                                <div class="card-body">
+                                    <ul class = "amount">
+                                        <li>
+                                            <div>
+                                                <div class="name">이메일</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="name"><%=vo.getUser_id()%></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="card mb-4 py-3 border-left-primary">
                                 <div class="card-body">
                                     <ul class = "amount">
@@ -404,24 +423,54 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="card mb-4 py-3 border-left-success">
+							<div class="card mb-4 py-3 border-left-info">
                                 <div class="card-body">
                                     <ul class = "amount">
                                         <li>
                                             <div>
-                                                <div class="name">이메일</div>
+                                                <div class="name">생년월일</div>
                                             </div>
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name"><%=vo.getUser_id()%></div>
+                                                <div class="name"><%=birthday%></div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-
+                            <div class="card mb-4 py-3 border-left-info">
+                                <div class="card-body">
+                                    <ul class = "amount">
+                                        <li>
+                                            <div>
+                                                <div class="name">성별</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="name"><%=vo.getUser_gender()%></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card mb-4 py-3 border-left-info">
+                                <div class="card-body">
+                                    <ul class = "amount">
+                                        <li>
+                                            <div>
+                                                <div class="name">전화번호</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="name"><%=vo.getUser_tel()%></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="card mb-4 py-3 border-left-info">
                                 <div class="card-body">
                                     <ul class = "amount">
