@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="name" name = "user_name" class="form-control form-control-user" id="exampleInputName"
+                                    <input type="name" name = "user_name" class="form-control form-control-user" 
                                         placeholder="Name">
                                  </div>
                                 <div class="form-group">
@@ -65,25 +65,17 @@
                                         <div class = "nickck1"><input type="button" id = "nickck" value = "중복확인" onclick="nickCheck()"></div>
                                  </div>
                                  <div class="form-group">
-                                    <select id="txtMobile1">
-											<option value="">::선택::</option>
-											<option value="011">011</option>
-											<option value="016">016</option>
-											<option value="017">017</option>
-											<option value="019">019</option>
-											<option value="010">010</option>
-										</select> 
-										<input type="tel" id="txtMobile2" size="4" onkeypress="onlyNumber();" /> 
-										<input type="tel" id="txtMobile3" size="4" /> 
-
-                                 </div>
-                                 <div class="form-group">
-                                    <input type="text" name = "user_name" class="form-control form-control-user" id="exampleInputName"
+                                    <input type="date" name = "user_name" class="form-control form-control-user" 
                                         placeholder="생년월일">
                                  </div>
                                  <div class="form-group">
-                                    <input type="gender" name = "user_name" class="form-control form-control-user" id="exampleInputName"
-                                        placeholder="성별">
+                                    <input type="text" name = "user_pw" class="form-control form-control-user"
+                                            id="tel1" placeholder="Phonenumber">
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     Men<input type="radio" name="gender" value="men"> &nbsp;  &nbsp;  &nbsp; 
+                						Women<input type="radio" name="gender" value="women">
                                  </div>
                                 
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account">
@@ -117,7 +109,47 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    
+    <!--핸드폰번호 자동 하이픈(-)  -->
+    	<script>
+    	function autoHypenPhone(str){
+            str = str.replace(/[^0-9]/g, '');
+            var tmp = '';
+            if( str.length < 4){
+                return str;
+            }else if(str.length < 7){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3);
+                return tmp;
+            }else if(str.length < 11){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 3);
+                tmp += '-';
+                tmp += str.substr(6);
+                return tmp;
+            }else{              
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 4);
+                tmp += '-';
+                tmp += str.substr(7);
+                return tmp;
+            }
+            return str;
+        }
+
+var cellPhone = document.getElementById('tel1');
+cellPhone.onkeyup = function(event){
+        event = event || window.event;
+        var _val = this.value.trim();
+        this.value = autoHypenPhone(_val) ;
+}
+    	</script>
 	
+	
+	<!--이메일 중복확인  -->
 	 	 <script>
 			function emailCheck(){
 				let email = document.querySelector('#email')  //이메일 작성창
@@ -154,6 +186,8 @@
 			}
 			
 			</script>
+			
+			<!--닉네임 중복확인  -->
 			<script>
 			function nickCheck(){
 				let nick = document.querySelector('#nick')  //이메일 작성창
@@ -191,6 +225,7 @@
 			
 			</script>
 			
+			<!--이메일 공백일때 중복확인 눌렀을때 알람창 출력  -->
 			<script>
 			$(document).ready(function(){
 				$("#emailck").click(function(){
@@ -199,6 +234,8 @@
 			})
 			
 			</script>
+			
+			<!--닉네임 공백일때 중복확인 눌렀을때 알람창 출력  -->
 			<script>
 			$(document).ready(function(){
 				$("#nickck").click(function(){
@@ -208,22 +245,7 @@
 			
 			</script>
 			
-			<script>
-			$('.phone').keydown(function(event) {
-			    var key = event.charCode || event.keyCode || 0;
-			    $text = $(this);
-			    if (key !== 8 && key !== 9) {
-			        if ($text.val().length === 3) {
-			            $text.val($text.val() + '-');
-			        }
-			        if ($text.val().length === 8) {
-			            $text.val($text.val() + '-');
-			        }
-			    }
-			 
-			    return (key == 8 || key == 9 || key == 46 || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));          
-			});
-			</script>
+			
 </body>
 
 </html>
