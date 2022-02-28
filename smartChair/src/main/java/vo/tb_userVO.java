@@ -22,6 +22,28 @@ public class tb_userVO {
 
     // 관리자 여부 
     private String admin_yesno;
+    
+    // 핸드폰 번호 
+    private String user_tel;
+
+    // 성별 
+    private String user_gender;
+    
+    public String getUser_gender() {
+		return user_gender;
+	}
+
+	public void setUser_gender(String user_gender) {
+		this.user_gender = user_gender;
+	}
+	
+	public String getUser_tel() {
+		return user_tel;
+	}
+
+	public void setUser_tel(String user_tel) {
+		this.user_tel = user_tel;
+	}
 
 	public String getUser_id() {
 		return user_id;
@@ -91,7 +113,6 @@ public class tb_userVO {
 			String admin_yesno) {
 		super();
 		this.user_id = user_id;
-		this.user_pw = user_pw;
 		this.user_name = user_name;
 		this.user_nick = user_nick;
 		this.user_joindate = user_joindate;
