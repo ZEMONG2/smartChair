@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,11 +19,13 @@ import dao.tb_userDAO;
 public class JoinCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-
+		PrintWriter out = response.getWriter();
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
+		String user_pw2 = request.getParameter("user_pw2");
 		String user_name = request.getParameter("user_name");
 		String user_nick = request.getParameter("user_nick");
 		String user_tel = request.getParameter("user_tel");
@@ -31,17 +34,29 @@ public class JoinCon extends HttpServlet {
 		System.out.println(user_tel);
 		System.out.println(user_gender);
 		System.out.println(user_birthday);
-		tb_userDAO dao = new tb_userDAO();
-		int cnt = dao.join(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday);
-		
-		if (cnt > 0) {
-			System.out.println("회원가입 성공");
-			response.sendRedirect("login.jsp");
-		}else {
-			System.out.println("회원가입 실패");
-			response.sendRedirect("register.html");
-		}
-	}
+		System.out.println(user_pw);
+		System.out.println(user_pw2);
 
+		if (user_pw.equals(user_pw2)) {
+
+			tb_userDAO dao = new tb_userDAO();
+			int cnt = dao.join(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday);
+
+			if (cnt > 0) {
+				System.out.println("회원가입 성공");
+				response.sendRedirect("login.jsp");
+			} else {
+				System.out.println("회원가입 실패1");
+				response.sendRedirect("register.html");
+			}
+		} else {
+			System.out.println("회원가입 실패2");
+			//response.sendRedirect("register.html");
+			out.println("<script>alert('passWord Check.')</script>");
+			out.println("<script>history.go(-1)</script>");
+
+		}
+		
+	}
 
 }
