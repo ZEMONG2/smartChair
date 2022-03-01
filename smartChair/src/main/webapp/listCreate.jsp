@@ -1,35 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="utf-8"%>
-        <%@page import="vo.tb_userVO"%>
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no, user-scalable = yes">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>MESSIAH - List</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-   
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+<meta charset="EUC-KR">
+<title>Insert title here</title>
 </head>
-
-<body id="page-top">
+<body>
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 %>
 
+<%
+	
+%>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -40,7 +24,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.jsp">
                 <div class="sidebar-brand-icon rotate-n-0">
-                    <img src="img/„Ñ¥„Öá.png" ><br>
+                    <img src="img/§§§∑.png" ><br>
                    
                 </div>
                 
@@ -54,7 +38,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Í≤åÏãúÌåê</span></a>
+                    <span>∞‘Ω√∆«</span></a>
             </li>
 
             <!-- Divider -->
@@ -69,7 +53,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item">
                 <a class="nav-link" href="buttons.jsp">
                     <i class="fas fa-fw fa-cogs"></i>
-                    <span>ÎÜíÏù¥Ï°∞Ï†à</span></a>
+                    <span>≥Ù¿Ã¡∂¿˝</span></a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
@@ -77,7 +61,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Í∏∞Îä•</span>
+                    <span>±‚¥…</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
@@ -104,14 +88,14 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>ÌéòÏù¥ÏßÄ</span>
+                    <span>∆‰¿Ã¡ˆ</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.jsp">Î°úÍ∑∏Ïù∏</a>
-                        <a class="collapse-item" href="register.html">ÌöåÏõêÍ∞ÄÏûÖ</a>
-                        <a class="collapse-item" href="forgot-password.html">ÎπÑÎ∞ÄÎ≤àÌò∏ Ï∞æÍ∏∞</a>
+                        <a class="collapse-item" href="login.jsp">∑Œ±◊¿Œ</a>
+                        <a class="collapse-item" href="register.html">»∏ø¯∞°¿‘</a>
+                        <a class="collapse-item" href="forgot-password.html">∫Òπ–π¯»£ √£±‚</a>
                         <!-- <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -124,19 +108,19 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <li class="nav-item">
                 <a class="nav-link" href="charts.jsp">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Ï∞®Ìä∏</span></a>
+                    <span>¬˜∆Æ</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>ÏÇ¨Ïö©ÏûêÌÖåÏù¥Î∏î</span></a>
+                    <span>ªÁøÎ¿⁄≈◊¿Ã∫Ì</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="list.jsp">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Í≤åÏãúÌåê</span></a>
+                    <span>∞‘Ω√∆«</span></a>
             </li>
 
             <!-- Divider -->
@@ -282,7 +266,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div class="font-weight-bold">
                                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
                                             problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler ¬∑ 58m</div>
+                                        <div class="small text-gray-500">Emily Fowler °§ 58m</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -294,7 +278,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">I have the photos that you ordered last month, how
                                             would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun ¬∑ 1d</div>
+                                        <div class="small text-gray-500">Jae Chun °§ 1d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -306,7 +290,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Last month's report looks great, I am very happy with
                                             the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez ¬∑ 2d</div>
+                                        <div class="small text-gray-500">Morgan Alvarez °§ 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -318,7 +302,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <div>
                                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
                                             told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog ¬∑ 2w</div>
+                                        <div class="small text-gray-500">Chicken the Dog °§ 2w</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -359,165 +343,38 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+	<form action="insert.qna" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<th class="w-px160">¡¶∏Ò</th>
+				<td><input type="text" name="title" class="need" /></td>
+			</tr>
+			<tr>
+				<th>¿€º∫¿⁄</th>
+				<td>${login_info.name }</td>
+			</tr>
+			<tr>
+				<th>≥ªøÎ</th>
+				<td><textarea name="content" class="need"></textarea></td>
+			</tr>
+			<tr>
+				<th>∆ƒ¿œ √∑∫Œ</th>
+				<td class="left"><label> <input type="file" name="file"
+						id="attach-file" /> <img src="img/select.png" class="file-img" />
+				</label> <span id="file-name"></span> <span id="delete-file"
+					style="color: red; margin-lefT: 20px;"><i
+						class="fas fa-times font-img"></i></span></td>
+			</tr>
+		</table>
+	</form>
+	<div class="btnSet">
+		<a class="btn-fill" onclick="if(necessary()) $('form').submit()">¿˙¿Â</a>
+		<a class="btn-empty" href="list.qna">√Îº“</a>
+	</div>
+	<script type="text/javascript"
+		src="js/need_check.js?v=<%=new java.util.Date().getTime()%>"></script>
+	<script type="text/javascript" src="js/file_attach.js"></script>
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Í≤åÏãúÌåê</h1>
-					
-                </div>
-                <!-- /.container-fluid -->
-					<div>
-					<section class="mt-5" style = "width:100%;">
-  <div class="container mx-auto px-3">
-    <div class="flex">
-      <div>
-        Í≤åÏãúÎ¨º Í∞úÏàò :
-        <span class="badge badge-primary">${articlesCount}</span>
-        Í∞ú
-      </div>
-      <div class="flex-grow"></div>
-      <form class="flex">
-        <input type="hidden" name="boardId" value="${param.boardId}" />
-
-        <select data-value="${param.searchKeywordTypeCode}" name="searchKeywordTypeCode" class="select select-bordered">
-          <option disabled="disabled">Í≤ÄÏÉâÌÉÄÏûÖ</option>
-          <option value="title">Ï†úÎ™©</option>
-          <option value="body">ÎÇ¥Ïö©</option>
-          <option value="title,body">Ï†úÎ™©,ÎÇ¥Ïö©</option>
-        </select>
-
-        <input name="searchKeyword" type="text" class="ml-2 w-72 input input-bordered" placeholder="Í≤ÄÏÉâÏñ¥" maxlength="20"
-          value="${param.searchKeyword}" />
-
-        <button type="submit" class="ml-2 btn btn-primary">Í≤ÄÏÉâ</button>
-        <button class="ml-2 btn btn-primary"><a href ="listCreate.jsp">Í≤åÏãúÎ¨º ÏûëÏÑ±</a></button>
-        
-      </form>
-    </div>
-    <div class="mt-3">
-      <table class="table table-fixed w-full">
-        <colgroup>
-          <col width="100px" />
-          <col width="300px" />
-          <col width="100px" />
-          <col width="100px" />
-          <col width="300px" />
-          <col width ="500px"/>
-        </colgroup>
-        <thead>
-          <tr style = "text-align : center;">
-            <th>Î≤àÌò∏</th>
-            <th>ÏûëÏÑ±ÎÇ†Ïßú</th>
-            <th>Ï°∞Ìöå</th>
-            <th>Ï∂îÏ≤ú</th>
-            <th>ÏûëÏÑ±Ïûê</th>
-            <th>Ï†úÎ™©</th>
-          </tr>
-        </thead>
-        <tbody>
-          <c:forEach var="article" items="${articles}">
-            <tr>
-              <th>${article.id}</th>
-              <td>${article.forPrintType1RegDate}</td>
-              <td>${article.hitCount}</td>
-              <td>${article.goodReactionPoint}</td>
-              <td>${article.extra__writerName}</td>
-              <td>
-                <a class="btn-text-link block w-full truncate" href="../article/detail?id=${article.id}">
-                  ${article.title} </a>
-              </td>
-            </tr>
-          </c:forEach>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="page-menu mt-3">
-      <div class="btn-group justify-center">
-        <c:set var="pageMenuArmLen" value="6" />
-        <c:set var="startPage" value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
-        <c:set var="endPage" value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
-
-        <c:set var="pageBaseUri" value="?boardId=${boardId}" />
-        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
-        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
-
-        <c:if test="${startPage > 1}">
-          <a class="btn btn-sm" href="${pageBaseUri}&page=1">1</a>
-          <c:if test="${startPage > 2}">
-            <a class="btn btn-sm btn-disabled">...</a>
-          </c:if>
-        </c:if>
-        <c:forEach begin="${startPage}" end="${endPage}" var="i">
-          <a class="btn btn-sm ${page == i ? 'btn-active' : ''}" href="${pageBaseUri}&page=${i}">${i}</a>
-        </c:forEach>
-        <c:if test="${endPage < pagesCount}">
-          <c:if test="${endPage < pagesCount - 1}">
-            <a class="btn btn-sm btn-disabled">...</a>
-          </c:if>
-          <a class="btn btn-sm" href="${pageBaseUri}&page=${pagesCount}">${pagesCount}</a>
-        </c:if>
-      </div>
-    </div>
-
-  </div>
-</section>
-					</div>
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">√ó</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.jsp">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
+	√‚√≥: https://upcake.tistory.com/366 [ø¿¥√¿Ã∂Ûµµ]
 </body>
-
 </html>
