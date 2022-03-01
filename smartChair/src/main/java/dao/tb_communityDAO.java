@@ -44,22 +44,21 @@ public class tb_communityDAO {
 		}
 	}
 	
-	public int inputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
+	public int inputCommunity(String article_title, String article_content, String article_file,String user_id){
 		int cnt = 0;
 		try {
 			connect();
 			
-			String sql = "insert into tb_community values(?,?,?,?,sysdate,?,0,0)";
+			String sql = "insert into tb_community(article_title, article_content, article_file, user_id) values(?,?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				psmt = conn.prepareStatement(sql);
-				psmt.setDouble(1, article_seq );
-				psmt.setString(2, article_title);
-				psmt.setString(3, article_content);
-				psmt.setString(4, article_file);
-				psmt.setString(5, user_id);
+				psmt.setString(1, article_title);
+				psmt.setString(2, article_content);
+				psmt.setString(3, article_file);
+				psmt.setString(4, user_id);
 				cnt = psmt.executeUpdate();
 
 			}
