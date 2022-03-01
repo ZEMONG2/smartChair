@@ -30,7 +30,6 @@ public class articleWriteCon extends HttpServlet {
 		tb_communityDAO dao = new tb_communityDAO();
 		int cnt = dao.inputCommunity(title, content, file, user_id);
 			
-		System.out.println("체크3");
 		
 		if(cnt>0) {
 			System.out.println("게시물 작성 성공");
