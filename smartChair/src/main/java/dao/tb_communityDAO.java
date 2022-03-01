@@ -76,7 +76,7 @@ public class tb_communityDAO {
 		
 		
 	}
-	public int outputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
+	public ArrayList<tb_communityVO> outputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
 		int cnt = 0;
 		try {
 			connect();
