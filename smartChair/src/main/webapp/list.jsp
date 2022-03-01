@@ -29,6 +29,11 @@
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 %>
+
+<%
+	
+%>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -365,7 +370,8 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 					
                 </div>
                 <!-- /.container-fluid -->
-					<section class="mt-5">
+					<div>
+					<section class="mt-5" style = "width:100%;">
   <div class="container mx-auto px-3">
     <div class="flex">
       <div>
@@ -391,21 +397,19 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
       </form>
     </div>
     <div class="mt-3">
-      <table class="table table-fixed w-full" style = "width :100%">
+      <table class="table table-fixed w-full">
         <colgroup>
+          <col width="100px" />
           <col width="300px" />
+          <col width="100px" />
+          <col width="100px" />
           <col width="300px" />
-          <col width="300px" />
-          <col width="300px" />
-          <col width="300px" />
-          <col width="300px" />
-          <col width="1000px"/>
+          <col width ="500px"/>
         </colgroup>
         <thead>
-          <tr style = "text-align : center">
+          <tr style = "text-align : center;">
             <th>번호</th>
             <th>작성날짜</th>
-            <th>수정날짜</th>
             <th>조회</th>
             <th>추천</th>
             <th>작성자</th>
@@ -417,7 +421,6 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             <tr>
               <th>${article.id}</th>
               <td>${article.forPrintType1RegDate}</td>
-              <td>${article.forPrintType1UpdateDate}</td>
               <td>${article.hitCount}</td>
               <td>${article.goodReactionPoint}</td>
               <td>${article.extra__writerName}</td>
@@ -461,6 +464,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
   </div>
 </section>
+					</div>
             </div>
             <!-- End of Main Content -->
 
