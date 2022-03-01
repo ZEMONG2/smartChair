@@ -73,11 +73,11 @@ public class tb_communityDAO {
 		
 		return cnt;
 	
-
+		/* asasasdadsadad */
 		
 		
 	}
-	public ArrayList<tb_communityVO> outputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
+	public ArrayList<tb_communityVO> outputCommunity(){
 		ArrayList<tb_communityVO> al = new ArrayList<tb_communityVO>();
 		int cnt = 0;
 		try {

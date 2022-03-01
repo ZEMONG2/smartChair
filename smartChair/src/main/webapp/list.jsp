@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
         <%@page import="vo.tb_userVO"%>
+        <%@page import="dao.tb_communityDAO"%>
+        <%@page import="vo.tb_communityVO"%>
+        <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +31,12 @@
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+
+tb_communityDAO dao = new tb_communityDAO();
+ArrayList<tb_communityVO> al = dao.outputCommunity();
 %>
+
+
 
 
     <!-- Page Wrapper -->
