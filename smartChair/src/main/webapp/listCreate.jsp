@@ -376,8 +376,8 @@
 							</table>
 							<br>
 							<div style="text-align : center;">
-							<button type="submit" class="ml-2 btn btn-primary">게시물 등록</button>
-							<button type="reset" class="ml-2 btn btn-primary"><a href = "list.jsp"></a>취소</button>
+							<button type="submit" class="ml-2 btn btn-primary">글 등록</button>
+							<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">취소</button>
 							</div>
 						</form>
 						<div class="btnSet">

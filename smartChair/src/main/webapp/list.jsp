@@ -399,7 +399,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
           value="${param.searchKeyword}" />
 
         <button type="submit" class="ml-2 btn btn-primary">검색</button>
-        <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'">게시물 작성</button>
+        <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'">글쓰기</button>
         
       </form>
     </div>
