@@ -360,7 +360,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                 </nav>
                 <!-- End of Topbar -->
 
-	<form action="insert.qna" method="post" enctype="multipart/form-data">
+	<form action="articleWriteCon" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<th class="w-px160">제목</th>
@@ -368,7 +368,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td>${login_info.name }</td>
+				<td><%=vo.getUser_nick() %></td>
 			</tr>
 			<tr>
 				<th>내용</th>
@@ -383,15 +383,14 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 						class="fas fa-times font-img"></i></span></td>
 			</tr>
 		</table>
+		<input type="submit" value = "저장">
 	</form>
 	<div class="btnSet">
-		<a class="btn-fill" onclick="if(necessary()) $('form').submit()">저장</a>
-		<a class="btn-empty" href="list.qna">취소</a>
+		<a class="btn-empty" href="list.jsp">취소</a>
 	</div>
 	<script type="text/javascript"
 		src="js/need_check.js?v=<%=new java.util.Date().getTime()%>"></script>
 	<script type="text/javascript" src="js/file_attach.js"></script>
 
-	출처: https://upcake.tistory.com/366 [오늘이라도]
 </body>
 </html>

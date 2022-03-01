@@ -49,12 +49,14 @@ public class tb_communityDAO {
 		try {
 			connect();
 			
+			System.out.println("체크1");
 			String sql = "insert into tb_community(article_title, article_content, article_file, user_id) values(?,?,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				psmt = conn.prepareStatement(sql);
+				System.out.println("체크2");
 				psmt.setString(1, article_title);
 				psmt.setString(2, article_content);
 				psmt.setString(3, article_file);
@@ -83,11 +85,11 @@ public class tb_communityDAO {
 		try {
 			connect();
 			
-			String sql = "Select * from tb_community";
+			String sql = "Select * from tb_community order by article_seq";
 			
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				double article_seq2 = rs.getDouble(1);
 				String article_title2 = rs.getString(2);
 				String article_content2 = rs.getString(3);
