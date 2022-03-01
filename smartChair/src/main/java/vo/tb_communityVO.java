@@ -92,6 +92,19 @@ public class tb_communityVO {
 		this.article_likes = article_likes;
 	}
 
+	public tb_communityVO(Double article_seq, String article_title, String article_content, String article_file,
+			Date article_date, String user_id, Double article_cnt, Double article_likes) {
+		super();
+		this.article_seq = article_seq;
+		this.article_title = article_title;
+		this.article_content = article_content;
+		this.article_file = article_file;
+		this.article_date = article_date;
+		this.user_id = user_id;
+		this.article_cnt = article_cnt;
+		this.article_likes = article_likes;
+	}
+
     
     
 }

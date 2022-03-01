@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+
 import vo.tb_communityVO;
 
 public class tb_communityDAO {
@@ -76,7 +78,8 @@ public class tb_communityDAO {
 		
 		
 	}
-	public void outputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
+	public ArrayList<tb_communityVO> outputCommunity(double article_seq,String article_title, String article_content, String article_file,String user_id){
+		ArrayList<tb_communityVO> al = new ArrayList<tb_communityVO>();
 		int cnt = 0;
 		try {
 			connect();
@@ -86,13 +89,16 @@ public class tb_communityDAO {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				psmt = conn.prepareStatement(sql);
-				psmt.setDouble(1, article_seq );
-				psmt.setString(2, article_title);
-				psmt.setString(3, article_content);
-				psmt.setString(4, article_file);
-				psmt.setString(5, user_id);
-
+				double article_seq2 = rs.getDouble(1);
+				String article_title2 = rs.getString(2);
+				String article_content2 = rs.getString(3);
+				String article_file2 = rs.getString(4);
+				Date article_date2 = rs.getDate(5);
+				String user_id2 = rs.getString(6);
+				double article_cnt2 = rs.getDouble(7);
+				double article_likes2 = rs.getDouble(8);
+				tb_communityVO vo = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2);
+				al.add(vo);
 			}
 			
 
@@ -103,7 +109,7 @@ public class tb_communityDAO {
 
 		}
 		
-		return ;
+		return al;
 	
 
 		
