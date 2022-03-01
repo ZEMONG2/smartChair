@@ -62,7 +62,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>게시판</span></a>
+                    <span>메인화면</span></a>
             </li>
 
             <!-- Divider -->
@@ -399,7 +399,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
           value="${param.searchKeyword}" />
 
         <button type="submit" class="ml-2 btn btn-primary">검색</button>
-        <button class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'">게시물 작성</button>
+        <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'">게시물 작성</button>
         
       </form>
     </div>

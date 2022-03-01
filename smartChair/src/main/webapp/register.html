@@ -68,18 +68,27 @@
                                  </div>
                                  <div class="form-group">
                                     <input type="date" name = "user_birthday" class="form-control form-control-user" 
-                                        placeholder="생년월일">
+                                        placeholder="생년월일" >
                                  </div>
                                  <div class="form-group">
                                     <input type="tel" maxlength = "13" name = "user_tel" class="form-control form-control-user"
                                             id="tel1" placeholder="Phonenumber">
                                  </div>
+                                 <div class="btn-group" data-toggle="buttons">
                                  
-                                 <div class="form-group">
-                                     Men <input type="radio" name="gender" value="men"> &nbsp;  &nbsp;  &nbsp; 
-                						Women <input type="radio" name="gender" value="women">
-                                 </div>
-                                
+                                 <div class="form-group" style="text-align: center;">
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary active">
+								<input type="radio" name="userGender" autocomplete="off" value="Men" checked>MEN
+							</label>
+						</div>
+						<div class="btn-group" data-toggle="buttons">
+							<label class="btn btn-primary">
+								<input type="radio" name="userGender" autocomplete="off" value="Women">WOMEN
+							</label>
+						</div>
+					</div>
+                                </div>
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Account" >
                                 <hr>
                                 <a href="index.jsp" class="btn btn-google btn-user btn-block">

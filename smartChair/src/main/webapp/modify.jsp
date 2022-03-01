@@ -61,10 +61,9 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                                    placeholder="Enter Your New Nickname...">
                                            </div>
                                            <div class="form-group">
-                                            <input type="tel" class="form-control form-control-user"
-                                                   id="user_tel" aria-describedby="emailHelp"name = "user_tel"
-                                                   placeholder="Enter Your New PhoneNumber...">
-                                           </div>
+                                   			 <input type="tel" maxlength = "13" name = "user_tel" class="form-control form-control-user"
+                                           		 id="tel1" placeholder="Phonenumber">
+                                			</div>
                                               
                                          <div class="form-group">
                                           <input type="submit" class="btn btn-primary btn-user btn-block" value = "Modify Information">
@@ -99,6 +98,43 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <!--핸드폰번호 자동 하이픈(-)  -->
+    	<script>
+    	function autoHypenPhone(str){
+            str = str.replace(/[^0-9]/g, '');
+            var tmp = '';
+            if( str.length < 4){
+                return str;
+            }else if(str.length < 7){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3);
+                return tmp;
+            }else if(str.length < 11){
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 3);
+                tmp += '-';
+                tmp += str.substr(6);
+                return tmp;
+            }else{              
+                tmp += str.substr(0, 3);
+                tmp += '-';
+                tmp += str.substr(3, 4);
+                tmp += '-';
+                tmp += str.substr(7);
+                return tmp;
+            }
+            return str;
+        }
+
+var cellPhone = document.getElementById('tel1');
+cellPhone.onkeyup = function(event){
+        event = event || window.event;
+        var _val = this.value.trim();
+        this.value = autoHypenPhone(_val) ;
+}
+    	</script>
 
 </body>
 

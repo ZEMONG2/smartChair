@@ -54,7 +54,7 @@ String birthday = vo.getUser_birthday().substring(0, 10);
             <li class="nav-item active">
                 <a class="nav-link" href="index.jsp">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>프로필</span></a>
+                    <span>메인화면</span></a>
             </li>
 
             <!-- Divider -->
