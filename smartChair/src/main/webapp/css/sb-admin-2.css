@@ -4602,6 +4602,12 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  width : 100%;
+}
+.card-body22 {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
   width : 1400px;
 }
 
@@ -7989,6 +7995,7 @@ button.bg-dark:focus {
 
 .p-5 {
   padding: 3rem !important;
+  
 }
 
 .pt-5,
@@ -11378,6 +11385,7 @@ body.card-body.table{
 .amount > li{
   flex: 1;
   height: auto;
+  width : auto;
 }
 
 .amount > li > div {
