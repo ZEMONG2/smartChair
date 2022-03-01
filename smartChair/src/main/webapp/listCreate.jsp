@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@page import="vo.tb_userVO"%>
 <!DOCTYPE html>
 <html>
 <head>
