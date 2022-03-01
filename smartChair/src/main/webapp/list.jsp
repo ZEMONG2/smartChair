@@ -404,7 +404,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
       </form>
     </div>
     <div class="mt-3">
-      <table class="table table-fixed w-full">
+      <table class="table" id = "listTable">
         <colgroup>
           <col width="100px" />
           <col width="300px" />
@@ -413,7 +413,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
           <col width="300px" />
           <col width ="500px"/>
         </colgroup>
-        <thead>
+        
           <tr style = "text-align : center;">
             <th>번호</th>
             <th>작성날짜</th>
@@ -422,52 +422,31 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
             <th>작성자</th>
             <th>제목</th>
           </tr>
-        </thead>
-        <tbody>
-          <c:forEach var="article" items="${articles}">
-            <tr>
-              <th>${article.id}</th>
-              <td>${article.forPrintType1RegDate}</td>
-              <td>${article.hitCount}</td>
-              <td>${article.goodReactionPoint}</td>
-              <td>${article.extra__writerName}</td>
-              <td>
-                <a class="btn-text-link block w-full truncate" href="../article/detail?id=${article.id}">
-                  ${article.title} </a>
-              </td>
-            </tr>
-          </c:forEach>
-        </tbody>
+        
+        
+        <%
+        for(int i =0;i<al.size();i++){
+        	
+        
+        %>
+         <tr style = "text-align : center;">
+         	<td><%=al.get(i).getArticle_seq() %></td>
+         	<td><%=al.get(i).getArticle_date() %></td>
+         	<td><%=al.get(i).getArticle_cnt() %></td>
+         	<td><%=al.get(i).getArticle_likes() %></td>
+         	<td><%=al.get(i).getUser_id() %></td>
+         	<td><%=al.get(i).getArticle_title() %></td>
+         	
+         
+         </tr>
+         <%} %>
+          
+        
       </table>
     </div>
 
-    <div class="page-menu mt-3">
-      <div class="btn-group justify-center">
-        <c:set var="pageMenuArmLen" value="6" />
-        <c:set var="startPage" value="${page - pageMenuArmLen >= 1 ? page - pageMenuArmLen : 1}" />
-        <c:set var="endPage" value="${page + pageMenuArmLen <= pagesCount ? page + pageMenuArmLen : pagesCount}" />
-
-        <c:set var="pageBaseUri" value="?boardId=${boardId}" />
-        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
-        <c:set var="pageBaseUri" value="${pageBaseUri}&searchKeyword=${param.searchKeyword}" />
-
-        <c:if test="${startPage > 1}">
-          <a class="btn btn-sm" href="${pageBaseUri}&page=1">1</a>
-          <c:if test="${startPage > 2}">
-            <a class="btn btn-sm btn-disabled">...</a>
-          </c:if>
-        </c:if>
-        <c:forEach begin="${startPage}" end="${endPage}" var="i">
-          <a class="btn btn-sm ${page == i ? 'btn-active' : ''}" href="${pageBaseUri}&page=${i}">${i}</a>
-        </c:forEach>
-        <c:if test="${endPage < pagesCount}">
-          <c:if test="${endPage < pagesCount - 1}">
-            <a class="btn btn-sm btn-disabled">...</a>
-          </c:if>
-          <a class="btn btn-sm" href="${pageBaseUri}&page=${pagesCount}">${pagesCount}</a>
-        </c:if>
-      </div>
-    </div>
+    
+    
 
   </div>
 </section>
