@@ -31,13 +31,18 @@ public class JoinCon extends HttpServlet {
 		String user_tel = request.getParameter("user_tel");
 		String user_gender = request.getParameter("gender");
 		String user_birthday = request.getParameter("user_birthday");
-		System.out.println(user_tel);
-		System.out.println(user_gender);
-		System.out.println(user_birthday);
-		System.out.println(user_pw);
-		System.out.println(user_pw2);
-
-		if (user_pw.equals(user_pw2)) {
+		
+		System.out.println("아이디 : "+user_id);
+		System.out.println("비밀번호1 : " +user_pw);
+		System.out.println("비밀번호2 : " +user_pw2);
+		System.out.println("이름 : " +user_name);
+		System.out.println("닉네임 : " + user_nick);
+		System.out.println("전화번호 : " + user_tel);
+		System.out.println("성별 : " + user_gender);
+		System.out.println("생일 : " + user_birthday);
+		
+		
+			if (user_pw.equals(user_pw2)) {
 
 			tb_userDAO dao = new tb_userDAO();
 			int cnt = dao.join(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday);
