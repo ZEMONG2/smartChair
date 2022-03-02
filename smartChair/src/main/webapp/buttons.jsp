@@ -65,7 +65,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="buttons.html">
+                <a class="nav-link" href="buttons.jsp">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>높이조절</span></a>
             </li>
