@@ -4,6 +4,7 @@
         <%@page import="dao.tb_communityDAO"%>
         <%@page import="vo.tb_communityVO"%>
         <%@page import="java.util.ArrayList"%>
+        
 <!DOCTYPE html>
 <html>
 <head>
@@ -435,7 +436,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
          	<td><%=al.get(i).getArticle_cnt() %></td>
          	<td><%=al.get(i).getArticle_likes() %></td>
          	<td><%=al.get(i).getUser_id() %></td>
-         	<td><%=al.get(i).getArticle_title() %></td>
+         	<td><a href="board.jsp?article_seq=<%=al.get(i).getArticle_seq() %>"><%=al.get(i).getArticle_title() %></a></td>
          	
          
          </tr>
