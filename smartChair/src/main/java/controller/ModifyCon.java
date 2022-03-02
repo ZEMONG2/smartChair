@@ -38,7 +38,7 @@ public class ModifyCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");
-			vo = new tb_userVO(user_id, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
+			vo = new tb_userVO(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("index.jsp");
 		}else {

@@ -97,6 +97,7 @@ public class tb_userDAO {
 			
 			if (rs.next()) {				
 				String db_user_id = rs.getString(1);
+				String db_user_pw = rs.getString(2);
 				String db_user_name = rs.getString(3);
 				String db_user_nick = rs.getString(4);
 				String db_user_tel = rs.getString(5);
@@ -104,7 +105,7 @@ public class tb_userDAO {
 				String db_user_birthday = rs.getString(7);
 				Date db_user_joindate = rs.getDate(8);
 				String db_admin_yesno = rs.getString(9);
-				vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_tel, db_user_gender, db_user_birthday, db_user_joindate, db_admin_yesno);
+				vo = new tb_userVO(db_user_id,db_user_pw, db_user_name, db_user_nick, db_user_tel, db_user_gender, db_user_birthday, db_user_joindate, db_admin_yesno);
 
 			} else {
 				System.out.println("일치하는 회원 없음");
