@@ -372,7 +372,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                         <!-- Border Left Utilities -->
                         <div class="col-lg-8">
 
-
+						<form action = "ModifyCon" method = "post">
 							<div class="card mb-4 py-3 border-left-success">
                                 <div class="card-body">
                                     <ul class = "amount">
@@ -433,7 +433,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         </li>
                                         <li>
                                         	<div>
-                                                <input name = "user_pw" type="password" placeholder="비밀번호를 입력하세요"
+                                                <input name = "user_pw" id = "user_pw" type="password" placeholder="비밀번호를 입력하세요"
                                                 style = "text-align : center; ">
                                              </div>
                                         </li>
@@ -451,7 +451,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         </li>
                                         <li>
                                         	<div>
-                                                <input name = "user_pw" type="password" placeholder="비밀번호를 입력하세요"
+                                                <input name = "user_pw1" id= "user_pw1" type="password" placeholder="비밀번호를 입력하세요"
                                                 style = "text-align : center; ">
                                              </div>
                                         </li>
@@ -469,7 +469,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         </li>
                                         <li>
                                         	<div>
-                                                <input name = "user_pw" type="password" placeholder="비밀번호를 입력하세요"
+                                                <input name = "user_pw2" id = "user_pw2" type="password" placeholder="비밀번호를 입력하세요"
                                                 style = "text-align : center; ">
                                              </div>
                                         </li>
@@ -491,7 +491,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         </li>
                                         <li>
                                             <div>
-                                               <input name = "User_tel" id = "tel1"maxlength = "13" type="text" value = "<%=vo.getUser_tel()%>" placeholder="전화번호를 입력하세요"
+                                               <input name = "user_tel" id = "tel1"maxlength = "13" type="text" value = "<%=vo.getUser_tel()%>" placeholder="전화번호를 입력하세요"
                                                 style = "text-align : center;">
                                             </div>
                                         </li>
@@ -504,6 +504,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                             <button type="button" class="ml-2 btn btn-primary" style = "width :100px;" onclick = "location.href = 'profile.jsp'">취소</button>
                             </div><br>
                             
+							</form>
                             
                             
 <!-- 
@@ -536,7 +537,6 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
             </div>
             <!-- End of Main Content -->
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -616,52 +616,49 @@ cellPhone.onkeyup = function(event){
 }
     	</script>
     	
-    	<!--닉네임 중복확인  -->
-    	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-			<script>
-			function nickCheck(){
-				let nick = document.querySelector('#nick')  //이메일 작성창
-			    
-			      let xhr = new XMLHttpRequest()
-			      
-			      //요청방식 , 요청경로
-			      xhr.open('get', 'NickCheckCon?nick='+nick.value)
-			      //전송데이터의 형식
-			      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
-			      //요청 & 전송할 데이터
-			      xhr.send()
-			      
-			      xhr.onreadystatechange = function(){
-					 if(xhr.readyState===XMLHttpRequest.DONE){  //요청성공
-			            if(xhr.status===200){ //응답성공
-			               console.log("응답성공")
-			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
-			            if(xhr.responseText==="true"){
-			            	Swal.fire({
-			                    icon: 'error',
-			                    title: '닉네임체크',
-			                    text: '이미 등록되어있는 닉네임입니다',
-			                });
-			            	nick.value = ""
-			            }else if(xhr.responseText==="false"){
-			            	Swal.fire({
-			                    icon: 'success',
-			                    title: '닉네임체크',
-			                    text: '사용할 수 있는 닉네임입니다',
-			                });
-			            }
-			            
-			            }else{
-			               console.log("응답실패")
-			            }
-			         }else{  //요청실패
-			            console.log("요청실패")
-			         }
-			      }
-				
-			}
+    	<!-- 패스워드 같은지 확인 -->
+    	<!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <!--비밀번호 확인  -->
+    
+    <!--알림창-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    	<script>
+    	$("#user_pw2").blur(function(){
+    		let pw = $("#user_pw1").val();
+    		let pw2 = $("#user_pw2").val();
+    		console.log("pw : " + pw)
+    		console.log("pw2 : " + pw2)
+    		if(pw===""||pw2===""){
+    			Swal.fire({
+                    icon: 'warning',
+                    title: '비밀번호체크',
+                    text: '비밀번호를 입력해주세요',
+                });
+    		}else if(pw == pw2){
+    			Swal.fire({
+                    icon: 'success',
+                    title: '비밀번호체크',
+                    text: '비밀번호가 동일합니다',
+                });
+    		}else{
+    			Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호체크',
+                    text: '비밀번호가 동일하지 않습니다',
+                });
+    		}
 			
-			</script>
+    });
+    
+    </Script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

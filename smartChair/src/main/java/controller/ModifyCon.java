@@ -26,7 +26,7 @@ public class ModifyCon extends HttpServlet {
 		String user_id = vo.getUser_id();
 		String user_pw = request.getParameter("user_pw");
 		String user_name = vo.getUser_name();
-		String user_nick = request.getParameter("user_nick");
+		String user_nick = vo.getUser_nick();
 		String user_tel = request.getParameter("user_tel");
 		String user_gender = vo.getUser_gender();
 		String user_birthday = vo.getUser_birthday();
@@ -34,7 +34,7 @@ public class ModifyCon extends HttpServlet {
 		String admin_yesno = vo.getAdmin_yesno();
 		
 		tb_userDAO dao = new tb_userDAO();
-		int cnt = dao.modify(user_id, user_pw, user_nick, user_tel);
+		int cnt = dao.modify(user_id, user_pw, user_tel);
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");

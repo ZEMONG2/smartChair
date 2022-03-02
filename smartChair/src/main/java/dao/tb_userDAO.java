@@ -139,18 +139,17 @@ public class tb_userDAO {
 		}
 		return cnt;
 	}
-public int modify(String user_id, String user_pw, String user_nick, String user_tel) {
+public int modify(String user_id, String user_pw,  String user_tel) {
 	
 		int cnt = 0;
 		try {
 			connect();
 
-			String sql = "update tb_user set user_pw = ?, user_nick = ?, user_tel = ? where user_id = ?";
+			String sql = "update tb_user set user_pw = ?, user_tel = ? where user_id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_pw);
-			psmt.setString(2, user_nick);			
-			psmt.setString(3, user_tel);			
-			psmt.setString(4, user_id);			
+			psmt.setString(2, user_tel);			
+			psmt.setString(3, user_id);			
 			cnt = psmt.executeUpdate();
 			
 
