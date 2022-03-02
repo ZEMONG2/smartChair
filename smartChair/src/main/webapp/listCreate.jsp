@@ -350,7 +350,7 @@
 					
 					<div class="card-body">
 						<form action="articleWriteCon" method="post"
-							enctype="multipart/form-data" name = "file">
+							enctype="multipart/form-data">
 							<table border="1px solid black"
 								style="width: 80%; height: 300px; margin-left: 10%; margin-right: 10%;">
 								<tr>
@@ -360,7 +360,7 @@
 								</tr>
 								<tr>
 									<th style="text-align: center;">작성자</th>
-									<td><%=vo.getUser_nick()%></td>
+									<td><%=vo.getUser_id()%></td>
 								</tr>
 								<tr>
 									<th style="text-align: center;">내용</th>

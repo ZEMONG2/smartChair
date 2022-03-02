@@ -50,12 +50,10 @@ public class tb_communityDAO {
 			connect();
 			
 			System.out.println("체크1");
-			String sql = "insert into tb_community(article_title, article_content, article_file, user_id) values(?,?,?,?)";
+			String sql = "INSERT INTO tb_community (article_title, article_content, article_file, article_date, user_id) values(?,?,?,sysdate,?)";
 			
 			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				psmt = conn.prepareStatement(sql);
+			
 				System.out.println("체크2");
 				psmt.setString(1, article_title);
 				psmt.setString(2, article_content);
@@ -63,7 +61,7 @@ public class tb_communityDAO {
 				psmt.setString(4, user_id);
 				cnt = psmt.executeUpdate();
 
-			}
+			
 			
 
 		} catch (Exception e) {
