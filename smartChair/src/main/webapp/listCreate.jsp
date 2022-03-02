@@ -350,7 +350,7 @@
 					
 					<div class="card-body">
 						<form action="articleWriteCon" method="post"
-							enctype="multipart/form-data">
+							enctype="multipart/form-data" name = "file">
 							<table border="1px solid black"
 								style="width: 80%; height: 300px; margin-left: 10%; margin-right: 10%;">
 								<tr>
@@ -370,7 +370,7 @@
 								<tr>
 									<th style="text-align: center;">ÆÄÀÏ Ã·ºÎ</th>
 									<td class="left"><label> <input type="file"
-											name="file" id="attach-file" />
+											name="file" id="attach-file" accept="image/png, image/jpeg"/>
 									</label> <span id="file-name"></span></td>
 								</tr>
 							</table>
