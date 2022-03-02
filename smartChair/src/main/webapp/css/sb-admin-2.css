@@ -588,6 +588,13 @@ pre code {
   margin-right: -0.75rem;
   margin-left: -0.75rem;
 }
+.row22 {
+ 
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+ 
+}
 
 .no-gutters {
   margin-right: 0;
@@ -1211,7 +1218,9 @@ pre code {
   }
   .col-lg-7 {
     flex: 0 0 58.33333%;
-    max-width: 58.33333%;
+    
+    margin : auto;
+    
   }
   .col-lg-8 {
     flex: 0 0 66.66667%;
@@ -1894,6 +1903,28 @@ pre code {
   
   
 }
+#nickck22{
+	width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6e707e;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-left:1px solid #d1d3e2;
+  border-right:1px solid #d1d3e2;
+  border-top:1px solid #d1d3e2;
+  border-bottom:1px solid #d1d3e2;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+  
+}
+
+
+	
+
 .ckck{
 	position : absolute;
 	right : 80px;
@@ -1906,6 +1937,12 @@ pre code {
 	right : 80px;
 	top : 306px;
 }
+.nickck3{
+	position : absolute;
+	left : 650px;
+	bottom : -4px;
+}
+
 
 
 
@@ -4561,14 +4598,15 @@ input[type="button"].btn-block {
 
 .card {
   position: relative;
-  display: flex;
+  display: block;
   flex-direction: column;
-  min-width: 0;
+  min-width: 0px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #e3e6f0;
   border-radius: 0.35rem;
+  
 }
 
 .card > hr {
@@ -4608,7 +4646,8 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
-  width : 1400px;
+  width : 100%;
+  text-align : center;
 }
 
 .card-title {
@@ -7995,6 +8034,7 @@ button.bg-dark:focus {
 
 .p-5 {
   padding: 3rem !important;
+  
   
 }
 
@@ -11400,19 +11440,14 @@ body.card-body.table{
 .amount {
   list-style: none;
   padding-left: 0px;
+  
 }
 
 .img{
 	height : 650px;
 }
 
-.input-file-button{
-  padding: 6px 25px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-}
+
 
 
 

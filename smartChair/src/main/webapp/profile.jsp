@@ -373,6 +373,9 @@ String birthday = vo.getUser_birthday().substring(0, 10);
                         <div class="col-lg-8">
 
 
+                           <div style = "text-align : right;">
+                           <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'modify.jsp'">회원정보수정</button>
+                           </div><br>
 							<div class="card mb-4 py-3 border-left-success">
                                 <div class="card-body">
                                     <ul class = "amount">
