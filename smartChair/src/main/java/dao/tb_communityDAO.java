@@ -129,8 +129,7 @@ public class tb_communityDAO {
 				double article_cnt2 = rs.getDouble(7);
 				double article_likes2 = rs.getDouble(8);
 				voList = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2);
-				
-				
+					
 			}
 			
 		} catch (Exception e) {
