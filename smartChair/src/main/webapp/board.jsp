@@ -393,6 +393,7 @@
 									<br><%=voList.getArticle_content()%></td>
 								</tr>
 							</table>
+							<div></div>
 							<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">돌아가기</button>
 							</div>
 						
