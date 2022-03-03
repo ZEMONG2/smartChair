@@ -406,7 +406,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                    
                                 </div>
                             </div>
-                            <div class="card mb-4 py-3 border-left-secondary" style = "display : inline-block; width : 100%;">
+                            <div class="card mb-4 py-3 border-left-secondary">
                                 <div class="card-body22">
                                     <ul class = "amount">
                                         <li>

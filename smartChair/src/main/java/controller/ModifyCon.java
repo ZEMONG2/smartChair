@@ -24,6 +24,7 @@ public class ModifyCon extends HttpServlet {
 		tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 	
 		String user_id = vo.getUser_id();
+		String user_pw1 = request.getParameter("user_pw1");
 		String user_pw = request.getParameter("user_pw");
 		String user_name = vo.getUser_name();
 		String user_nick = vo.getUser_nick();
@@ -34,13 +35,15 @@ public class ModifyCon extends HttpServlet {
 		String admin_yesno = vo.getAdmin_yesno();
 		
 		tb_userDAO dao = new tb_userDAO();
-		int cnt = dao.modify(user_id, user_pw, user_tel);
+		int cnt = dao.modify(user_id, user_pw1, user_tel);
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");
-			vo = new tb_userVO(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
+			vo = new tb_userVO(user_id, user_pw1, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("index.jsp");
+			System.out.println(user_pw);
+			System.out.println(user_pw1);
 		}else {
 			System.out.println("회원정보수정 실패");
 			response.sendRedirect("modify.jsp");
