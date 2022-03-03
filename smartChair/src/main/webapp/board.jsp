@@ -359,41 +359,32 @@
 					<h1 class="h3 mb-4 text-gray-800">게시물</h1>
 
 				</div>
-				<div class="card shadow mb-4">
+				
 					
-					<div class="card-body">
-						
-							<table border="1px solid black"
-								style="width: 80%; height: 300px; margin-left: 10%; margin-right: 10%;">
+					
+							<div></div>
+							<table style= "width: 80%;
+											height: 300px;
+											margin-left: 10%; 
+											margin-right: 10%; 
+											border-top: 2px solid blue; 
+											border-bottom : 1px solid gray;
+											">
+								
 								<tr>
-									<th style="text-align: center;">게시물번호</th>
-									<td><%=voList.getArticle_seq()%></td>
+									<th><h2><%=voList.getArticle_title()%> </h2></th>
+									
+								</tr>
+								<tr style = "border-bottom : 2px solid gray; height : 20px;">
+									<td style="width : 80%"><%=vo.getUser_nick() %>&nbsp;&nbsp;(<%=voList.getUser_id()%>) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%=voList.getArticle_date()%></td>
+								
+								
+									<td>추천수 : <%=voList.getArticle_likes()%></td>
+								
+									<td>조회수 : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<th style="text-align: center;">제목</th>
-									<td><%=voList.getArticle_title()%></td>
-								</tr>
-								<tr>
-									<th style="text-align: center;">작성자</th>
-									<td><%=voList.getUser_id()%></td>
-								</tr>
-								<tr>
-									<th style="text-align: center;">좋아요수</th>
-									<td><%=voList.getArticle_likes()%></td>
-								</tr>
-								<tr>
-									<th style="text-align: center;">조회수</th>
-									<td><%=voList.getArticle_cnt()%></td>
-								</tr>
-								<tr>
-									<th style="text-align: center;">작성일자</th>
-									<td><%=voList.getArticle_date()%></td>
-								</tr>
-								<tr>
-									<td style="text-align: center;" colspan="2">게시물내용</td>
-								</tr>
-								<tr>
-									<td style="text-align: center;" colspan="2"><img src="FileUpload/<%=voList.getArticle_file() %>"><br><br>
+									<td style="text-align: center; height : auto;" colspan="2" ><img src="FileUpload/<%=voList.getArticle_file() %>"><br><br>
 									<br><%=voList.getArticle_content()%></td>
 								</tr>
 							</table>
@@ -402,8 +393,8 @@
 						
 						<div class="btnSet">
 						</div>
-					</div>
-				</div>
+					
+				
 
 
 				<script type="text/javascript"

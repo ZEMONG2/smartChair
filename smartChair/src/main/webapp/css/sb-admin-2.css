@@ -11447,7 +11447,14 @@ body.card-body.table{
 	height : 650px;
 }
 
-
+.card-body111 > .boardTable{
+	width: 90%;
+	height: 300px;
+	margin-left: 10%; 
+	margin-right: 10%; 
+	border-top: 2px solid blue; 
+	border-bottom : 1px solid gray;
+}
 
 
 
