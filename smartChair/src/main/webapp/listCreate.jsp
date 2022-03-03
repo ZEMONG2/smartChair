@@ -364,7 +364,7 @@
 								</tr>
 								<tr>
 									<th style="text-align: center;">³»¿ë</th>
-									<td><textarea name="content" class="need"
+									<td><textarea  wrap="hard" name="content" class="need"
 											style="width: 100%; height: 400px;"></textarea></td>
 								</tr>
 								<tr>

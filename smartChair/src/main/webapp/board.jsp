@@ -390,7 +390,7 @@
 								</tr>
 								<tr>
 									<td style="text-align: center; height : auto;" colspan="2" ><img src="FileUpload/<%=voList.getArticle_file() %>"><br><br>
-									<br><%=voList.getArticle_content()%></td>
+									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
 							</table>
 							<div></div>
