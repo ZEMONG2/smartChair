@@ -165,6 +165,11 @@ public class tb_userVO {
 		this.admin_yesno = admin_yesno;
 	}
 
+	public tb_userVO(String user_nick) {
+		super();
+		this.user_nick = user_nick;
+	}
+
 	
 
 }

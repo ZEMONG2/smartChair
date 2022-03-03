@@ -111,13 +111,13 @@ public class tb_communityDAO {
 		return al;
 	}
 	
-	public tb_communityVO selectOne(double article_seq) {
+	public tb_communityVO selectOne(String user_id) {
 		tb_communityVO voList =null;
 		try {
 			connect();
-			String sql = "Select * from tb_community where article_seq = ?";
+			String sql = "Select * from tb_community where user_id = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setDouble(1, article_seq);
+			psmt.setString(1, user_id);
 			rs = psmt.executeQuery();
 			if(rs.next()) {
 				double article_seq2 = rs.getDouble(1);
@@ -129,7 +129,7 @@ public class tb_communityDAO {
 				double article_cnt2 = rs.getDouble(7);
 				double article_likes2 = rs.getDouble(8);
 				voList = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2);
-					
+				System.out.println("게시물정보 가져오기 체크");
 			}
 			
 		} catch (Exception e) {
@@ -142,21 +142,21 @@ public class tb_communityDAO {
 		return voList;
 	}
 	
-	public void updateViews(double article_seq) {
+	public void updateViews(String user_id) {
 		
 		try {
 			connect();
 			
-			System.out.println("체크1");
-			String sql = "update tb_community set article_cnt = article_cnt+1 where article_seq = ?";
+			
+			String sql = "update tb_community set article_cnt = article_cnt+1 where user_id = ?";
 			psmt = conn.prepareStatement(sql);
 			
 				
-				psmt.setDouble(1, article_seq);
+				psmt.setString(1, user_id);
 				
 				psmt.executeUpdate();
 
-
+				System.out.println("뷰증가");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

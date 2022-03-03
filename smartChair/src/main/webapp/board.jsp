@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@page import="vo.tb_userVO"%>
 <%@page import="dao.tb_communityDAO"%>
+<%@page import="dao.tb_userDAO"%>
 <%@page import="vo.tb_communityVO"%>
 <!DOCTYPE html>
 <html>
@@ -30,18 +31,22 @@
 </head>
 <body>
 	<%
-	double article_seq = Double.parseDouble(request.getParameter("article_seq"));
-	
 	tb_userVO vo = (tb_userVO) session.getAttribute("loginVO");
+	String user_id = request.getParameter("user_id");
+	
 	
 	tb_communityDAO dao = new tb_communityDAO();
-	tb_communityVO voList = dao.selectOne(article_seq);
+	tb_communityVO voList = dao.selectOne(user_id);
+	
 	
 	
 	 if(!vo.getUser_id().equals(voList.getUser_id())){
-		 dao.updateViews(article_seq);
+		 dao.updateViews(user_id);
 		
 	} 
+	 tb_userDAO dao2 = new tb_userDAO();
+		tb_userVO vo2 = dao2.articleNick(user_id);
+		
 	%>
 
 
@@ -376,7 +381,7 @@
 									
 								</tr>
 								<tr style = "border-bottom : 2px solid gray; height : 20px;">
-									<td style="width : 80%"><%=vo.getUser_nick() %>&nbsp;&nbsp;(<%=voList.getUser_id()%>) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%=voList.getArticle_date()%></td>
+									<td style="width : 80%"><%=vo2.getUser_nick() %>&nbsp;&nbsp;(<%=voList.getUser_id()%>) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%=voList.getArticle_date()%></td>
 								
 								
 									<td>ÃßÃµ¼ö : <%=voList.getArticle_likes()%></td>
