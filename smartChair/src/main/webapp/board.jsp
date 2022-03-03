@@ -45,7 +45,7 @@
 		
 	} 
 	 tb_userDAO dao2 = new tb_userDAO();
-		tb_userVO vo2 = dao2.articleNick(user_id);
+		String db_user_nick = dao2.articleNick(user_id);
 		
 	%>
 
@@ -381,7 +381,7 @@
 									
 								</tr>
 								<tr style = "border-bottom : 2px solid gray; height : 20px;">
-									<td style="width : 80%"><%=vo2.getUser_nick() %>&nbsp;&nbsp;(<%=voList.getUser_id()%>) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%=voList.getArticle_date()%></td>
+									<td style="width : 80%"><%=db_user_nick %>&nbsp;&nbsp;(<%=voList.getUser_id()%>) &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<%=voList.getArticle_date()%></td>
 								
 								
 									<td>ÃßÃµ¼ö : <%=voList.getArticle_likes()%></td>

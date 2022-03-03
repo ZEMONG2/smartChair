@@ -120,8 +120,8 @@ public class tb_userDAO {
 		return vo;
 	}
 
-	public tb_userVO articleNick(String user_id) {
-		tb_userVO vo2 = null;
+	public String articleNick(String user_id) {
+		String db_user_nick="";
 		try {
 			connect();
 
@@ -136,9 +136,8 @@ public class tb_userDAO {
 
 				System.out.println("체크");
 
-				String db_user_nick = rs.getString(1);
+				db_user_nick = rs.getString(1);
 				
-				vo2 = new tb_userVO(db_user_nick);
 			} else {
 				System.out.println("일치하는 회원 없음");
 			}
@@ -148,7 +147,7 @@ public class tb_userDAO {
 		} finally {
 			close();
 		}
-		return vo2;
+		return db_user_nick;
 	}
 
 	public int reset(String user_id, String user_name, String user_pw) {
