@@ -391,12 +391,14 @@
 									<td>조회수 : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://172.30.1.38:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"><br><br>
+									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://172.30.1.38:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+									style = "width : 300px; height : 300px;"><br><br>
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
-							</table>
-							<div></div>
+							</table><br><br>
+							<div style = "text-align : center;">
 							<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">돌아가기</button>
+							</div>
 							</div>
 						
 						<div class="btnSet">
