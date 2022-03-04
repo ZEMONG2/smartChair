@@ -56,10 +56,12 @@ public class DeleteCon extends HttpServlet {
 			     System.out.println(user_id + "\t" + user_pw);
 			     response.sendRedirect("login.jsp");
 			}else {
+				response.sendRedirect("DeleteF.jsp");
 				System.out.println("비밀번호 틀림");
 			}
 			
 			}else {
+				response.sendRedirect("DeleteF2.jsp");
 				System.out.println("아이디가 존재하지 않음");
 			}
 			

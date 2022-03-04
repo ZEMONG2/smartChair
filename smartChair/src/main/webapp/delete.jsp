@@ -50,10 +50,12 @@ try {
 	     response.sendRedirect("login.jsp");
 	}else {
 		System.out.println("비밀번호 틀림");
+		response.sendRedirect("DeleteF.jsp");
 	}
 	
 	}else {
 		System.out.println("아이디가 존재하지 않음");
+		response.sendRedirect("DeleteF2.jsp");
 	}
 	
 } catch (Exception e) {
