@@ -120,32 +120,48 @@ public class tb_userDAO {
 		return vo;
 	}
 
-	public String articleNick(int articleSEQ) {
+	public String selectId(int articleSEQ) {
 		String user_id = "";
-		String user_nick = "";
 		try {
-			connect();
 			
 			String sql2 = "select user_id from tb_community where article_seq = ?";
-			
+			System.out.println("아이디 추출");
 			psmt = conn.prepareStatement(sql2);
 			psmt.setInt(1, articleSEQ);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				user_id = rs.getString(1);
 			}
+			System.out.println("추출한 아이디 : "+ user_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		return user_id;
+	}
+	
+	public String articleNick(int articleSEQ) {
+		String user_id = "";
+		String user_nick = "";
+		try {
+			connect();
+			
+			user_id = selectId(articleSEQ);
 			String sql = "select user_nick from tb_user where user_id = ?";
+			
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_id);
 			rs = psmt.executeQuery();
 			System.out.println("체크 1 : " + user_id);
-			System.out.println("실행여부 : " + rs.next());
+
 			if (rs.next()) {
 
-				System.out.println("체크");
+				System.out.println("체크2");
 
 				user_nick = rs.getString(1);
+				System.out.println("닉네임 추출 : " + user_nick);
 				
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -157,6 +173,7 @@ public class tb_userDAO {
 			close();
 		}
 		return user_nick;
+		
 	}
 
 	public int reset(String user_id, String user_name, String user_pw) {
