@@ -4,6 +4,7 @@
 <%@page import="dao.tb_communityDAO"%>
 <%@page import="dao.tb_userDAO"%>
 <%@page import="vo.tb_communityVO"%>
+  <%@page import="java.net.InetAddress"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +50,13 @@
 	 tb_userDAO dao2 = new tb_userDAO();
 	 String db_user_nick = dao2.articleNick(articleSEQ);
 		
+	 String ipAddress=request.getRemoteAddr();
+	 if(ipAddress.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
+	     InetAddress inetAddress=InetAddress.getLocalHost();
+	     ipAddress=inetAddress.getHostAddress();
+	 }
+	 System.out.println("클라이언트IP 주소: "+ipAddress);
+	 
 	%>
 
 
@@ -391,7 +399,7 @@
 									<td>조회수 : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://172.30.1.38:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://<%=ipAddress %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
 									style = "width : 300px; height : 300px;"><br><br>
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
