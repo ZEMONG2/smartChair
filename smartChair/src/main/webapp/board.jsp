@@ -396,13 +396,29 @@
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
 							</table><br><br>
+							<div class="like-content" style = "display: inline-block;
+															    width: 100%;
+															   
+															    font-size: 18px;
+															    text-align: center;">
+  
+								  <button class="btn-secondary like-review">
+								    <i class="fa fa-heart" aria-hidden="true"></i> Like
+								  </button>
+								<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">돌아가기</button>
+								  
+							</div>
 							<div style = "text-align : center;">
-							<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">돌아가기</button>
 							</div>
 							</div>
 						
 						<div class="btnSet">
 						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
 					
 				
 
@@ -410,5 +426,16 @@
 				<script type="text/javascript"
 					src="js/need_check.js?v=<%=new java.util.Date().getTime()%>"></script>
 				<script type="text/javascript" src="js/file_attach.js"></script>
+				
+				<!-- 좋아요 버튼 -->
+				<script>
+				$(function(){
+					$(document).one('click', '.like-review', function(e) {
+					$(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
+					$(this).children('.fa-heart').addClass('animate-like');
+					});
+					});
+				
+				</script>
 </body>
 </html>
