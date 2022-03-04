@@ -412,7 +412,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 									        %>
 									         <tr style = "text-align : center;">
 									         	<td><%=al.get(i).getArticle_seq() %></td>
-									         	<td><a href="board.jsp?user_id=<%=al.get(i).getUser_id() %>"><%=al.get(i).getArticle_title() %></a></td>
+									         	<td><a href="board.jsp?article_seq=<%=al.get(i).getArticle_seq() %>"><%=al.get(i).getArticle_title() %></a></td>
 									         	<td><%=al.get(i).getUser_id() %></td>
 									         	<td><%=al.get(i).getArticle_date() %></td>
 									         	<td><%=al.get(i).getArticle_likes() %></td>
