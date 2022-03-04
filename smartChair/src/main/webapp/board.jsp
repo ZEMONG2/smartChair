@@ -40,6 +40,7 @@
 	tb_communityDAO dao = new tb_communityDAO();
 	tb_communityVO voList = dao.selectOne(articleSEQ);
 	
+	System.out.println("디비에서 불러온 아이피 : " + voList.getUser_ip());
 	
 	
 	 if(!vo.getUser_id().equals(voList.getUser_id())){
@@ -50,12 +51,12 @@
 	 tb_userDAO dao2 = new tb_userDAO();
 	 String db_user_nick = dao2.articleNick(articleSEQ);
 		
-	 String ipAddress=request.getRemoteAddr();
-	 if(ipAddress.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
+	 String user_ip=request.getRemoteAddr();
+	 if(user_ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
 	     InetAddress inetAddress=InetAddress.getLocalHost();
-	     ipAddress=inetAddress.getHostAddress();
+	     user_ip=inetAddress.getHostAddress();
 	 }
-	 System.out.println("클라이언트IP 주소: "+ipAddress);
+	 System.out.println("클라이언트IP 주소2: "+user_ip);
 	 
 	%>
 
@@ -399,7 +400,7 @@
 									<td>조회수 : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://<%=ipAddress %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
 									style = "width : 300px; height : 300px;"><br><br>
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>

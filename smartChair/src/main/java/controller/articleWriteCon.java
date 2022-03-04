@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletContext;
@@ -50,8 +51,17 @@ public class articleWriteCon extends HttpServlet {
 			System.out.println("제목 : " +article_title);
 			System.out.println("내용 : "+article_content);
 			System.out.println("파일명 : " +article_file);
+			
+			 String user_ip=request.getRemoteAddr();
+			 if(user_ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
+			     InetAddress inetAddress=InetAddress.getLocalHost();
+			     user_ip=inetAddress.getHostAddress();
+			 }
+			 System.out.println("클라이언트IP 주소: "+user_ip);
+			
+			
 			try {
-				int cnt = dao.inputCommunity(article_title, article_content, article_file, user_id);
+				int cnt = dao.inputCommunity(article_title, article_content, article_file, user_id, user_ip);
 				String moveUrl = "";
 				if(cnt > 0) {
 					System.out.println("저장완료");

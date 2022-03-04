@@ -27,6 +27,9 @@ public class tb_communityVO {
 
     // 글 좋아요수 
     private int article_likes;
+    
+    // 작성자 아이피
+    private String user_ip;
 
 	public int getArticle_seq() {
 		return article_seq;
@@ -91,9 +94,17 @@ public class tb_communityVO {
 	public void setArticle_likes(int article_likes) {
 		this.article_likes = article_likes;
 	}
+	
+	public String getUser_ip() {
+		return user_ip;
+	}
+
+	public void setUser_ip(String user_ip) {
+		this.user_ip = user_ip;
+	}
 
 	public tb_communityVO(int article_seq, String article_title, String article_content, String article_file,
-			Date article_date, String user_id, int article_cnt, int article_likes) {
+			Date article_date, String user_id, int article_cnt, int article_likes, String user_ip) {
 		super();
 		this.article_seq = article_seq;
 		this.article_title = article_title;
@@ -103,6 +114,7 @@ public class tb_communityVO {
 		this.user_id = user_id;
 		this.article_cnt = article_cnt;
 		this.article_likes = article_likes;
+		this.user_ip = user_ip;
 	}
 
     

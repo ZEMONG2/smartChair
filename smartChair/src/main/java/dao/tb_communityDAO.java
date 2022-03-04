@@ -44,13 +44,12 @@ public class tb_communityDAO {
 		}
 	}
 	
-	public int inputCommunity(String article_title, String article_content, String article_file,String user_id){
+	public int inputCommunity(String article_title, String article_content, String article_file,String user_id, String user_ip){
 		int cnt = 0;
 		try {
 			connect();
-			
 			System.out.println("체크1");
-			String sql = "INSERT INTO tb_community (article_title, article_content, article_file, article_date, user_id) values(?,?,?,sysdate,?)";
+			String sql = "INSERT INTO tb_community (article_seq, article_title, article_content, article_file, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,?,sysdate,?,?)";
 			
 			psmt = conn.prepareStatement(sql);
 			
@@ -59,6 +58,7 @@ public class tb_communityDAO {
 				psmt.setString(2, article_content);
 				psmt.setString(3, article_file);
 				psmt.setString(4, user_id);
+				psmt.setString(5, user_ip);
 				cnt = psmt.executeUpdate();
 
 			
@@ -96,7 +96,8 @@ public class tb_communityDAO {
 				String user_id2 = rs.getString(6);
 				int article_cnt2 = rs.getInt(7);
 				int article_likes2 = rs.getInt(8);
-				tb_communityVO vo = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2);
+				String user_ip2 = rs.getString(9);
+				tb_communityVO vo = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2, user_ip2);
 				al.add(vo);
 			}
 			
@@ -128,7 +129,8 @@ public class tb_communityDAO {
 				String user_id2 = rs.getString(6);
 				int article_cnt2 = rs.getInt(7);
 				int article_likes2 = rs.getInt(8);
-				voList = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2);
+				String user_ip2 = rs.getString(9);
+				voList = new tb_communityVO(article_seq2, article_title2, article_content2, article_file2, article_date2, user_id2, article_cnt2, article_likes2, user_ip2);
 				System.out.println("게시물정보 가져오기 체크");
 			}
 			
