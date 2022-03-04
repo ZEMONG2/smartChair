@@ -32,20 +32,22 @@
 <body>
 	<%
 	tb_userVO vo = (tb_userVO) session.getAttribute("loginVO");
-	String user_id = request.getParameter("user_id");
+	String article_seq = request.getParameter("article_seq");
+	int articleSEQ = Integer.parseInt(article_seq);
 	
 	
 	tb_communityDAO dao = new tb_communityDAO();
-	tb_communityVO voList = dao.selectOne(user_id);
+	tb_communityVO voList = dao.selectOne(articleSEQ);
 	
 	
 	
 	 if(!vo.getUser_id().equals(voList.getUser_id())){
-		 dao.updateViews(user_id);
+		 dao.updateViews(articleSEQ);
 		
 	} 
+	 
 	 tb_userDAO dao2 = new tb_userDAO();
-		String db_user_nick = dao2.articleNick(user_id);
+	 String db_user_nick = dao2.articleNick(articleSEQ);
 		
 	%>
 

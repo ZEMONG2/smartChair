@@ -5,7 +5,7 @@ import java.util.Date;
 public class tb_communityVO {
 
     // 글 순번 
-    private Double article_seq;
+    private int article_seq;
 
     // 글 제목 
     private String article_title;
@@ -23,16 +23,16 @@ public class tb_communityVO {
     private String user_id;
 
     // 글 조회수 
-    private Double article_cnt;
+    private int article_cnt;
 
     // 글 좋아요수 
-    private Double article_likes;
+    private int article_likes;
 
-	public Double getArticle_seq() {
+	public int getArticle_seq() {
 		return article_seq;
 	}
 
-	public void setArticle_seq(Double article_seq) {
+	public void setArticle_seq(int article_seq) {
 		this.article_seq = article_seq;
 	}
 
@@ -76,24 +76,24 @@ public class tb_communityVO {
 		this.user_id = user_id;
 	}
 
-	public Double getArticle_cnt() {
+	public int getArticle_cnt() {
 		return article_cnt;
 	}
 
-	public void setArticle_cnt(Double article_cnt) {
+	public void setArticle_cnt(int article_cnt) {
 		this.article_cnt = article_cnt;
 	}
 
-	public Double getArticle_likes() {
+	public int getArticle_likes() {
 		return article_likes;
 	}
 
-	public void setArticle_likes(Double article_likes) {
+	public void setArticle_likes(int article_likes) {
 		this.article_likes = article_likes;
 	}
 
-	public tb_communityVO(Double article_seq, String article_title, String article_content, String article_file,
-			Date article_date, String user_id, Double article_cnt, Double article_likes) {
+	public tb_communityVO(int article_seq, String article_title, String article_content, String article_file,
+			Date article_date, String user_id, int article_cnt, int article_likes) {
 		super();
 		this.article_seq = article_seq;
 		this.article_title = article_title;

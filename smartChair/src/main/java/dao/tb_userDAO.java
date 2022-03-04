@@ -120,11 +120,20 @@ public class tb_userDAO {
 		return vo;
 	}
 
-	public String articleNick(String user_id) {
-		String db_user_nick="";
+	public String articleNick(int articleSEQ) {
+		String user_id = "";
+		String user_nick = "";
 		try {
 			connect();
-
+			
+			String sql2 = "select user_id from tb_community where article_seq = ?";
+			
+			psmt = conn.prepareStatement(sql2);
+			psmt.setInt(1, articleSEQ);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				user_id = rs.getString(1);
+			}
 			String sql = "select user_nick from tb_user where user_id = ?";
 
 			psmt = conn.prepareStatement(sql);
@@ -136,7 +145,7 @@ public class tb_userDAO {
 
 				System.out.println("체크");
 
-				db_user_nick = rs.getString(1);
+				user_nick = rs.getString(1);
 				
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -147,7 +156,7 @@ public class tb_userDAO {
 		} finally {
 			close();
 		}
-		return db_user_nick;
+		return user_nick;
 	}
 
 	public int reset(String user_id, String user_name, String user_pw) {
