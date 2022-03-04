@@ -9,6 +9,7 @@ INSERT INTO tb_user (user_id, user_pw, user_name, user_nick, user_tel, user_gend
 INSERT INTO tb_user (user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno) VALUES ('9@9.9', '9', '9', '9', '999-9999-9999', 'women', '1993/07/05', sysdate, 'N');
 
 select * from tb_user;
+select * from tb_community;
 
 alter table tb_user modify user_gender varchar2(20);
 

@@ -391,7 +391,7 @@
 									<td>Á¶È¸¼ö : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2" ><img src="FileUpload/<%=voList.getArticle_file() %>"><br><br>
+									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://172.30.1.38:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"><br><br>
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
 							</table>

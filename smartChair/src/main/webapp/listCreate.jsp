@@ -370,7 +370,7 @@
 								<tr>
 									<th style="text-align: center;">ÆÄÀÏ Ã·ºÎ</th>
 									<td class="left"><label> <input type="file"
-											name="file" id="attach-file" accept="image/png, image/jpeg"/>
+											name="file" id="attach-file">
 									</label> <span id="file-name"></span></td>
 								</tr>
 							</table>

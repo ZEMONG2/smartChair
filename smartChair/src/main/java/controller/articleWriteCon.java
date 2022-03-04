@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -32,7 +33,7 @@ public class articleWriteCon extends HttpServlet {
 		System.out.println(saveDir);
 		int maxSize = 3 * 1024 * 1024 ;
 		String encoding ="euc-kr";
-	
+		//String path = "http://172.30.1.38:8081/smartChair/FileUpload/";
 		boolean isMulti = ServletFileUpload.isMultipartContent(request);
 		if(isMulti) {
 			MultipartRequest multi = new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
@@ -43,8 +44,8 @@ public class articleWriteCon extends HttpServlet {
 			String user_id = vo.getUser_id(); 
 			String article_title = multi.getParameter("title");
 			String article_content = multi.getParameter("content");
-			String article_file = multi.getFilesystemName("file");
-			
+			String article_file = URLEncoder.encode(multi.getFilesystemName("file"));
+		
 			System.out.println("아이디 : " +user_id);
 			System.out.println("제목 : " +article_title);
 			System.out.println("내용 : "+article_content);
