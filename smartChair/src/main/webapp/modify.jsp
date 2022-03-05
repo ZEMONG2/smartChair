@@ -411,6 +411,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                     <ul class = "amount">
                                         <li>
                                             <div>
+                                            <!-- 닉네임 세션값으로 인풋값과 비교해서 같으면 업데이트하지않고 다르면 같이 업데이트 -->
                                                 <div class="name">닉네임</div>
                                             </div>
                                         </li>
