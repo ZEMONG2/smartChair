@@ -396,8 +396,8 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         </li>
                                         <li>
                                             <div>
-                                                <div class="name"><%=vo.getUser_nick() %></div>
-                                               
+                                                <input type = "text" name = "user_nick" id = "user_nick" placeholder="닉네임을 입력하세요"
+                                                style = "text-align : center; ">
                                             </div>
                                         </li>
                                     </ul>

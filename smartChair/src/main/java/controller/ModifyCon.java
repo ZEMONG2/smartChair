@@ -28,8 +28,9 @@ public class ModifyCon extends HttpServlet {
 		String user_pw1 = request.getParameter("user_pw1");
 		String user_pw2 = request.getParameter("user_pw2");
 		String user_pw = request.getParameter("user_pw");
+		String user_nick = request.getParameter("user_nick");
+		String sess_nick = vo.getUser_nick();
 		String user_name = vo.getUser_name();
-		String user_nick = vo.getUser_nick();
 		String user_tel = request.getParameter("user_tel");
 		String user_gender = vo.getUser_gender();
 		String user_birthday = vo.getUser_birthday();
@@ -41,7 +42,7 @@ public class ModifyCon extends HttpServlet {
 		System.out.println("세션에 저장된 현비밀번호 : " +sess_pw);
 		System.out.println("입력한 현재비밀번호 : " +user_pw);
 		tb_userDAO dao = new tb_userDAO();
-		int cnt = dao.modify(user_id, user_pw1, user_tel);
+		int cnt = dao.modify(user_id, user_pw1, user_tel, user_nick, sess_nick);
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");

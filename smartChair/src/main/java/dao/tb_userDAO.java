@@ -197,18 +197,30 @@ public class tb_userDAO {
 		return cnt;
 	}
 
-	public int modify(String user_id, String user_pw, String user_tel) {
+	public int modify(String user_id, String user_pw, String user_tel, String user_nick, String sess_nick) {
 
 		int cnt = 0;
 		try {
 			connect();
+			
+			if(user_nick.equals(sess_nick)) {
+				String sql = "update tb_user set user_pw = ?, user_tel = ? where user_id = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, user_pw);
+				psmt.setString(2, user_tel);
+				psmt.setString(3, user_id);
+				cnt = psmt.executeUpdate();
+			}else if(!user_nick.equals(sess_nick)) {
+				String sql = "update tb_user set user_pw = ?, user_tel = ?, user_nick = ? where user_id = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, user_pw);
+				psmt.setString(2, user_tel);
+				psmt.setString(3, user_nick);
+				psmt.setString(4, user_id);
+				cnt = psmt.executeUpdate();
+			}
 
-			String sql = "update tb_user set user_pw = ?, user_tel = ? where user_id = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, user_pw);
-			psmt.setString(2, user_tel);
-			psmt.setString(3, user_id);
-			cnt = psmt.executeUpdate();
+		
 
 		} catch (Exception e) {
 			e.printStackTrace();
