@@ -24,7 +24,9 @@ public class ModifyCon extends HttpServlet {
 		tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 	
 		String user_id = vo.getUser_id();
+		String sess_pw = vo.getUser_pw();
 		String user_pw1 = request.getParameter("user_pw1");
+		String user_pw2 = request.getParameter("user_pw2");
 		String user_pw = request.getParameter("user_pw");
 		String user_name = vo.getUser_name();
 		String user_nick = vo.getUser_nick();
@@ -34,6 +36,10 @@ public class ModifyCon extends HttpServlet {
 		Date user_joindate = vo.getUser_joindate();
 		String admin_yesno = vo.getAdmin_yesno();
 		
+	if(user_pw.equals(sess_pw) && user_pw1.equals(user_pw2)) {
+		
+		System.out.println("세션에 저장된 현비밀번호 : " +sess_pw);
+		System.out.println("입력한 현재비밀번호 : " +user_pw);
 		tb_userDAO dao = new tb_userDAO();
 		int cnt = dao.modify(user_id, user_pw1, user_tel);
 		
@@ -42,13 +48,16 @@ public class ModifyCon extends HttpServlet {
 			vo = new tb_userVO(user_id, user_pw1, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("index.jsp");
-			System.out.println(user_pw);
-			System.out.println(user_pw1);
+			
+			System.out.println("변경할 비밀번호 : "+user_pw1);
 		}else {
 			System.out.println("회원정보수정 실패");
 			response.sendRedirect("modify.jsp");
 		}
-		
+	}else {
+		System.out.println("회원정보수정 실패");
+		response.sendRedirect("modify.jsp");
+	}
 		
 	}
 
