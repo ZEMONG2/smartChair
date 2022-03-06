@@ -48,16 +48,16 @@ public class ModifyCon extends HttpServlet {
 			System.out.println("회원정보수정 성공");
 			vo = new tb_userVO(user_id, user_pw1, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
 			session.setAttribute("loginVO", vo);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("modifyS.jsp");
 			
 			System.out.println("변경할 비밀번호 : "+user_pw1);
 		}else {
 			System.out.println("회원정보수정 실패");
-			response.sendRedirect("modify.jsp");
+			response.sendRedirect("modifyF.jsp");
 		}
 	}else {
 		System.out.println("회원정보수정 실패");
-		response.sendRedirect("modify.jsp");
+		response.sendRedirect("modifyF.jsp");
 	}
 		
 	}
