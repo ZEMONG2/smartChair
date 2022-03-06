@@ -61,6 +61,34 @@ public class tb_communityDAO {
 				psmt.setString(5, user_ip);
 				cnt = psmt.executeUpdate();
 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		
+		return cnt;
+	
+	}
+	
+	public int inputCommunity2(String article_title, String article_content,String user_id, String user_ip){
+		int cnt = 0;
+		try {
+			connect();
+			System.out.println("체크1");
+			String sql = "INSERT INTO tb_community (article_seq, article_title, article_content, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,sysdate,?,?)";
+			
+			psmt = conn.prepareStatement(sql);
+			
+				System.out.println("체크2");
+				psmt.setString(1, article_title);
+				psmt.setString(2, article_content);
+				psmt.setString(3, user_id);
+				psmt.setString(4, user_ip);
+				cnt = psmt.executeUpdate();
+
 			
 			
 
@@ -72,10 +100,6 @@ public class tb_communityDAO {
 		}
 		
 		return cnt;
-	
-		
-		
-		
 	}
 	public ArrayList<tb_communityVO> outputCommunity(){
 		ArrayList<tb_communityVO> al = new ArrayList<tb_communityVO>();

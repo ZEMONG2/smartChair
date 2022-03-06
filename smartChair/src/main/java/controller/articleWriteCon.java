@@ -61,18 +61,31 @@ public class articleWriteCon extends HttpServlet {
 			
 			
 			try {
+				if(article_file != null) {
 				int cnt = dao.inputCommunity(article_title, article_content, article_file, user_id, user_ip);
 				String moveUrl = "";
 				if(cnt > 0) {
 					System.out.println("저장완료");
-				moveUrl = "list.jsp";
+				moveUrl = "listCreateS.jsp";
 				}else {
 					System.out.println("저장실패");
-					moveUrl = "listCreate.jsp";
+					moveUrl = "listCreateF.jsp";
 					
 				}
 				response.sendRedirect(moveUrl);
-				
+				}else {
+					int cnt = dao.inputCommunity2(article_title, article_content, user_id, user_ip);
+					String moveUrl = "";
+					if(cnt > 0) {
+						System.out.println("저장완료");
+					moveUrl = "listCreateS.jsp";
+					}else {
+						System.out.println("저장실패");
+						moveUrl = "listCreateF.jsp";
+						
+					}
+					response.sendRedirect(moveUrl);
+				}
 			}catch(Exception e){
 				e.printStackTrace();
 			}

@@ -381,7 +381,11 @@
 									<td>Á¶È¸¼ö : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2" ><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+									<td style="text-align: center; height : auto;" colspan="2" ><%if(voList.getArticle_file() != null){
+																								%><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+																								<%}else{ %>
+																								<%} %>
+									}
 									style = "width : 300px; height : 300px;"><br><br>
 									<br><pre><%=voList.getArticle_content()%></pre></td>
 								</tr>
