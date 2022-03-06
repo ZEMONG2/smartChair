@@ -432,7 +432,7 @@
   			for(int i = al.size()-1; i>=0;i--){
  			 %>
 			
-				<li class="list-group-item"><span><%=al.get(i).getUser_id()%> : <%=al.get(i).getComment_content()%></span></li>
+				<li class="list-group-item"><span><%=al.get(i).getUser_id()%> : <%=al.get(i).getComment_content()%> 작성시간 : <%=al.get(i).getComment_date()%></span></li>
 			
 			<%
 			} 
@@ -469,12 +469,12 @@ function addReply(){
 	let replyDiv = document.querySelector('#reply')
 	
 	//JSON({키 : 실제값}) 형식 데이터 만들기
-	let data = {'boardnum' : <%=num %>, 'reply' : ta.value}
+	let data = {'article_seq' : <%=articleSEQ %>, 'reply' : ta.value}
 	
 	let xhr = new XMLHttpRequest()
 	
 	//요청방식, 요청경로
-	xhr.open('post', 'replyService')
+	xhr.open('post', 'CommentCon')
 	//전송데이터의 형식
 	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
 	//요청 & 전송할 데이터
@@ -491,7 +491,7 @@ function addReply(){
             		var newli = document.createElement("li");
                     replyDiv.insertBefore(newli, replyDiv.firstChild);
                     replyDiv.firstChild.setAttribute("class","list-group-item")
-                    replyDiv.firstChild.innerHTML += "<span><%=member.getId()%> : " +ta.value + "</span>"
+                    replyDiv.firstChild.innerHTML += "<span><%=vo.getUser_id()%> : " +ta.value + "</span>"
                     ta.value="";
             	} else {
             	}

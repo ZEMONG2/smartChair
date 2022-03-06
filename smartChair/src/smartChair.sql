@@ -1,5 +1,6 @@
 select * from tb_user;
 select * from tb_community;
+select * from tb_comment;
 
 DROP TABLE TB_USER CASCADE CONSTRAINTS;
 DROP TABLE TB_COMMUNITY CASCADE CONSTRAINTS;

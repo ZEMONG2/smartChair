@@ -75,8 +75,30 @@ public class tb_commentDAO {
 		return al;
 	}
 
+	public int insertReply(int article_seq, String comment, String user_id) {
+		int cnt=0;
+	try {
+		connect();
+
+		String sql = "insert into tb_comment values(tb_comment_seq.nextval,?,?,sysdate,?)";
+		;
+		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, article_seq);
+		psmt.setString(2, comment);
+		psmt.setString(3, user_id);
+		cnt = psmt.executeUpdate();
+
+		
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+	}
 	
-	
+	return cnt;
+	}
 	
 	
 	
