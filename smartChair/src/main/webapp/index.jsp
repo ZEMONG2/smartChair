@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MESSIAH - Main</title>
+    <title>MESSIAH - main</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,44 +22,13 @@
     <link href="css/sb-admin-2.css" rel="stylesheet">
    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Day','Time'],
-          ['2/10', 6],
-          ['2/11', 9],
-          ['2/12', 7],
-          ['2/13', 5],
-          ['2/14', 3],
-          ['2/15', 9],
-          ['2/16', 10]
-        ]);
-
-        var options = {
-            responsive : false,
-          chart: {
-            
-           
-          }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-     
-
-   
     
 </head>
 
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -140,11 +109,15 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
             </li>
 
             <!-- Nav Item - Tables -->
+            <% if(vo.getAdmin_yesno().equals("Y")){ %>
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
                     <span>사용자테이블</span></a>
             </li>
+            <% }else{%>
+            <%}%>
+            
             <li class="nav-item">
                 <a class="nav-link" href="list.jsp">
                     <i class="fas fa-fw fa-table"></i>
@@ -343,7 +316,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=vo.getUser_nick()%></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=vo.getUser_nick()%></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
