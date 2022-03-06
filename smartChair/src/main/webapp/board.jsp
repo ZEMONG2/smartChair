@@ -421,7 +421,7 @@
 			<p>댓글</p>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item">
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="댓글을 입력해주세요."></textarea>
 					<button type="button" class="btn btn-dark mt-3"onclick="addReply()">댓글작성</button>
 				</li>
 			</ul>
@@ -432,7 +432,7 @@
   			for(int i = al.size()-1; i>=0;i--){
  			 %>
 			
-				<li class="list-group-item"><span><%=al.get(i).getUser_id()%> : <%=al.get(i).getComment_content()%> 작성시간 : <%=al.get(i).getComment_date()%></span></li>
+				<li class="list-group-item"><span><%=vo.getUser_nick()%> : <%=al.get(i).getComment_content()%> 작성시간 : <%=al.get(i).getComment_date()%></span></li>
 			
 			<%
 			} 
