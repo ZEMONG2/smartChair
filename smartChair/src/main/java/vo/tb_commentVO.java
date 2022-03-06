@@ -5,10 +5,10 @@ import java.util.Date;
 public class tb_commentVO {
 
     // 댓글 순번 
-    private Double comment_seq;
+    private int comment_seq;
 
     // 원글 순번 
-    private Double article_seq;
+    private int article_seq;
 
     // 댓글 내용 
     private String comment_content;
@@ -19,19 +19,19 @@ public class tb_commentVO {
     // 댓글 작성자 
     private String user_id;
 
-	public Double getComment_seq() {
+	public int getComment_seq() {
 		return comment_seq;
 	}
 
-	public void setComment_seq(Double comment_seq) {
+	public void setComment_seq(int comment_seq) {
 		this.comment_seq = comment_seq;
 	}
 
-	public Double getArticle_seq() {
+	public int getArticle_seq() {
 		return article_seq;
 	}
 
-	public void setArticle_seq(Double article_seq) {
+	public void setArticle_seq(int article_seq) {
 		this.article_seq = article_seq;
 	}
 
@@ -56,6 +56,15 @@ public class tb_commentVO {
 	}
 
 	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public tb_commentVO(int comment_seq, int article_seq, String comment_content, Date comment_date, String user_id) {
+		super();
+		this.comment_seq = comment_seq;
+		this.article_seq = article_seq;
+		this.comment_content = comment_content;
+		this.comment_date = comment_date;
 		this.user_id = user_id;
 	}
     

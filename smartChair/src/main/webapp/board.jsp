@@ -4,7 +4,10 @@
 <%@page import="dao.tb_communityDAO"%>
 <%@page import="dao.tb_userDAO"%>
 <%@page import="vo.tb_communityVO"%>
+<%@page import="dao.tb_commentDAO"%>
+<%@page import="vo.tb_commentVO"%>
   <%@page import="java.net.InetAddress"%>
+   <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +42,9 @@
 	
 	tb_communityDAO dao = new tb_communityDAO();
 	tb_communityVO voList = dao.selectOne(articleSEQ);
+	
+	tb_commentDAO daoReply = new tb_commentDAO();
+	ArrayList<tb_commentVO> al = daoReply.selectAll();
 	
 	System.out.println("디비에서 불러온 아이피 : " + voList.getUser_ip());
 	
@@ -395,6 +401,42 @@
 															   
 															    font-size: 18px;
 															    text-align: center;">
+															    
+															    
+															    
+															    
+															    
+															    
+															    
+															    
+															    
+								<!-- 댓글작성 -->
+	<div class="card mb-2">
+		<div class="card-body">
+			<p>댓글</p>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<button type="button" class="btn btn-dark mt-3"onclick="addReply()">댓글작성</button>
+				</li>
+			</ul>
+			<ul class="list-group list-group-flush" id="reply">
+
+				
+			<%
+  			for(int i = al.size()-1; i>=0;i--){
+ 			 %>
+			
+				<li class="list-group-item"><span><%=al.get(i).getUser_id()%> : <%=al.get(i).getComment_content()%></span></li>
+			
+			<%
+			} 
+			%>
+			</ul>
+		</div>
+	</div>
+	
+
   
 								  <button class="btn-secondary like-review">
 								    <i class="fa fa-heart" aria-hidden="true"></i> Like
@@ -414,8 +456,50 @@
 						<br>
 						<br>
 					
-				
+				<script>
 
+
+function addReply(){
+	let ta = document.querySelector('textarea')
+	let replyDiv = document.querySelector('#reply')
+	
+	//JSON({키 : 실제값}) 형식 데이터 만들기
+	let data = {'boardnum' : <%=num %>, 'reply' : ta.value}
+	
+	let xhr = new XMLHttpRequest()
+	
+	//요청방식, 요청경로
+	xhr.open('post', 'replyService')
+	//전송데이터의 형식
+	xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+	//요청 & 전송할 데이터
+	xhr.send(JSON.stringify(data))
+	
+	xhr.onreadystatechange = function(){
+		
+		if (xhr.readyState === XMLHttpRequest.DONE) { //요청성공
+            if (xhr.status === 200) { //응답성공	                    	
+            	console.log("응답성공")
+            	console.log(xhr.responseText) //응답데이터 확인 (responseXML)
+            	if(xhr.responseText === "success"){
+            		//history.go(0);
+            		var newli = document.createElement("li");
+                    replyDiv.insertBefore(newli, replyDiv.firstChild);
+                    replyDiv.firstChild.setAttribute("class","list-group-item")
+                    replyDiv.firstChild.innerHTML += "<span><%=member.getId()%> : " +ta.value + "</span>"
+                    ta.value="";
+            	} else {
+            	}
+            } else {
+                console.log("응답실패")
+            }
+        } else {
+            console.log("요청실패")
+        }
+		
+	}
+}				    
+</script>
 
 				<script type="text/javascript"
 					src="js/need_check.js?v=<%=new java.util.Date().getTime()%>"></script>
