@@ -110,11 +110,14 @@ String birthday = vo.getUser_birthday().substring(0, 10);
             </li>
 
             <!-- Nav Item - Tables -->
+            <% if(vo.getAdmin_yesno().equals("Y")){ %>
             <li class="nav-item">
                 <a class="nav-link" href="tables.jsp">
                     <i class="fas fa-fw fa-table"></i>
                     <span>사용자테이블</span></a>
             </li>
+            <% }else{%>
+            <%}%>
             <li class="nav-item">
                 <a class="nav-link" href="list.jsp">
                     <i class="fas fa-fw fa-table"></i>
