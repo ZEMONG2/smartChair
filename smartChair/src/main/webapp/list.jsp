@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no, user-scalable = yes">
+    <!-- <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, shrink-to-fit=no, user-scalable = yes">-->
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -404,7 +404,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
                                     </tbody>
                                 </table>
                                 <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'" 
-                                style = "width : 200px; position : absolute; right : 70px; bottom: 55px;">글쓰기</button>
+                                style = "width : 100px; position : absolute; right : 40px; bottom: 35px;">글쓰기</button>
                             </div>
                         </div>
                     </div>
