@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import oracle.sql.DATE;
+import vo.tb_userVO;
 
 public class tb_poseDAO {
 
@@ -41,23 +42,24 @@ public class tb_poseDAO {
          e2.printStackTrace();
       }
    }
-   public boolean pose_date(String pose_type, Date pose_start_dt, Date pose_end_dt, String user_id) {
-      boolean cnt = false;
+   public int pose_date(int pose_seq, String pose_type, Date pose_start_dt, Date pose_end_dt, String pose_system) {
+      int cnt = 0;
       
-      String db_user_id = "";
       try {
          connect();
          
-         String sql = "insert into tb_pose values(?, ?, ?, ?)";
+         String sql = "insert into tb_pose values(tb_pose_seq, ?, ?, ?, ?,?)";
          
          rs = psmt.executeQuery();
          
             psmt = conn.prepareStatement(sql);
+            psmt.setInt(1, pose_seq);
             psmt.setString(1, pose_type);
             psmt.setDate(2, pose_start_dt);
             psmt.setDate(3, pose_end_dt);
-            psmt.setString(4, user_id);
-            cnt = psmt.executeUpdate();
+            psmt.setString(4, pose_system);
+            psmt.setString(5, sql);
+             cnt = psmt.executeUpdate();
 
          
          
@@ -71,8 +73,33 @@ public class tb_poseDAO {
       
       return cnt;
    }
+        public void pose_type(String sc, String type) {
+   //   tb_poseVO vo = null;
+      try {
+         connect();
+         
+         String sql = "select sc from tb_pose where tb_pose_type = ?";
 
+         psmt = conn.prepareStatement(sql);
+         psmt.setString(1, sc);
+         psmt.setString(2, type);
+         rs = psmt.executeQuery();
+      
+         if (rs.next()) {
+            
+         } else {
+            System.out.println("일치하는 회원 없음");
+         }
+      
+      
+      
+      } catch (Exception e) {
+         e.printStackTrace();
+      } finally {
+         close();
+      }
+      return vo;
+   
    }
 
    
-}
