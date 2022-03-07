@@ -44,7 +44,7 @@
 	tb_communityVO voList = dao.selectOne(articleSEQ);
 	
 	tb_commentDAO daoReply = new tb_commentDAO();
-	ArrayList<tb_commentVO> al = daoReply.selectAll();
+	ArrayList<tb_commentVO> al = daoReply.selectAll(articleSEQ);
 	
 	System.out.println("디비에서 불러온 아이피 : " + voList.getUser_ip());
 	
@@ -491,7 +491,7 @@ function addReply(){
             		var newli = document.createElement("li");
                     replyDiv.insertBefore(newli, replyDiv.firstChild);
                     replyDiv.firstChild.setAttribute("class","list-group-item")
-                    replyDiv.firstChild.innerHTML += "<span><%=vo.getUser_id()%> : " +ta.value + "</span>"
+                    replyDiv.firstChild.innerHTML += "<span><%=vo.getUser_nick()%> : " +ta.value + "</span>"
                     ta.value="";
             	} else {
             	}

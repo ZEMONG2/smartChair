@@ -44,16 +44,16 @@ public class tb_commentDAO {
 	}
 	
 	
-	public ArrayList<tb_commentVO> selectAll() {
+	public ArrayList<tb_commentVO> selectAll(int articleSEQ) {
 
 		ArrayList<tb_commentVO> al = new ArrayList<tb_commentVO>();
 
 		try {
 			connect();
-			String sql = "select * from tb_comment";
+			String sql = "select * from tb_comment where article_seq = ? order by comment_seq asc";
 
 			psmt = conn.prepareStatement(sql);
-
+			psmt.setInt(1, articleSEQ);
 			rs = psmt.executeQuery();
 		
 
