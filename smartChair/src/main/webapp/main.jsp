@@ -73,9 +73,9 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="login.jsp">LOG IN</a></li>
-								<li><a href="register.html">SIGN UP</a></li>
+								<li><a href="#intro">INTRO</a></li>
+								<li><a href="login.jsp">LOGIN</a></li>
+								<li><a href="register.html">SIGNUP</a></li>
 								<li><a href="#content">COMMUNITY</a></li>
 								
 							</ul>
@@ -94,7 +94,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 							</article>
 							
 							<article id="content" style = "width: 1200px;">
-								<h2 class="major">community</h2>
+								<h2 class="major">Community</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 								<div class="card-body">
                             <div class="table-responsive">
@@ -129,7 +129,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 									        %>
 									         <tr style = "text-align : center;">
 									         	<td><%=al.get(i).getArticle_seq() %></td>
-									         	<td><a href="board.jsp?article_seq=<%=al.get(i).getArticle_seq() %>"><%=al.get(i).getArticle_title() %></a></td>
+									         	<td><a href="board2.jsp?article_seq=<%=al.get(i).getArticle_seq() %>"><%=al.get(i).getArticle_title() %></a></td>
 									         	<td><%=al.get(i).getUser_id() %></td>
 									         	<td><%=al.get(i).getArticle_date() %></td>
 									         	<td><%=al.get(i).getArticle_likes() %></td>
