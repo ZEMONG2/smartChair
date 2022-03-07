@@ -29,6 +29,7 @@ public class ModifyCon extends HttpServlet {
 		String user_pw2 = request.getParameter("user_pw2");
 		String user_pw = request.getParameter("user_pw");
 		String user_nick = request.getParameter("user_nick");
+		System.out.println("가져온 닉네임 : "+user_nick);
 		String sess_nick = vo.getUser_nick();
 		String user_name = vo.getUser_name();
 		String user_tel = request.getParameter("user_tel");
@@ -50,6 +51,7 @@ public class ModifyCon extends HttpServlet {
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("modifyS.jsp");
 			
+			System.out.println("변경할 닉네임 : "+user_nick);
 			System.out.println("변경할 비밀번호 : "+user_pw1);
 		}else {
 			System.out.println("회원정보수정 실패");
