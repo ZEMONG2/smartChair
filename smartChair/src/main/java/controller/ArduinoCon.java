@@ -1,11 +1,14 @@
 package controller;
 
 import java.io.IOException;
+import java.time.Instant;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Calendar;
 
 import dao.tb_poseDAO;
 import vo.tb_poseVO;
@@ -19,6 +22,14 @@ public class ArduinoCon extends HttpServlet {
     tb_poseVO vo = new tb_poseVO();
     tb_poseDAO dao = new tb_poseDAO();
     String a;
+    String product = "sc";
+    long start_time;
+    long end_time;
+    Date date = new Date();	
+    Calendar cal = Calendar.getInstance(); //추상클래스이므로 static method로 객체를 할당받는다.
+    String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH))
+	
+
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		a ="0";
@@ -29,17 +40,24 @@ public class ArduinoCon extends HttpServlet {
 		 
 		response.getWriter().append("Served at: ").append(request.getContextPath());//웹 연결
 	      String s =request.getParameter("sensor"); //센서 값 받아오기 
+	      
 	      System.out.println("현재 받아온 값 : "+s);
 	      if(!s.equals("0")) {
 	    	  if(vo.getPose_type().equals(s)) {
+	    		  start_time = date.getTime(); //현재 시간 측정
 	    		  System.out.println("앉기 시작");
-	    		  vo.setPose_type(s);
-	    		  vo.setPose_start_dt(null);
-	    	  }else {
-	    		  vo.setPose_end_dt(null);
-	    		  dao.date(값넣기);
-	    		 
+	    		  vo.setPose_type(s);//시작 타입 포즈 저장
 	    		  
+	    	  }else {
+	    		  long end = date.getTime();
+	    				 
+
+	    		  end_time = date.getTime();//끝시간 측정
+	    		  vo.setPose_time(end_time-start_time);//유지 시간 저장
+	    		  dao.pose_date(vo.getPose_type(),vo.getPose_time(),product,date2);//db 저장
+	    		  vo.setPose_type(s);//변경된 경우 이므로 타입 다시 저장
+	    		  start_time = (int) System.currentTimeMillis(); //변경된 자세 시작 시간 측정
+	    			  
 	    	  }
 	      }
 	      

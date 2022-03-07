@@ -10,14 +10,13 @@ public class tb_poseVO {
     // 자세 유형 
     private String pose_type;
 
-    // 자세 시작시간 
-    private Date pose_start_dt;
+    // 자세 유지시간 
+    private long pose_time;
 
-    // 자세 종료시간 
-    private Date pose_end_dt;
+       // 등록자 아이디 
+    private String pose_system;
 
-    // 등록자 아이디 
-    private String user_id;
+    private String date;
 
 	public Double getPose_seq() {
 		return pose_seq;
@@ -35,29 +34,32 @@ public class tb_poseVO {
 		this.pose_type = pose_type;
 	}
 
-	public Date getPose_start_dt() {
-		return pose_start_dt;
+	public long getPose_time() {
+		return pose_time;
 	}
 
-	public void setPose_start_dt(Date pose_start_dt) {
-		this.pose_start_dt = pose_start_dt;
+	public void setPose_time(long pose_time) {
+		this.pose_time = pose_time;
 	}
 
-	public Date getPose_end_dt() {
-		return pose_end_dt;
+	public String getPose_system() {
+		return pose_system;
 	}
 
-	public void setPose_end_dt(Date pose_end_dt) {
-		this.pose_end_dt = pose_end_dt;
+	public void setPose_system(String pose_system) {
+		this.pose_system = pose_system;
 	}
 
-	public String getUser_id() {
-		return user_id;
+	public String getDate() {
+		return date;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setDate(String date) {
+		this.date = date;
 	}
+
+	
+	
     
     
     

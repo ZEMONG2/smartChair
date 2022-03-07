@@ -42,23 +42,22 @@ public class tb_poseDAO {
          e2.printStackTrace();
       }
    }
-   public int pose_date(int pose_seq, String pose_type, Date pose_start_dt, Date pose_end_dt, String pose_system) {
+   public int pose_date(String pose_type, long pose_time, String pose_system, String date) {
       int cnt = 0;
       
       try {
          connect();
          
-         String sql = "insert into tb_pose values(tb_pose_seq, ?, ?, ?, ?,?)";
+         String sql = "insert into tb_pose values(tb_pose_seq, ?, ?, ?, ?)";
          
          rs = psmt.executeQuery();
          
             psmt = conn.prepareStatement(sql);
-            psmt.setInt(1, pose_seq);
+           
             psmt.setString(1, pose_type);
-            psmt.setDate(2, pose_start_dt);
-            psmt.setDate(3, pose_end_dt);
-            psmt.setString(4, pose_system);
-            psmt.setString(5, sql);
+            psmt.setDouble(2, pose_time);
+            psmt.setString(3, pose_system);
+            psmt.setString(4,date);
              cnt = psmt.executeUpdate();
 
          
@@ -73,20 +72,22 @@ public class tb_poseDAO {
       
       return cnt;
    }
-        public void pose_type(String sc, String type) {
+        public void pose_type(String sc) { //검색 조건 추가하기 
+        	
+        int time_sum = 0;
    //   tb_poseVO vo = null;
       try {
          connect();
          
-         String sql = "select sc from tb_pose where tb_pose_type = ?";
+         String sql = "select pose_type, pose_time, pose_date from tb_pose where sc = sc";
 
          psmt = conn.prepareStatement(sql);
          psmt.setString(1, sc);
-         psmt.setString(2, type);
+
          rs = psmt.executeQuery();
       
          if (rs.next()) {
-            
+        	
          } else {
             System.out.println("일치하는 회원 없음");
          }
@@ -98,8 +99,9 @@ public class tb_poseDAO {
       } finally {
          close();
       }
-      return vo;
    
    }
+}
+
 
    
