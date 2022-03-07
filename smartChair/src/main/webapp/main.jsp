@@ -76,7 +76,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 								<li><a href="#intro">INTRO</a></li>
 								<li><a href="login.jsp">LOGIN</a></li>
 								<li><a href="register.html">SIGNUP</a></li>
-								<li><a href="#content">COMMUNITY</a></li>
+								<li><a href="#content">ARTICLE</a></li>
 								
 							</ul>
 						</nav>
