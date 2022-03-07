@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="EUC-KR"%>
 <%@page import="vo.tb_userVO"%>
 <%@page import="dao.tb_communityDAO"%>
@@ -443,8 +443,8 @@
 	
 
   
-								  <button class="btn-secondary like-review">
-								    <i class="fa fa-heart" aria-hidden="true"></i> Like
+								  <button class="btn-secondary like-review" id='like'>
+								    <i class="fa fa-heart" aria-hidden="true"></i> 좋아요
 								  </button>
 								<button type="reset" class="ml-2 btn btn-primary" onclick = "location.href = 'list.jsp'">돌아가기</button>
 								  
@@ -511,14 +511,26 @@ function addReply(){
 				<script type="text/javascript" src="js/file_attach.js"></script>
 				
 				<!-- 좋아요 버튼 -->
-				<script>
-				$(function(){
-					$(document).one('click', '.like-review', function(e) {
-					$(this).html('<i class="fa fa-heart" aria-hidden="true"></i> You liked this');
-					$(this).children('.fa-heart').addClass('animate-like');
-					});
-					});
-				
-				</script>
+			
+				<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        
+        <script>
+        $(document).on('click','#like',function () {
+            
+            $(this).html("<i class='fa fa-heart' aria-hidden='true'></i> 좋아요 취소")
+            $(this).attr('id', 'dislike')
+            <%dao.updateLikesUp(articleSEQ);%>
+
+        })
+
+        $(document).on('click','#dislike',function () {
+            
+
+            $(this).html("<i class='fa fa-heart' aria-hidden='true'></i> 좋아요")
+            $(this).attr('id', 'like')
+            <%dao.updateLikesDown(articleSEQ);%>
+        })
+        </script>
 </body>
 </html>

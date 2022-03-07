@@ -374,6 +374,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 								            <th style = "width : 10%;">작성날짜</th>
 								            <th style = "width : 5%;">추천</th>
 								            <th style = "width : 5%;">조회</th>
+								            <th style = "width : 5%;">삭제</th>
 								          </tr>
                                     </thead>
                                     <tfoot>
@@ -384,6 +385,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 								            <th>작성날짜</th>
 								            <th>추천</th>
 								            <th>조회</th>
+								            <th>삭제</th>
 								          </tr>
                                     </tfoot>
                                     <tbody>
@@ -399,6 +401,11 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 									         	<td><%=al.get(i).getArticle_date() %></td>
 									         	<td><%=al.get(i).getArticle_likes() %></td>
 									         	<td><%=al.get(i).getArticle_cnt() %></td>
+									         	<td>
+									         	<%if(al.get(i).getUser_id().equals(vo.getUser_id())){%>
+									         		<a href="DeleteArticleCon?article_seq=<%=al.get(i).getArticle_seq() %>">삭제</a>
+									         	<%}%>
+									         	</td>
 									         </tr>
 									         <%} %>
                                     </tbody>
@@ -473,154 +480,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 				
-                <%-- <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">게시판</h1>
-					
-                </div>
-                <!-- /.container-fluid -->
-					<div>
-					<section class="mt-5" style = "width:100%;">
-  <div class="container mx-auto px-3">
-    <div class="flex">
-      <div>
-        게시물 개수 :
-        <span class="badge badge-primary">${articlesCount}</span>
-        개
-      </div>
-      <div class="flex-grow"></div>
-      <form class="flex">
-        <input type="hidden" name="boardId" value="${param.boardId}" />
-
-        <select data-value="${param.searchKeywordTypeCode}" name="searchKeywordTypeCode" class="select select-bordered">
-          <option disabled="disabled">검색타입</option>
-          <option value="title">제목</option>
-          <option value="body">내용</option>
-          <option value="title,body">제목,내용</option>
-        </select>
-
-        <input name="searchKeyword" type="text" class="ml-2 w-72 input input-bordered" placeholder="검색어" maxlength="20"
-          value="${param.searchKeyword}" />
-
-        <button type="submit" class="ml-2 btn btn-primary">검색</button>
-        <button type="button" class="ml-2 btn btn-primary" onclick = "location.href = 'listCreate.jsp'">글쓰기</button>
-        
-      </form>
-    </div>
-    <div class="mt-3">
-      <table class="table" id = "listTable">
-        <colgroup>
-          <col width="100px" />
-          <col width="300px" />
-          <col width="100px" />
-          <col width="100px" />
-          <col width="300px" />
-          <col width ="500px"/>
-        </colgroup>
-        
-          <tr style = "text-align : center;">
-            <th>번호</th>
-            <th>작성날짜</th>
-            <th>조회</th>
-            <th>추천</th>
-            <th>작성자</th>
-            <th>제목</th>
-          </tr>
-        
-        
-        <%
-        for(int i =0;i<al.size();i++){
-        	
-        
-        %>
-         <tr style = "text-align : center;">
-         	<td><%=al.get(i).getArticle_seq() %></td>
-         	<td><%=al.get(i).getArticle_date() %></td>
-         	<td><%=al.get(i).getArticle_cnt() %></td>
-         	<td><%=al.get(i).getArticle_likes() %></td>
-         	<td><%=al.get(i).getUser_id() %></td>
-         	<td><a href="board.jsp?article_seq=<%=al.get(i).getArticle_seq() %>"><%=al.get(i).getArticle_title() %></a></td>
-         	
-         
-         </tr>
-         <%} %>
-          
-        
-      </table>
-    </div>
-
-    
-    
-
-  </div>
-</section>
-					</div>
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.jsp">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-
-	
-	<!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script> --%>
+              
 </body>
 
 </html>

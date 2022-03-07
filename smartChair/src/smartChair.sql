@@ -24,7 +24,7 @@ CREATE TABLE tb_user
     user_tel         VARCHAR2(20)    NOT NULL, 
     user_gender      VARCHAR2(20)    NOT NULL, 
     user_birthday    DATE            NOT NULL, 
-    user_joindate    DATE            NOT NULL, 
+    user_joindate    DATE            DEFAULT sysdate NOT NULL, 
     product_num      VARCHAR2(20)    NOT NULL, 
     admin_yesno      CHAR(1)         NOT NULL, 
      PRIMARY KEY (user_id)
@@ -66,10 +66,11 @@ CREATE TABLE tb_community
     article_title      VARCHAR2(200)     NOT NULL, 
     article_content    VARCHAR2(4000)    NOT NULL, 
     article_file       VARCHAR2(200)     NOT NULL, 
-    article_date       DATE              NOT NULL, 
+    article_date       DATE              DEFAULT sysdate NOT NULL, 
     user_id            VARCHAR2(50)      NOT NULL, 
-    article_cnt        NUMBER(12,0)      NOT NULL, 
-    article_likes      NUMBER(12,0)      NOT NULL, 
+    article_cnt        NUMBER(12,0)      DEFAULT 0 NOT NULL, 
+    article_likes      NUMBER(12,0)      DEFAULT 0 NOT NULL, 
+    user_ip			   VARCHAR2(20)      NOT NULL,
      PRIMARY KEY (article_seq)
 );
 

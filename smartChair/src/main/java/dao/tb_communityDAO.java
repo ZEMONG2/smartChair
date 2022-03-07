@@ -187,5 +187,66 @@ public class tb_communityDAO {
 		}
 		
 	}
+public int deleteArticle(int articleSEQ) {
+		int cnt = 0;
+		try {
+			connect();
+			
+			String sql = "delete from tb_community where article_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, articleSEQ);
+				cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		return cnt;
+	}
+	
+
+	
+	
+public void updateLikesUp(int articleSEQ) {
+		
+		try {
+			connect();
+			
+			String sql = "update tb_community set article_likes = article_likes+1 where article_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, articleSEQ);
+				psmt.executeUpdate();
+
+				System.out.println("추천증가");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		
+	}
+
+public void updateLikesDown(int articleSEQ) {
+	
+	try {
+		connect();
+		
+		String sql = "update tb_community set article_likes = article_likes-1 where article_seq = ?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, articleSEQ);
+			psmt.executeUpdate();
+
+			System.out.println("추천감소");
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		close();
+
+	}
+	
+}
 	
 }
