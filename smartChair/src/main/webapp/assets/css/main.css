@@ -139,7 +139,7 @@ input, select, textarea {
 
 		}
 
-	body, input, select, textarea {
+	body, select, textarea {
 		color: white;
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 300;
@@ -733,7 +733,7 @@ input, select, textarea {
 		}
 
 	ul {
-		list-style: disc;
+		text-align :center;
 		margin: 0 0 2rem 0;
 		padding-left: 1em;
 	}
