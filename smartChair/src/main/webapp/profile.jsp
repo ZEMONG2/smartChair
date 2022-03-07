@@ -462,6 +462,22 @@ String birthday = vo.getUser_birthday().substring(0, 10);
                                     <ul class = "amount">
                                         <li>
                                             <div>
+                                                <div class="name">제품번호</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <div class="name"><%=vo.getProduct_num()%></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card mb-4 py-3 border-left-info">
+                                <div class="card-body">
+                                    <ul class = "amount">
+                                        <li>
+                                            <div>
                                                 <div class="name">가입날짜</div>
                                             </div>
                                         </li>

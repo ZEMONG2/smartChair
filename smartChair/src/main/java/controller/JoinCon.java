@@ -27,6 +27,7 @@ public class JoinCon extends HttpServlet {
 		String user_pw = request.getParameter("user_pw");
 		String user_pw2 = request.getParameter("user_pw2");
 		String user_name = request.getParameter("user_name");
+		String product_num = request.getParameter("product_num");
 		String user_nick = request.getParameter("user_nick");
 		String user_tel = request.getParameter("user_tel");
 		String user_gender = request.getParameter("gender");
@@ -40,12 +41,13 @@ public class JoinCon extends HttpServlet {
 		System.out.println("전화번호 : " + user_tel);
 		System.out.println("성별 : " + user_gender);
 		System.out.println("생일 : " + user_birthday);
+		System.out.println("제품번호 : " + product_num);
 		
 		
 			if (user_pw.equals(user_pw2)) {
 
 			tb_userDAO dao = new tb_userDAO();
-			int cnt = dao.join(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday);
+			int cnt = dao.join(user_id, user_pw, user_name, user_nick, user_tel, user_gender, user_birthday, product_num);
 
 			if (cnt > 0) {
 				System.out.println("회원가입 성공");

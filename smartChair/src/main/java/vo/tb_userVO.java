@@ -28,6 +28,9 @@ public class tb_userVO {
 
     // 사용자 가입일자 
     private Date user_joindate;
+    
+    // 제품 번호
+    private String product_num;
 
     // 관리자 여부 
     private String admin_yesno;
@@ -104,6 +107,14 @@ public class tb_userVO {
 		this.admin_yesno = admin_yesno;
 	}
 	
+	public String getProduct_num() {
+		return product_num;
+	}
+
+	public void setProduct_num(String product_num) {
+		this.product_num = product_num;
+	}
+
 	public tb_userVO(String user_id, String user_pw, String user_name, String user_nick, Date user_joindate) {
 		super();
 		this.user_id = user_id;
@@ -168,6 +179,35 @@ public class tb_userVO {
 	public tb_userVO(String user_nick) {
 		super();
 		this.user_nick = user_nick;
+	}
+
+	public tb_userVO(String user_id, String user_pw, String user_name, String user_nick, String user_tel,
+			String user_gender, String user_birthday, Date user_joindate, String product_num, String admin_yesno) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_nick = user_nick;
+		this.user_tel = user_tel;
+		this.user_gender = user_gender;
+		this.user_birthday = user_birthday;
+		this.user_joindate = user_joindate;
+		this.product_num = product_num;
+		this.admin_yesno = admin_yesno;
+	}
+
+	public tb_userVO(String user_id, String user_name, String user_nick, String user_tel, String user_gender,
+			String user_birthday, Date user_joindate, String product_num, String admin_yesno) {
+		super();
+		this.user_id = user_id;
+		this.user_name = user_name;
+		this.user_nick = user_nick;
+		this.user_tel = user_tel;
+		this.user_gender = user_gender;
+		this.user_birthday = user_birthday;
+		this.user_joindate = user_joindate;
+		this.product_num = product_num;
+		this.admin_yesno = admin_yesno;
 	}
 
 	

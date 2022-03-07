@@ -58,7 +58,7 @@
                                     
                                 </div>
                                 <div class="form-group">
-                                    <input type="name" name = "user_name" class="form-control form-control-user" 
+                                    <input type="text" name = "user_name" class="form-control form-control-user" 
                                         placeholder="Name">
                                  </div>
                                 <div class="form-group">
@@ -73,6 +73,11 @@
                                  <div class="form-group">
                                     <input type="tel" maxlength = "13" name = "user_tel" class="form-control form-control-user"
                                             id="tel1" placeholder="Phonenumber">
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="text" maxlength = "8" name = "product_num" class="form-control form-control-user" id="product"
+                                        placeholder="제품번호">
+                                        <div class = "productck1"><input type="button" id = "productck" value = "중복확인" onclick="productCheck()"></div>
                                  </div>
                                  <div class="btn-group" data-toggle="buttons">
                                  
@@ -313,6 +318,64 @@ cellPhone.onkeyup = function(event){
 			
 			</script>
 			
+			<script>
+			function productCheck(){
+				let product = document.querySelector('#product')  //
+			    
+			      let xhr = new XMLHttpRequest()
+			      
+			      //요청방식 , 요청경로
+			      xhr.open('get', 'ProductCheckCon?product_num='+product.value)
+			      //전송데이터의 형식
+			      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+			      //요청 & 전송할 데이터
+			      xhr.send()
+			      
+			      xhr.onreadystatechange = function(){
+					 if(xhr.readyState===XMLHttpRequest.DONE){  //요청성공
+			            if(xhr.status===200){ //응답성공
+			               console.log("응답성공")
+			               console.log(xhr.responseText) //응답데이터 확인 (responseXML)
+			            if(xhr.responseText==="true"){
+			            	Swal.fire({
+			                    icon: 'error',
+			                    title: '제품번호체크',
+			                    text: '이미 등록되어있는 제품번호입니다',
+			                });
+			            	nick.value = ""
+			            }else if(xhr.responseText==="false"){
+			            	Swal.fire({
+			                    icon: 'success',
+			                    title: '제품번호체크',
+			                    text: '사용할 수 있는 제품번호입니다',
+			                });
+			            }
+			            
+			            }else{
+			               console.log("응답실패")
+			            }
+			         }else{  //요청실패
+			            console.log("요청실패")
+			         }
+			      }
+				
+			}
+			
+			</script>
+			
+			<!--제품번호 공백일때 중복확인 눌렀을때 알람창 출력  -->
+			<script>
+			$(document).ready(function(){
+				$("#productck").click(function(){
+					if($("#product").val().length==0){Swal.fire({
+	                    icon: 'warning',
+	                    title: '제품번호체크',
+	                    text: '제품번호를 입력하세요',
+	                });$("#product").focus(); return false;}
+				})
+			})
+			
+			</script>
 			
 </body>
 

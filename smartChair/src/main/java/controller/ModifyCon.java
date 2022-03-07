@@ -37,6 +37,7 @@ public class ModifyCon extends HttpServlet {
 		String user_birthday = vo.getUser_birthday();
 		Date user_joindate = vo.getUser_joindate();
 		String admin_yesno = vo.getAdmin_yesno();
+		String product_num = vo.getProduct_num();
 		
 	if(user_pw.equals(sess_pw) && user_pw1.equals(user_pw2)) {
 		
@@ -47,7 +48,7 @@ public class ModifyCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("회원정보수정 성공");
-			vo = new tb_userVO(user_id, user_pw1, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, admin_yesno);
+			vo = new tb_userVO(user_id, user_pw1, user_name, user_nick, user_tel, user_gender, user_birthday, user_joindate, product_num, admin_yesno);
 			session.setAttribute("loginVO", vo);
 			response.sendRedirect("modifyS.jsp");
 			

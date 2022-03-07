@@ -45,13 +45,13 @@ public class tb_userDAO {
 	}
 
 	public int join(String user_id, String user_pw, String user_name, String user_nick, String user_tel,
-			String user_gender, String user_birthday) {
+			String user_gender, String user_birthday, String product_num) {
 		int cnt = 0;
 		String db_user_id = "";
 		try {
 			connect();
 
-			String sql = "insert into tb_user values(?, ?, ?, ?, ?, ?, ?, sysdate,'N')";
+			String sql = "insert into tb_user values(?, ?, ?, ?, ?, ?, ?, sysdate,?,'N')";
 			String sql2 = "select * from tb_user";
 
 			psmt = conn.prepareStatement(sql2);
@@ -69,6 +69,7 @@ public class tb_userDAO {
 				psmt.setString(5, user_tel);
 				psmt.setString(6, user_gender);
 				psmt.setString(7, user_birthday);
+				psmt.setString(8, product_num);
 				cnt = psmt.executeUpdate();
 
 			}
@@ -104,9 +105,10 @@ public class tb_userDAO {
 				String db_user_gender = rs.getString(6);
 				String db_user_birthday = rs.getString(7);
 				Date db_user_joindate = rs.getDate(8);
-				String db_admin_yesno = rs.getString(9);
+				String db_product_num = rs.getString(9);
+				String db_admin_yesno = rs.getString(10);
 				vo = new tb_userVO(db_user_id, db_user_pw, db_user_name, db_user_nick, db_user_tel, db_user_gender,
-						db_user_birthday, db_user_joindate, db_admin_yesno);
+						db_user_birthday, db_user_joindate, db_product_num, db_admin_yesno);
 
 			} else {
 				System.out.println("일치하는 회원 없음");
@@ -250,9 +252,10 @@ public class tb_userDAO {
 				String db_user_gender = rs.getString(6);
 				String db_user_birthday = rs.getString(7);
 				Date db_user_joindate = rs.getDate(8);
-				String db_admin_yesno = rs.getString(9);
+				String db_product_num = rs.getString(9);
+				String db_admin_yesno = rs.getString(10);
 				tb_userVO vo = new tb_userVO(db_user_id, db_user_name, db_user_nick, db_user_tel, db_user_gender,
-						db_user_birthday, db_user_joindate, db_admin_yesno);
+						db_user_birthday, db_user_joindate, db_product_num, db_admin_yesno);
 				al.add(vo);
 			}
 
@@ -331,6 +334,37 @@ public class tb_userDAO {
 				check = "false";
 			}
 			if (nick == "") {
+				check = "empty";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			close();
+
+		}
+		return check;
+
+	}
+	
+	public String productCheck(String product_num) {
+		String check = "";
+		try {
+			connect();
+
+			String sql = "select product_num from tb_user where product_num = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, product_num);
+
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				check = "true";
+			} else {
+				check = "false";
+			}
+			if (product_num == "") {
 				check = "empty";
 			}
 
