@@ -28,7 +28,7 @@ public class ArduinoCon extends HttpServlet {
     Date date = new Date();	
     Calendar cal = Calendar.getInstance(); //추상클래스이므로 static method로 객체를 할당받는다.
     String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH))
-	
+	int cnt = 0;
 
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,12 +42,14 @@ public class ArduinoCon extends HttpServlet {
 	      String s =request.getParameter("sensor"); //센서 값 받아오기 
 	      
 	      System.out.println("현재 받아온 값 : "+s);
-	      if(!s.equals("0")) {
+	      if(!s.equals("0")) {//초기값이 아닐시
 	    	  if(vo.getPose_type().equals(s)) {
-	    		  start_time = date.getTime(); //현재 시간 측정
-	    		  System.out.println("앉기 시작");
-	    		  vo.setPose_type(s);//시작 타입 포즈 저장
-	    		  
+	    		  if(cnt==0) {
+	    			  start_time = date.getTime(); //현재 시간 측정
+	    			  System.out.println("앉기 시작");
+	    			  vo.setPose_type(s);//시작 타입 포즈 저장
+	    		  }
+	    		  cnt++;
 	    	  }else {
 	    		  long end = date.getTime();
 	    				 
