@@ -425,19 +425,28 @@
 					<button type="button" class="btn btn-dark mt-3"onclick="addReply()">댓글작성</button>
 				</li>
 			</ul>
-			<ul class="list-group list-group-flush" id="reply">
-
-				
+			
+			<table style = "width : 100%; border-bottom : 1px solid lightgray;">
+			<tr style = "border-bottom : 1px solid lightgray;">
+				<th>댓글</th>
+				<th>작성자 | 작성시간</th>
+				<th style = "text-align : center;">삭제</th>
+			
+			</tr>
 			<%
   			for(int i = al.size()-1; i>=0;i--){
  			 %>
 			
-				<li class="list-group-item"><span><%=vo.getUser_nick()%> : <%=al.get(i).getComment_content()%> 작성시간 : <%=al.get(i).getComment_date()%></span></li>
-			
+			<tr style = " border-bottom : 1px solid lightgray; height : 60px; text-align : left;">
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<%=al.get(i).getComment_content()%></td>
+				<td style = "text-align : center;"><%=vo.getUser_nick()%>&nbsp;&nbsp;|&nbsp;&nbsp; <%=al.get(i).getComment_date()%></td>
+				<td style = "text-align : center;"></td>
+			</tr>
 			<%
 			} 
 			%>
-			</ul>
+			
+			</table>
 		</div>
 	</div>
 	
