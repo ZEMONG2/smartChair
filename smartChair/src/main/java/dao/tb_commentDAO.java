@@ -43,6 +43,24 @@ public class tb_commentDAO {
 		}
 	}
 	
+	public int deleteComment(int commentSEQ) {
+		int cnt = 0;
+		try {
+			connect();
+			
+			String sql = "delete from tb_comment where comment_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, commentSEQ);
+				cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+
+		}
+		return cnt;
+	}
 	
 	public ArrayList<tb_commentVO> selectAll(int articleSEQ) {
 

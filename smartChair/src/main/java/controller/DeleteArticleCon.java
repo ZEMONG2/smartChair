@@ -18,11 +18,10 @@ public class DeleteArticleCon extends HttpServlet {
 
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+		
 		String article_seq = request.getParameter("article_seq");
 		int articleSEQ = Integer.parseInt(article_seq);
-		String sess_id = vo.getUser_id();
+		
 		
 		tb_communityDAO dao = new tb_communityDAO();
 		int cnt = dao.deleteArticle(articleSEQ);
