@@ -46,7 +46,7 @@
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="index.jsp">
 				<div class="sidebar-brand-icon rotate-n-0">
-					<img src="img/¤¤¤·.png"><br>
+					<img src="img/logo.png"><br>
 
 				</div>
 
