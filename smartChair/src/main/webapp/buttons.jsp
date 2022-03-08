@@ -28,6 +28,7 @@
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -450,7 +451,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-up"></i>
                                         </span>
-                                        <span class="text">책상 높이 증가</span>
+                                        <a href = "Upbutton" class="text">책상 높이 증가</a>
                                     </a><br><br>
                                     <a href="#" class="btn btn-primary btn-icon-split btn-lg">
                                         <span class="icon text-white-50">
