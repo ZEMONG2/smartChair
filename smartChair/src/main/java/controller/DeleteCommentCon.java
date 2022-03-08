@@ -16,7 +16,7 @@ public class DeleteCommentCon extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		PrintWriter out = response.getWriter();
 		String comment_seq = request.getParameter("comment_seq");
 		int commentSEQ = Integer.parseInt(comment_seq);
 //		
@@ -29,8 +29,7 @@ public class DeleteCommentCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("댓글 삭제 성공");
-			PrintWriter out = response.getWriter();
-			out.print("<script>history.go(0);</script>");
+			response.sendRedirect("list.jsp");
 			
 		}
 	}
