@@ -27,7 +27,7 @@ public class ArduinoCon extends HttpServlet {
     long end_time;
     Date date = new Date();	
     Calendar cal = Calendar.getInstance(); //추상클래스이므로 static method로 객체를 할당받는다.
-    String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH))
+    String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH));
 	int cnt = 0;
 
 	private static final long serialVersionUID = 1L;
