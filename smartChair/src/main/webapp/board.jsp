@@ -487,12 +487,12 @@ function addReply(){
             	console.log("응답성공")
             	console.log(xhr.responseText) //응답데이터 확인 (responseXML)
             	if(xhr.responseText === "success"){
-            		//history.go(0);
-            		var newli = document.createElement("li");
+            		history.go(0);
+            		<%-- var newli = document.createElement("li");
                     replyDiv.insertBefore(newli, replyDiv.firstChild);
                     replyDiv.firstChild.setAttribute("class","list-group-item")
                     replyDiv.firstChild.innerHTML += "<span><%=vo.getUser_nick()%> : " +ta.value + "</span>"
-                    ta.value="";
+                    ta.value=""; --%>
             	} else {
             	}
             } else {
