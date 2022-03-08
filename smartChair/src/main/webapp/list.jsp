@@ -369,7 +369,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
                                     
                                          <tr style = "text-align : center;">
 								            <th style = "width : 5%;">번호</th>
-								            <th style = "width : 45%;">제목</th>
+								            <th style = "width : 30%;">제목</th>
 								            <th style = "width : 15%;">작성자</th>
 								            <th style = "width : 10%;">작성날짜</th>
 								            <th style = "width : 5%;">추천</th>

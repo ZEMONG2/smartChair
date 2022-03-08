@@ -68,7 +68,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 						<div class="content">
 							<div class="inner">
 								<h1>MESSIAH</h1>
-								<p>저희 MESSIAH가 당신의 허리와 목을 지켜드립니다.</p>
+								<p>저희 MESSIAH가 당신의 척추건강을 지켜드립니다.</p>
 							</div>
 						</div>
 						<nav>
@@ -89,7 +89,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 							<article id="intro">
 								<h2 class="major">Intro</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>제품 자세 설명 란 </p>
+								<p>우리제품 사라!</p>
 								<p>제품 자세 설명 란 </p>
 							</article>
 							
