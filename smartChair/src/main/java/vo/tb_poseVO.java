@@ -16,7 +16,7 @@ public class tb_poseVO {
        // 등록자 아이디 
     private String pose_system;
 
-    private String date;
+    private String reg_date;
 
 	public Double getPose_seq() {
 		return pose_seq;
@@ -51,14 +51,23 @@ public class tb_poseVO {
 	}
 
 	public String getDate() {
-		return date;
+		return reg_date;
 	}
 
 	public void setDate(String date) {
-		this.date = date;
+		this.reg_date = date;
 	}
 
-	
+	public tb_poseVO() {
+		
+	}
+	public tb_poseVO(String pose_type, long pose_time, String reg_date) {
+		this.pose_type = pose_type;
+		this.pose_time = pose_time;
+		this.reg_date = reg_date;
+		
+		
+	}
 	
     
     
