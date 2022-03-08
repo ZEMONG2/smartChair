@@ -439,7 +439,7 @@
 			
 			<tr style = " border-bottom : 1px solid lightgray; height : 60px; text-align : left;">
 				<td>&nbsp;&nbsp;&nbsp;&nbsp;<%=al.get(i).getComment_content()%></td>
-				<td style = "text-align : center;"><%=vo.getUser_nick()%>&nbsp;&nbsp;|&nbsp;&nbsp; <%=al.get(i).getComment_date()%></td>
+				<td style = "text-align : center;"><%=al.get(i).getUser_id()%>&nbsp;&nbsp;|&nbsp;&nbsp; <%=al.get(i).getComment_date()%></td>
 				<td style = "text-align : center;">
 				<%if(al.get(i).getUser_id().equals(vo.getUser_id())){%>
 									         		<a href="DeleteCommentCon?comment_seq=<%=al.get(i).getComment_seq() %>">ªË¡¶</a>

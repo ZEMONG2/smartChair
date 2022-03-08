@@ -92,6 +92,27 @@ public class tb_commentDAO {
 		}
 		return al;
 	}
+	
+//	public String selectArticle(int commentSEQ) {
+//		String article_seq = "";
+//		try {
+//			
+//			String sql2 = "select article_seq from tb_comment where comment_seq = ?";
+//			System.out.println("아이디 추출");
+//			psmt = conn.prepareStatement(sql2);
+//			psmt.setInt(1, commentSEQ);
+//			rs = psmt.executeQuery();
+//			if (rs.next()) {
+//				article_seq = rs.getString(1);
+//			}
+//			System.out.println("추출한 게시물번호 : "+ article_seq);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			
+//		}
+//		return article_seq;
+//	}
 
 	public int insertReply(int article_seq, String comment, String user_id) {
 		int cnt=0;

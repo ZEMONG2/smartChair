@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,18 +19,19 @@ public class DeleteCommentCon extends HttpServlet {
 		
 		String comment_seq = request.getParameter("comment_seq");
 		int commentSEQ = Integer.parseInt(comment_seq);
-		
-		
+//		
+//		tb_commentDAO dao2 = new tb_commentDAO();
+//		String article_seq = dao2.selectArticle(commentSEQ);
+//		
 		tb_commentDAO dao = new tb_commentDAO();
 		int cnt = dao.deleteComment(commentSEQ);
 		
 		
 		if(cnt>0) {
 			System.out.println("댓글 삭제 성공");
-			response.sendRedirect("deleteCommentS.jsp");
-		}else {
-			System.out.println("댓글 삭제 실패");
-			response.sendRedirect("deleteCommentF.jsp");
+			PrintWriter out = response.getWriter();
+			out.print("<script>history.go(0);</script>");
+			
 		}
 	}
 

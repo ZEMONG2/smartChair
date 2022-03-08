@@ -8,8 +8,9 @@
 </head>
 <body>
 <script>
-		alert("게시물 삭제에 성공하였습니다.")
-		history.go(0);
+		alert("댓글 삭제에 성공하였습니다.")
+		//location.href = "list.jsp";
+		history.back();
 	</script>
 </body>
 </html>
