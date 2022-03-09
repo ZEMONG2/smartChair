@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.Instant;
 import java.util.Date;
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ public class ArduinoCon extends HttpServlet {
     tb_poseVO vo = new tb_poseVO();
     tb_poseDAO dao = new tb_poseDAO();
     String a;
+    String s="";
     String product = "sc";
     long start_time;
     long end_time;
@@ -29,18 +31,45 @@ public class ArduinoCon extends HttpServlet {
     Calendar cal = Calendar.getInstance(); //추상클래스이므로 static method로 객체를 할당받는다.
     String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH));
 	int cnt = 0;
-
+//	 String res="";
+//	   String s = "";
+	  
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		a ="0";
-		vo.setPose_type(a); 
+//		a ="0";
+//		vo.setPose_type(a); 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		response.getWriter().append("Served at: ").append(request.getContextPath());//웹 연결
-	      String s =request.getParameter("sensor"); //센서 값 받아오기 
-	      
+//		   response.setContentType("text/html; charset=UTF-8");
+//		      if(request.getParameter("sensor") != null){
+//		      s =request.getParameter("sensor");
+//		      }
+//		      System.out.println(s);
+//		      response.setCharacterEncoding("UTF-8");
+//		      PrintWriter out = response.getWriter();
+//		      
+//		      sensor = request.getParameter("sensor");
+//		      if(s.equals("N")){
+//		      res = "{\"sensor\":"+2+"}";
+//		      }else if(s.equals("LC")) {
+//		    	  res = "{\"sensor\":"+3+"}";
+//		      }else  {
+//		       	  res = "{\"sensor\":"+3+"}";
+//		      }
+//		      out.print(res);
+		      
+//		      out.print("{\"led\":"+led+"}");
+//		   }
+
+			      response.setContentType("text/html; charset=UTF-8"); 
+	      response.setCharacterEncoding("UTF-8");
+
+		if(request.getParameter("sensor") != null){
+			System.out.println("값X");
+		      s =request.getParameter("sensor");
+		      } 
+		  
 	      System.out.println("현재 받아온 값 : "+s);
 	      if(!s.equals("0")) {//초기값이 아닐시
 	    	  if(vo.getPose_type().equals(s)) {
@@ -62,8 +91,9 @@ public class ArduinoCon extends HttpServlet {
 	    			  
 	    	  }
 	      }
-	      
 	}
+	      
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

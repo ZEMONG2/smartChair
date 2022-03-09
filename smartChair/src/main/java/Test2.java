@@ -32,16 +32,15 @@ public class Test2 extends HttpServlet {
       }
       System.out.println(s);
       response.setCharacterEncoding("UTF-8");
-      response.setContentType("text/html; charset=UTF-8");
       PrintWriter out = response.getWriter();
       
 //      sensor = request.getParameter("sensor");
-      if(s.equals("N")){
-      res = "{\"sensor\":"+2+"}";
+      if(s.equals("0")){
+      res = "{\"sensor\":"+0+"}";
       }else if(s.equals("LC")) {
-    	  res = "{\"sensor\":"+3+"}";
-      }else  {
-       	  res = "{\"sensor\":"+3+"}";
+    	  res = "{\"sensor\":"+1+"}";
+      }else {
+       	  res = "{\"sensor\":"+2+"}";
       }
       out.print(res);
       

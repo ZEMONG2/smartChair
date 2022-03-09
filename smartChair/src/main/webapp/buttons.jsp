@@ -457,9 +457,14 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-down"></i>
                                         </span>
-                                        <span class="text">책상 높이 감소</span>
+                                        <a href = "Downbutton" class="text">책상 높이 감소</a>
                                     </a><br><br>
-                                    
+                                    <a href="#" class="btn btn-primary btn-icon-split btn-lg">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </span>
+                                        <a href = "Stopbutton" class="text">책상 높이 정지</a>
+                                    </a><br><br>
                                     <a href="#" class="btn btn-success btn-icon-split">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-check"></i>

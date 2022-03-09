@@ -31,7 +31,7 @@ public class Upbutton extends HttpServlet {
       System.out.println("가져온 세션값 : " +vo.getAdmin_yesno());
       
        PrintWriter out = response.getWriter();
-      String res = "{\"sensor\":"+2+"}";
+      String res = "{\"sensor\":"+1+"}";
       out.print(res);
       response.sendRedirect("buttons.jsp");
    }
