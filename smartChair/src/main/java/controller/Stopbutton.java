@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import vo.tb_heightVO;
 import vo.tb_userVO;
 
 /**
@@ -26,9 +27,10 @@ public class Stopbutton extends HttpServlet {
 	      System.out.println("가져온 세션값 : " +vo.getAdmin_yesno());
 	      
 	       PrintWriter out = response.getWriter();
-	      String res = "{\"sensor\":"+3+"}";
-	      out.print(res);
-	      response.sendRedirect("buttons.jsp");
+	      String res = "3";
+	      tb_heightVO vo2 = new tb_heightVO();
+	      vo2.setRes(res);
+	      response.sendRedirect("Test2");
 	   }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
