@@ -41,16 +41,21 @@ public class articleWriteCon extends HttpServlet {
 		
 		
 			tb_communityDAO dao = new tb_communityDAO();
-			
+			String article_file ="";
 			String user_id = vo.getUser_id(); 
 			String article_title = multi.getParameter("title");
 			String article_content = multi.getParameter("content");
-			String article_file = URLEncoder.encode(multi.getFilesystemName("file"));
+			if(multi.getFilesystemName("file") != null) {
+				article_file = URLEncoder.encode(multi.getFilesystemName("file"));
+				System.out.println("파일명 : " +article_file);
+			}
+			
 		
 			System.out.println("아이디 : " +user_id);
 			System.out.println("제목 : " +article_title);
 			System.out.println("내용 : "+article_content);
-			System.out.println("파일명 : " +article_file);
+			
+			
 			
 			 String user_ip=request.getRemoteAddr();
 			 if(user_ip.equalsIgnoreCase("0:0:0:0:0:0:0:1")){
