@@ -344,8 +344,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">차트</h1>
-                    <p class="mb-4">자세를 한눈에 보기 쉽게 차트로 보여드립니다</p>
-
+                    
                     <!-- Content Row -->
                     <div class="row">
 
