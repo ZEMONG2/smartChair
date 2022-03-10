@@ -21,13 +21,13 @@ import vo.tb_poseVO;
 public class Test2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String res = "";
-	String s = "";
-	int cnt = 0;
+	static String s = "";
+	static int cnt = 0;
 	HttpServletResponse response;
 	tb_heightVO vo2 = new tb_heightVO();
 	tb_poseVO vo = new tb_poseVO();
 	tb_poseDAO dao = new tb_poseDAO();
-	String a;
+	String sc;
 	String product = "sc";
 	long start_time;
 	long end_time;
@@ -39,56 +39,66 @@ public class Test2 extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-	     
 
 		response.setCharacterEncoding("UTF-8");
-		 //     tb_heightVO vo2 = new tb_heightVO();
-	//	      res = vo2.getRes();
-		String sensor = request.getParameter("sensor");
+		// tb_heightVO vo2 = new tb_heightVO();
+		// res = vo2.getRes();
+
 		String led = request.getParameter("res");
-		
-		System.out.println("받아온 res : " + led);
-		if (led != null) {
-			s = led;				 
+
+	
+		if (led != null && led != "") {
+			s = led;
 		}
-		doGet(request, response, s);
-		
+		doGet(request, response);
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, String s)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("에러");
 		PrintWriter out = response.getWriter();
 		String sensor = request.getParameter("sensor");
-		if (sensor!= null) {
-			if((sensor.equals("LB")||sensor.equals("LC")||sensor.equals("LT")||sensor.equals("RB")||sensor.equals("RC")||sensor.equals("RT"))||(cnt<=0)) {
-				s = "1";
-			}				 
-		}
-		System.out.println(s);
-		System.out.println(sensor);
-			if(s.equals("1")) {
-				s = "UP.";
-			}else if(s.equals("2")) {
-				s = "DOWN";
-			}else if(s.equals("3")) {
-				s = "STOP";
+		if (sensor != null) {
+			if ((sensor.equals("LB") || sensor.equals("LC") || sensor.equals("LT") || sensor.equals("RB")
+					|| sensor.equals("RC") || sensor.equals("RT")) ) {
+				s = "4";
+			}else if (sensor.equals("5")) {
+				s = "5";
 			}
+			
+		}
+		if (s.equals("1")) {
+			sc = "UP.";
+		} else if (s.equals("2")) {
+			sc = "DOWN";
+		} else if (s.equals("3")) {
+			sc = "STOP";
+		} else if(s.equals("4")&&cnt == 0) {
+			sc = "DOWN";
+			cnt++;
+			System.out.println("cntDown : " + cnt);
+		} else if(s.equals("5")&&cnt == 1) {
+			sc = "UP";
+			cnt--;
+			System.out.println("cntUp : " + cnt);
+		} 
 		
-		
-		out.print(s);
+		System.out.println("sensor: " + sensor + ", sc: " + sc +", s : "+s);
+		System.out.println();
+
+		out.print(sc);
 		out.print("<html>");
 		out.print("<head>");
 		out.print("</head>");
 		out.print("<body>");
 		out.print("<a href = 'buttons.jsp'>돌아가기</a>");
-		out.print("</body>");		
+		out.print("</body>");
 		out.print("</html>");
 //		out.flush();
 //		out.close();
-		
+
 //      out.print("{\"led\":"+led+"}");
 	}
 
@@ -101,6 +111,7 @@ public class Test2 extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 	protected void ret() {
 		try {
 			response.sendRedirect("buttons.jsp");

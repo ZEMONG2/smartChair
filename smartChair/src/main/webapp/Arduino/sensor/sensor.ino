@@ -1,17 +1,17 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "1234";              // 변경
-const char* password = "12345679";      // 변경
+//const char* ssid = "KT_GiGA_B848";              // 변경
+//const char* password = "52hf08ef93";      // 변경
 //String ip = " 192.168.22.115";
 
-//const char* ssid = "zemong";              // 변경
-//const char* password = "12345678";      // 변경
+const char* ssid = "zemong";              // 변경
+const char* password = "12345678";      // 변경
 //String ip = " 192.168.22.115";
 
-//const char* ssid = "SaJa";              // 변경
-//const char* password = "saja1004";      // 변경
-String ip = "192.168.222.10";
+//const char* ssid = "1234";              // 변경
+//const char* password = "12345679";      // 변경
+String ip = "192.168.111.188";
 
 int En0 = 18;  //  Low enabled
 int En1 = 19;  //  Low enabled
@@ -22,9 +22,9 @@ int S2  = 13;
 int S3  = 12;
 
 int SIG_pin = 34;
-int SERVER_PORT = 8081;
+int SERVER_PORT = 8080;
 
-String port = "8081";
+String port = "8080";
 String baseName = "http://" + ip + ":" + port;
 
 WiFiClient client;
@@ -51,7 +51,7 @@ void setup() {
 }
 
 void loop() {
-  String value;
+  String value="";
 
   int LB = 0;  //LeftBottom
   int LC = 0;  //LeftCenter
@@ -61,32 +61,19 @@ void loop() {
   int RC = 0;  //RightCenter
   int RT = 0;  //RightTop
 
-  for (int i = 0; i < 32; i ++) {
+  for (int i = 0; i < 31; i ++) {
     int result = readMux(i);
-//    if(i<=4){
-//       LB += result;
-//    }else if(){
-//      
-//    }else if(){
-//      
-//    }else if(){
-//      
-//    }else if(){
-//      
-//    }else if(){
-//      
-//    }
-    if (i <= 4) {
+    if (i <= 4) {//4번까지
       LB += result;
-    } else if ((5 <= i)||(i <= 13) && (i != 10) && i != 12) {
+    } else if (i==5||i==6||i==7||i==8||i==9||i==11||i==13) {//5~9,11,13
       LC += result;
-    } else if ((i == 10) || (i == 12) || (i == 14)) {
+    } else if (i == 10 || i == 12 || i == 14) {
       LT += result;
-    } else if ((i == 16) || (i == 18) || (i == 20)) {
+    } else if (i == 16 || i == 18 || i == 20) {
       RT += result;
-    } else if ((17 <= i)||(i<= 25)&&( i != 18)&&(i != 20)) {
+    } else if (i==17||i==19||i==21||i==22||i==23||i==24||i==25) {
       RC += result;
-    } else if ((26 <= i )&& (i<= 31)) {
+    } else if (i==26||i==27||i==28||i==29||i==30) {
       RB += result;
     }
   }
@@ -94,25 +81,24 @@ void loop() {
   Serial.println("LB:" + String(LB) + "   LC:" + String(LC) + "   LT:" + String(LT));
   Serial.println("RB:" + String(RB) + "   RC:" + String(RC) + "   RT:" + String(RT));
 
-  if (LB > 500 && LC > 500 && LT > 500 && RB > 500 && RC > 500 && RT > 500) {
-    if (LB > LC && LB > LT && LB > RB && LB > RC && LB > RT) {
+
+    if ((LB>300)&&(LB > LC) && (LB > LT) && (LB > RB) && (LB > RC) && (LB > RT)) {
       value = "LB";
-    } else if (LC > LB && LC > LT && LC > RB && LC > RC && LC > RT) {
+    } else if ((LC>300)&&(LC > LB) && (LC > LT) && (LC > RB) && (LC > RC) && (LC > RT)) {
       value = "LC";
-    } else if (LT > LB && LT > LC && LT > RB && LT > RC && LT > RT) {
+    } else if ((LT>300)&&(LT > LB) && (LT > LC) && (LT > RB) && (LT > RC) && (LT > RT)) {
       value = "LT";
-    } else if (RB > LB && RB > LC && RB > LT && RB > RC && RB > RT) {
+    } else if ((RB>300)&&(RB > LB) && (RB > LC) && (RB > LT) && (RB > RC) && (RB > RT)) {
       value = "RB";
-    } else if (RC > LB && RC > LC && RC > LT && RC > RB && RC > RT) {
+    } else if ((RC>300)&&(RC > LB) && (RC > LC) && (RC > LT) && (RC > RB) && (RC > RT)) {
       value = "RC";
-    } else if (RT > LB && RT > LC && RT > LT && RT > RB && RT > RC) {
+    } else if ((RT>300)&&(RT > LB) && (RT > LC) && (RT > LT) && (RT > RB) && (RT > RC)) {
       value = "RT";
-    } else {
-      value = "N";
+    }else{
+      value = "5";
     }
-  } else {
-    value = "0";
-  }
+  
+  
 
   delay(100);
 
