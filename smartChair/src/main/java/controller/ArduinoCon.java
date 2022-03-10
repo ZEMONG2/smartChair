@@ -31,7 +31,7 @@ public class ArduinoCon extends HttpServlet {
     Calendar cal = Calendar.getInstance(); //추상클래스이므로 static method로 객체를 할당받는다.
     String date2 = Integer.toString(cal.get(Calendar.YEAR))+Integer.toString(cal.get(Calendar.MONTH))+Integer.toString(cal.get(Calendar.DAY_OF_MONTH));
 	int cnt = 0;
-//	 String res="";
+	 String res="";
 //	   String s = "";
 	  
 	private static final long serialVersionUID = 1L;
@@ -62,35 +62,36 @@ public class ArduinoCon extends HttpServlet {
 //		      out.print("{\"led\":"+led+"}");
 //		   }
 
-			      response.setContentType("text/html; charset=UTF-8"); 
-	      response.setCharacterEncoding("UTF-8");
-
-		if(request.getParameter("sensor") != null){
-			System.out.println("값X");
-		      s =request.getParameter("sensor");
-		      } 
-		  
-	      System.out.println("현재 받아온 값 : "+s);
-	      if(!s.equals("0")) {//초기값이 아닐시
-	    	  if(vo.getPose_type().equals(s)) {
-	    		  if(cnt==0) {
-	    			  start_time = date.getTime(); //현재 시간 측정
-	    			  System.out.println("앉기 시작");
-	    			  vo.setPose_type(s);//시작 타입 포즈 저장
-	    		  }
-	    		  cnt++;
-	    	  }else {
-	    		  long end = date.getTime();
-	    				 
-
-	    		  end_time = date.getTime();//끝시간 측정
-	    		  vo.setPose_time(end_time-start_time);//유지 시간 저장
-	    		  dao.pose_date(vo.getPose_type(),vo.getPose_time(),product,date2);//db 저장
-	    		  vo.setPose_type(s);//변경된 경우 이므로 타입 다시 저장
-	    		  start_time = (int) System.currentTimeMillis(); //변경된 자세 시작 시간 측정
-	    			  
-	    	  }
-	      }
+//			      response.setContentType("text/html; charset=UTF-8"); 
+//	      response.setCharacterEncoding("UTF-8");
+//	      PrintWriter out = response.getWriter();
+//	      if(request.getParameter("sensor") != null){
+//			System.out.println("값X");
+//		      s =request.getParameter("sensor");
+//		      } 
+//	      	res = "{\"sensor\":"+3+"}";
+//		out.print(res);
+//	      System.out.println("현재 받아온 값 : "+s);
+//	      if(!s.equals("0")) {//초기값이 아닐시
+//	    	  if(vo.getPose_type().equals(s)) {
+//	    		  if(cnt==0) {
+//	    			  start_time = date.getTime(); //현재 시간 측정
+//	    			  System.out.println("앉기 시작");
+//	    			  vo.setPose_type(s);//시작 타입 포즈 저장
+//	    		  }
+//	    		  cnt++;
+//	    	  }else {
+//	    		  long end = date.getTime();
+//	    				 
+//
+//	    		  end_time = date.getTime();//끝시간 측정
+//	    		  vo.setPose_time(end_time-start_time);//유지 시간 저장
+//	    		  dao.pose_date(vo.getPose_type(),vo.getPose_time(),product,date2);//db 저장
+//	    		  vo.setPose_type(s);//변경된 경우 이므로 타입 다시 저장
+//	    		  start_time = (int) System.currentTimeMillis(); //변경된 자세 시작 시간 측정
+//	    			  
+//	    	  }
+//	      }
 	}
 	      
 

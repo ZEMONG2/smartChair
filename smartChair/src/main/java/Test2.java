@@ -22,6 +22,7 @@ public class Test2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String res = "";
 	String s = "";
+	int cnt = 0;
 	HttpServletResponse response;
 	tb_heightVO vo2 = new tb_heightVO();
 	tb_poseVO vo = new tb_poseVO();
@@ -38,9 +39,7 @@ public class Test2 extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
-//	      if(request.getParameter("sensor") != null){
-//	      s =request.getParameter("sensor");
-//	      }
+	     
 
 		response.setCharacterEncoding("UTF-8");
 		 //     tb_heightVO vo2 = new tb_heightVO();
@@ -50,7 +49,7 @@ public class Test2 extends HttpServlet {
 		
 		System.out.println("받아온 res : " + led);
 		if (led != null) {
-			s = led;
+			s = led;				 
 		}
 		doGet(request, response, s);
 		
@@ -61,9 +60,25 @@ public class Test2 extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("에러");
-		System.out.println(s);
 		PrintWriter out = response.getWriter();
-		out.print("{\"sensor\":"+s+"}");
+		String sensor = request.getParameter("sensor");
+		if (sensor!= null) {
+			if((sensor.equals("LB")||sensor.equals("LC")||sensor.equals("LT")||sensor.equals("RB")||sensor.equals("RC")||sensor.equals("RT"))||(cnt<=0)) {
+				s = "1";
+			}				 
+		}
+		System.out.println(s);
+		System.out.println(sensor);
+			if(s.equals("1")) {
+				s = "UP.";
+			}else if(s.equals("2")) {
+				s = "DOWN";
+			}else if(s.equals("3")) {
+				s = "STOP";
+			}
+		
+		
+		out.print(s);
 		out.print("<html>");
 		out.print("<head>");
 		out.print("</head>");
