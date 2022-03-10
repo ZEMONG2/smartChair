@@ -35,7 +35,8 @@ public class Upbutton extends HttpServlet {
 	      String res = "1";
 	      tb_heightVO vo2 = new tb_heightVO();
 	      vo2.setRes(res);
-	      response.sendRedirect("Test2");
+	      System.out.println("res값 : " +res );
+	      response.sendRedirect("Test2?res="+res+"");
    }
 
    /**

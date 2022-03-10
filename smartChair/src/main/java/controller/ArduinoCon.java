@@ -51,7 +51,7 @@ public class ArduinoCon extends HttpServlet {
 //		      
 //		      sensor = request.getParameter("sensor");
 //		      if(s.equals("N")){
-//		      res = "{\"sensor\":"+2+"}";
+//		      res = s;
 //		      }else if(s.equals("LC")) {
 //		    	  res = "{\"sensor\":"+3+"}";
 //		      }else  {
