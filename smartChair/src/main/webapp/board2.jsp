@@ -104,7 +104,7 @@
 									<td>조회수 : <%=voList.getArticle_cnt()%></td>
 								</tr>
 								<tr>
-									<td style="text-align: center; height : auto;" colspan="2"><%if(voList.getArticle_file() != null){
+									<td style="text-align: center; height : auto;" colspan="3"><%if(voList.getArticle_file() != null){
 																								%><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"style = "width : 300px; height : 300px;"><br><br>
 																								<%}else{ %>
 																								<%} %>
@@ -120,14 +120,44 @@
 															    text-align: center;">
 											    
 
-								  <button class="btn-secondary like-review">
-								    <i class="fa fa-heart" aria-hidden="true"></i> Like
-								  </button>
-								<button type="reset" class="ml-2 btn btn-primary" onclick = "window.history.back()">돌아가기</button>
+								 
 								  </div>
 							</div>
 							<div style = "text-align : center;">
 							</div>
+							</div>
+							
+							
+							<table style = "width : 78%; border-bottom : 3px solid white; margin:auto; ">
+			<tr style = "border-bottom : 3px solid white; color : white; text-align : center;">
+				<th>댓글</th>
+				<th>작성자 | 작성시간</th>
+				<th style = "text-align : center;">삭제</th>
+			
+			</tr>
+			<%
+  			for(int i = al.size()-1; i>=0;i--){
+ 			 %>
+			
+			<tr style = " border-bottom : 3px solid white; height : 60px; text-align : left; color : white;">
+				<td style = "font-color : white;">&nbsp;&nbsp;&nbsp;&nbsp;<%=al.get(i).getComment_content()%></td>
+				<td style = "text-align : center; font-color : white;"><%=al.get(i).getUser_id()%>&nbsp;&nbsp;|&nbsp;&nbsp; <%=al.get(i).getComment_date()%></td>
+				<td style = "text-align : center; font-color : white;">
+				<%if(al.get(i).getUser_id().equals(vo.getUser_id())){%>
+									         		<a href="DeleteCommentCon?comment_seq=<%=al.get(i).getComment_seq() %>">삭제</a>
+									         	<%}%>
+				
+				
+				</td>
+			</tr>
+			<%
+			} 
+			%>
+			
+			</table>
+			<br><br>
+							<div style = "text-align : center;">
+								<button type="reset" class="ml-2 btn btn-primary" onclick = "window.history.back()">돌아가기</button>
 							</div>
 					<div id="bg"></div>	
 						
