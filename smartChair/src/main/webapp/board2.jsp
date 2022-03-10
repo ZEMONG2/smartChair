@@ -105,11 +105,11 @@
 								</tr>
 								<tr>
 									<td style="text-align: center; height : auto;" colspan="2"><%if(voList.getArticle_file() != null){
-																								%><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"
+																								%><img src="http://<%=voList.getUser_ip() %>:8081/smartChair/FileUpload/<%=voList.getArticle_file() %>"style = "width : 300px; height : 300px;"><br><br>
 																								<%}else{ %>
 																								<%} %>
-									}
-									style = "width : 300px; height : 300px;"><br><br>
+									
+									
 									<br><pre style = "color : white; font-size : 20px;" ><%=voList.getArticle_content()%></pre></td>
 								</tr>
 							</table><br><br>
