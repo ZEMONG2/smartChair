@@ -425,7 +425,7 @@ String birthday = vo.getUser_birthday().substring(0, 10);
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card mb-4 py-3 border-left-info">
+                            <div class="card mb-4 py-3 border-left-success">
                                 <div class="card-body">
                                     <ul class = "amount">
                                         <li>
@@ -441,7 +441,7 @@ String birthday = vo.getUser_birthday().substring(0, 10);
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card mb-4 py-3 border-left-info">
+                            <div class="card mb-4 py-3 border-left-primary">
                                 <div class="card-body">
                                     <ul class = "amount">
                                         <li>
@@ -457,7 +457,7 @@ String birthday = vo.getUser_birthday().substring(0, 10);
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card mb-4 py-3 border-left-info">
+                            <div class="card mb-4 py-3 border-left-secondary">
                                 <div class="card-body">
                                     <ul class = "amount">
                                         <li>
