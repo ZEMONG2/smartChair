@@ -7,11 +7,11 @@
 
 const char* ssid = "zemong";              // 변경
 const char* password = "12345678";      // 변경
-//String ip = " 192.168.22.115";
+String ip = " 192.168.111.9";
 
 //const char* ssid = "1234";              // 변경
 //const char* password = "12345679";      // 변경
-String ip = "192.168.111.188";
+//String ip = "192.168.222.188";
 
 int En0 = 18;  //  Low enabled
 int En1 = 19;  //  Low enabled
@@ -22,9 +22,9 @@ int S2  = 13;
 int S3  = 12;
 
 int SIG_pin = 34;
-int SERVER_PORT = 8080;
+int SERVER_PORT = 8081;
 
-String port = "8080";
+String port = "8081";
 String baseName = "http://" + ip + ":" + port;
 
 WiFiClient client;
@@ -81,7 +81,8 @@ void loop() {
   Serial.println("LB:" + String(LB) + "   LC:" + String(LC) + "   LT:" + String(LT));
   Serial.println("RB:" + String(RB) + "   RC:" + String(RC) + "   RT:" + String(RT));
 
-
+//  if ((LB > 50) || (LC > 50) || (LT > 50) || (RB > 50) || (RC > 50) || (RT > 50)) {
+//      value = "0";
     if ((LB>300)&&(LB > LC) && (LB > LT) && (LB > RB) && (LB > RC) && (LB > RT)) {
       value = "LB";
     } else if ((LC>300)&&(LC > LB) && (LC > LT) && (LC > RB) && (LC > RC) && (LC > RT)) {
@@ -95,7 +96,7 @@ void loop() {
     } else if ((RT>300)&&(RT > LB) && (RT > LC) && (RT > LT) && (RT > RB) && (RT > RC)) {
       value = "RT";
     }else{
-      value = "5";
+    value = "0";
     }
   
   

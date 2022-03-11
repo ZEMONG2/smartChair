@@ -115,11 +115,6 @@ public class Test2 extends HttpServlet {
 		out.print("</head>");
 		out.print("<body id=\"page-top\">");
 		
-		
-				HttpSession session = request.getSession();
-				tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
-				System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
-				
 				
 		out.print("<div id=\"wrapper\">\r\n"
 				+ "\r\n"
@@ -173,14 +168,14 @@ public class Test2 extends HttpServlet {
 				+ "                    <span>차트</span></a>\r\n"
 				+ "            </li>\r\n"
 				+ "\r\n");
-				            if(vo.getAdmin_yesno().equals("Y")){
+				          
 				out.print(            "<li class=\"nav-item\">\r\n"
 				+ "                <a class=\"nav-link\" href=\"tables.jsp\">\r\n"
 				+ "                    <i class=\"fas fa-fw fa-table\"></i>\r\n"
 				+ "                    <span>사용자테이블</span></a>\r\n"
 				+ "            </li>\r\n");
-				            }else{
-				            }
+				       
+				          
 				out.print( "            <li class=\"nav-item\">\r\n"
 				+ "                <a class=\"nav-link\" href=\"list.jsp\">\r\n"
 				+ "                    <i class=\"fas fa-fw fa-table\"></i>\r\n"
@@ -364,7 +359,7 @@ public class Test2 extends HttpServlet {
 				
 			
 				
-				out.print( vo.getUser_nick()+"</span>\r\n"
+				out.print("</span>\r\n"
 				+ "                                <img class=\"img-profile rounded-circle\"\r\n"
 				+ "                                    src=\"img/undraw_profile.svg\">\r\n"
 				+ "                            </a>\r\n"
@@ -406,7 +401,7 @@ public class Test2 extends HttpServlet {
 				
 				
 				
-				out.print(vo.getUser_nick()+ "</div>\r\n"
+				out.print("</div>\r\n"
 				+ "                                        </div>\r\n"
 				+ "                                        <div class=\"col-auto\">\r\n"
 				+ "                                            <i class=\"fas fa-user fa-2x text-gray-300\"></i>\r\n"

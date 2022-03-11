@@ -27,6 +27,7 @@
 }
 
 ul li {
+
     text-align: center;
     float: left;
 }
