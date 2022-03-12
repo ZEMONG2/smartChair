@@ -79,6 +79,8 @@ START WITH 1
 INCREMENT BY 1;
 
 
+select * from tb
+
 COMMENT ON TABLE tb_community IS '공유 커뮤니티 테이블';
 
 COMMENT ON COLUMN tb_community.article_seq IS '글 순번';

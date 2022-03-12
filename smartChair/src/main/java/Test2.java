@@ -32,10 +32,10 @@ public class Test2 extends HttpServlet {
    String product = "sc";
    String product_num = "00000001";
    String pose_type = "";
-   long start_time1=0;
-   long start_time2=0;
-   long start_time3=0;
-   long start_time4=0;
+   long start_time1 = 0;
+   long start_time2 = 0;
+   long start_time3 = 0;
+   long start_time4 = 0;
    long pose_time;
    long end_time;
    Date date = new Date();
@@ -66,65 +66,36 @@ public class Test2 extends HttpServlet {
       System.out.println("에러");
       PrintWriter out = response.getWriter();
       String sensor = request.getParameter("sensor");
+      tb_poseDAO dao = new tb_poseDAO();
       if (sensor != null) {
-         if (sensor.equals("LL")||sensor.equals("RR")||sensor.equals("TT")||sensor.equals("BB")) {
+         if (sensor.equals("LL") || sensor.equals("RR") || sensor.equals("TT") || sensor.equals("BB")) {
             s = "4";
          } else if (sensor.equals("5")) {
             s = "5";
-         } else if (sensor.equals("LL")) {
-            start_time1 = date.getTime(); // 현재 시간 측정
-            pose_type = "LEFT";
-            if(start_time3 >0) {
-               pose_time = start_time3 - start_time1 ;
-            }else if(start_time2 >0) {
-               pose_time = start_time2 - start_time1 ;
-            }else if(start_time4 >0) {
-               pose_time = start_time4 - start_time1 ;
-            }
-         } else if (sensor.equals("RR")) {
-            start_time2 = date.getTime(); // 현재 시간 측정
-            pose_type = "RIGHT";
-            if(start_time3 >0) {
-               pose_time = start_time3 - start_time2 ;
-            }else if(start_time4 >0) {
-               pose_time = start_time4 - start_time2 ;
-            }else if(start_time1 >0) {
-               pose_time = start_time1 - start_time2 ;
-            }
-         } else if (sensor.equals("TT")) {
-            start_time3 = date.getTime(); // 현재 시간 측정
-            pose_type = "BACK";
-            if(start_time4 >0) {
-               pose_time = start_time4 - start_time3 ;
-            }else if(start_time2 >0) {
-               pose_time = start_time2 - start_time3 ;
-            }else if(start_time1 >0) {
-               pose_time = start_time1 - start_time3 ;
-            }
-         } else if (sensor.equals("BB")) {
-            start_time4 = date.getTime(); // 현재 시간 측정  
-            pose_type = "COMMON";
-            if(start_time3 >0) {
-               pose_time = start_time3 - start_time4 ;
-            }else if(start_time2 >0) {
-               pose_time = start_time2 - start_time4 ;
-            }else if(start_time1 >0) {
-               pose_time = start_time1 - start_time4 ;
-            }
-             
-         }
-         
-          tb_poseDAO dao = new tb_poseDAO();
-          dao.pose_date(pose_type,pose_time,product_num);
-         
-         
-         
-         start_time1=0;
-         start_time2=0;
-         start_time3=0;
-         start_time4=0;
-         System.out.println("현재자세 : " + pose_type);
+         } 
       }
+      if (sensor != null) {
+         if (sensor.equals("LL")) {
+            pose_type = "LEFT";
+            dao.pose_date(pose_type, product_num);
+         } else if (sensor.equals("RR")) {
+            pose_type = "RIGHT";
+            dao.pose_date(pose_type, product_num);
+         } else if (sensor.equals("TT")) {
+            pose_type = "BACK";
+            dao.pose_date(pose_type, product_num);
+         } else if (sensor.equals("BB")) {
+            pose_type = "COMMON";
+            dao.pose_date(pose_type, product_num);
+         }
+      }
+
+         start_time1 = 0;
+         start_time2 = 0;
+         start_time3 = 0;
+         start_time4 = 0;
+         System.out.println("현재자세 : " + pose_type);
+      
       if (s.equals("1")) {
          sc = "UP";
       } else if (s.equals("2")) {
@@ -140,7 +111,7 @@ public class Test2 extends HttpServlet {
          cnt--;
          System.out.println("cntUp : " + cnt);
       }
-      
+
       System.out.println("sensor: " + sensor + ", sc: " + sc + ", s : " + s);
       System.out.println();
 
