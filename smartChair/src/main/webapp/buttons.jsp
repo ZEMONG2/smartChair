@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
         <%@page import="vo.tb_userVO"%>
+        <%@page import="vo.tb_poseVO"%>
+	<%@page import="java.util.ArrayList"%>
+	<%@page import="dao.tb_poseDAO"%>
+	<%@page import="java.util.Date"%>
+	<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +33,42 @@
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
-System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
+SimpleDateFormat today = new SimpleDateFormat("yyyyMMdd");
+Date now = new Date();
+String nowTime = today.format(now);
+
+tb_poseDAO dao = new tb_poseDAO();
+ArrayList<tb_poseVO> al = dao.pose_type(nowTime);
+int right = al.get(0).getCount();
+int back = al.get(1).getCount();
+int left = al.get(2).getCount();
+int common = al.get(3).getCount();
+int total = (right + back + left + common)/56;
+int commonTime = common/35;
+ArrayList<tb_poseVO> al2 = dao.pose_type2();
+int jan = al2.get(0).getCount();
+int feb = al2.get(1).getCount();
+int mar = al2.get(2).getCount();
+int apr = al2.get(3).getCount();
+int may = al2.get(4).getCount();
+int jun = al2.get(5).getCount();
+int jul = al2.get(6).getCount();
+int aug = al2.get(7).getCount();
+int sep = al2.get(8).getCount();
+int oct = al2.get(9).getCount();
+int nov = al2.get(10).getCount();
+int dec = al2.get(11).getCount();
+
+
+ArrayList<tb_poseVO> al3 = dao.pose_type3();
+int mon = al3.get(0).getCount()*2/60;
+int tue = al3.get(1).getCount()*2/60;
+int wed = al3.get(2).getCount()*2/60;
+int thu = al3.get(3).getCount()*2/60;
+int fri = al3.get(4).getCount()*2/60;
+int sat = al3.get(5).getCount()*2/60;
+int sun = al3.get(6).getCount()*2/80;
+int total2 = (mon+tue+wed+thu+fri+sat+sun);
 %>
     
     <div id="wrapper">
@@ -322,7 +362,7 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 일일 앉아있던 시간</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">8시간</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=total %>시간</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clock fa-2x text-gray-300"></i>
@@ -341,7 +381,7 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">8시간</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%=total2 %>시간</div>
                                                 </div>
                                                 <div class="col">
                                                     
@@ -363,7 +403,7 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                일간 정자세로 앉아있던 시간</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2시간</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=commonTime %>시간</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
@@ -377,14 +417,6 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
 
                         <div class="col-lg-6">
 
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">현재 책상 높이</h6>
-                                </div>
-                                <div class="card-body text-center ">
-                                    <h2>현재 책상 높이 : 70cm</h2>
-                                </div>
-                            </div>
 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -425,7 +457,89 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                     <h6 class="m-0 font-weight-bold text-primary">신장에 따른 바람직한 책상의 높이</h6>
                                 </div>
                                 <div class="card-body">
-                                    <table border="1px" width = "100%" >
+                                <table class="table table-striped">
+									  <thead>
+									    <tr align = "center">
+									      <th scope="col">신장</th>
+									      <th scope="col">책상높이</th>
+									      <th scope="col">의자높이</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    
+
+                                        <tr align="center">
+                                            <td>112 ~ 126cm</td> 
+                                            <td>53cm</td> 
+                                            <td>35cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>127 ~ 135cm</td> 
+                                            <td>56cm</td> 
+                                            <td>37cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>136 ~ 143cm</td> 
+                                            <td>59cm</td> 
+                                            <td>37cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>144 ~ 152cm</td> 
+                                            <td>63cm</td> 
+                                            <td>42cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>153 ~ 160cm</td> 
+                                            <td>66cm</td> 
+                                            <td>44cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>161 ~ 168cm</td> 
+                                            <td>69cm</td> 
+                                            <td>47cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>169 ~ 177cm</td> 
+                                            <td>72cm</td> 
+                                            <td>50cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>178 ~ 186cm</td> 
+                                            <td>75cm</td> 
+                                            <td>52cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>187 ~ 194cm</td> 
+                                            <td>79cm</td> 
+                                            <td>54cm</td> 
+
+                                        </tr>
+
+                                        <tr align="center">
+                                            <td>195 ~ 202cm</td> 
+                                            <td>82cm</td> 
+                                            <td>56cm</td> 
+
+                                        </tr>
+									  </tbody>
+									</table>
+                                   <!--  <table border="1px" width = "100%" border-radius = "10%">
                                         <tr bgcolor = "reduce" align="center">
                                             <th>신장</th>
                                             <th>책상높이</th>
@@ -503,7 +617,7 @@ System.out.println("저장된 세션값 : "+vo.getAdmin_yesno());
                                         </tr>
 
 
-                                    </table>
+                                    </table> -->
                                    
                                 </div>
                             </div>
