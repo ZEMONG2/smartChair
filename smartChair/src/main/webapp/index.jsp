@@ -1,6 +1,12 @@
+<%@page import="vo.tb_poseVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.tb_poseDAO"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
         <%@page import="vo.tb_userVO"%>
+         
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +34,42 @@
 <body id="page-top">
 <%
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+SimpleDateFormat today = new SimpleDateFormat("yyyyMMdd");
+Date now = new Date();
+String nowTime = today.format(now);
 
+tb_poseDAO dao = new tb_poseDAO();
+ArrayList<tb_poseVO> al = dao.pose_type(nowTime);
+int right = al.get(0).getCount();
+int back = al.get(1).getCount();
+int left = al.get(2).getCount();
+int common = al.get(3).getCount();
+int total = (right + back + left + common)/56;
+int commonTime = common/35;
+ArrayList<tb_poseVO> al2 = dao.pose_type2();
+int jan = al2.get(0).getCount();
+int feb = al2.get(1).getCount();
+int mar = al2.get(2).getCount();
+int apr = al2.get(3).getCount();
+int may = al2.get(4).getCount();
+int jun = al2.get(5).getCount();
+int jul = al2.get(6).getCount();
+int aug = al2.get(7).getCount();
+int sep = al2.get(8).getCount();
+int oct = al2.get(9).getCount();
+int nov = al2.get(10).getCount();
+int dec = al2.get(11).getCount();
+
+
+ArrayList<tb_poseVO> al3 = dao.pose_type3();
+int mon = al3.get(0).getCount()*2/60;
+int tue = al3.get(1).getCount()*2/60;
+int wed = al3.get(2).getCount()*2/60;
+int thu = al3.get(3).getCount()*2/60;
+int fri = al3.get(4).getCount()*2/60;
+int sat = al3.get(5).getCount()*2/60;
+int sun = al3.get(6).getCount()*2/80;
+int total2 = (mon+tue+wed+thu+fri+sat+sun);
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -379,7 +420,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 일일 앉아있던 시간</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">8시간</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=total %>시간</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clock fa-2x text-gray-300"></i>
@@ -399,7 +440,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">8시간</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%=total2 %>시간</div>
                                                 </div>
                                                 <div class="col">
                                                     
@@ -422,7 +463,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                일간 정자세로 앉아있던 시간</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">2시간</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=commonTime %>시간</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
