@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import oracle.sql.DATE;
@@ -87,16 +88,14 @@ public class tb_poseDAO {
 
          rs = psmt.executeQuery();
       
-         if (rs.next()) {
+         while (rs.next()) {
            int pose_seq = rs.getInt(1);
          String pose_type = rs.getString(2);
-         String reg_date = rs.getString(4);
-         String db_product_num = rs.getString(5);
+         String reg_date = rs.getString(3);
+         String db_product_num = rs.getString(4);
          tb_poseVO vo = new tb_poseVO(pose_seq, pose_type, reg_date, db_product_num);
          al.add(vo);
-         } else {
-            System.out.println("일치하는 회원 없음");
-         }
+         } 
       
       
       
@@ -107,6 +106,40 @@ public class tb_poseDAO {
       }
       return al;
    }
+        public ArrayList<tb_poseVO> pose_type(String nowTime) { //검색 조건 추가하기 
+        	ArrayList al = new ArrayList();
+        
+          try {
+             connect();
+             
+             String sql = "select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMMDD') = ? group by pose_type";
+
+             psmt = conn.prepareStatement(sql);
+          
+             psmt.setString(1, nowTime);
+             rs = psmt.executeQuery();
+          
+             while (rs.next()) {
+             String pose_type = rs.getString(1);
+             int count = rs.getInt(2);
+             tb_poseVO vo = new tb_poseVO(pose_type, count);
+             al.add(vo);
+             } 
+          
+          
+          
+          } catch (Exception e) {
+             e.printStackTrace();
+          } finally {
+             close();
+          }
+          return al;
+       } 
+        
+        
+        
+        
+        
 }
 
 

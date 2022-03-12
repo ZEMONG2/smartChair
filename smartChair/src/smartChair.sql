@@ -1,6 +1,11 @@
 select * from tb_user;
 select * from tb_community;
+select * from tb_pose order by pose_seq asc;
 select * from tb_comment;
+
+select pose_type, count(*)  from tb_pose group by pose_type;
+select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMMDD') = '20220312' group by pose_type having pose_type = 'RIGHT';
+select pose_type, count(*)  from tb_pose group by pose_type having pose_type = 'RIGHT';
 
 
 DROP TABLE TB_USER CASCADE CONSTRAINTS;

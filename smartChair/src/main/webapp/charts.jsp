@@ -1,6 +1,14 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
         <%@page import="vo.tb_userVO"%>
+        <%@page import="dao.tb_poseDAO"%>
+        <%@page import="vo.tb_poseVO"%>
+        <%@page import="java.util.ArrayList"%>
+        <%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +35,26 @@
 
 <body id="page-top">
 <%
+SimpleDateFormat today = new SimpleDateFormat("yyyyMMdd");
+Date now = new Date();
+String nowTime = today.format(now);
+System.out.println(nowTime);
+
+
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
+tb_poseDAO dao = new tb_poseDAO();
+ArrayList<tb_poseVO> al = dao.pose_type(nowTime);
+int right = al.get(0).getCount();
+int back = al.get(1).getCount();
+int left = al.get(2).getCount();
+int common = al.get(3).getCount();
+
+int right_time = right*2/60/60;
+int back_time = back*2/60/60;
+int left_time = left*2/60/60;
+int common_time = common*2/60/60;
+
+
 %>
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -360,8 +387,6 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <canvas id="myAreaChart"></canvas>
                                     </div>
                                     <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
                                 </div>
                             </div>
 
@@ -375,8 +400,6 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <canvas id="myBarChart"></canvas>
                                     </div>
                                     <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
                                 </div>
                             </div>
 
@@ -395,8 +418,7 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
                                         <canvas id="myPieChart"></canvas>
                                     </div>
                                     <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
+                                   
                                 </div>
                             </div>
                         </div>
@@ -462,11 +484,281 @@ tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+<script type="text/javascript">
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+function number_format(number, decimals, dec_point, thousands_sep) {
+	  // *     example: number_format(1234.56, 2, ',', ' ');
+	  // *     return: '1 234,56'
+	  number = (number + '').replace(',', '').replace(' ', '');
+	  var n = !isFinite(+number) ? 0 : +number,
+	    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+	    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+	    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+	    s = '',
+	    toFixedFix = function(n, prec) {
+	      var k = Math.pow(10, prec);
+	      return '' + Math.round(n * k) / k;
+	    };
+	  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+	  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+	  if (s[0].length > 3) {
+	    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+	  }
+	  if ((s[1] || '').length < prec) {
+	    s[1] = s[1] || '';
+	    s[1] += new Array(prec - s[1].length + 1).join('0');
+	  }
+	  return s.join(dec);
+	}
 
+	// Area Chart Example
+	var ctx = document.getElementById("myAreaChart");
+	var myLineChart = new Chart(ctx, {
+	  type: 'line',
+	  data: {
+	    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+	    datasets: [{
+	      label: "Earnings",
+	      lineTension: 0.3,
+	      backgroundColor: "rgba(78, 115, 223, 0.05)",
+	      borderColor: "rgba(78, 115, 223, 1)",
+	      pointRadius: 3,
+	      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+	      pointBorderColor: "rgba(78, 115, 223, 1)",
+	      pointHoverRadius: 3,
+	      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+	      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+	      pointHitRadius: 10,
+	      pointBorderWidth: 2,
+	      data: [38, 45, 54, 43, 51, 60, 52, 56, 49, 47, 50, 60],
+	    }],
+	  },
+	  options: {
+	    maintainAspectRatio: false,
+	    layout: {
+	      padding: {
+	        left: 10,
+	        right: 25,
+	        top: 25,
+	        bottom: 0
+	      }
+	    },
+	    scales: {
+	      xAxes: [{
+	        time: {
+	          unit: 'month'
+	        },
+	        gridLines: {
+	          display: false,
+	          drawBorder: false
+	        },
+	        ticks: {
+	          maxTicksLimit: 7
+	        }
+	      }],
+	      yAxes: [{
+	        ticks: {
+	          maxTicksLimit: 5,
+	          padding: 10,
+	          // Include a dollar sign in the ticks
+	          callback: function(value, index, values) {
+	            return  number_format(value);
+	          }
+	        },
+	        gridLines: {
+	          color: "rgb(234, 236, 244)",
+	          zeroLineColor: "rgb(234, 236, 244)",
+	          drawBorder: false,
+	          borderDash: [2],
+	          zeroLineBorderDash: [2]
+	        }
+	      }],
+	    },
+	    legend: {
+	      display: false
+	    },
+	    tooltips: {
+	      backgroundColor: "rgb(255,255,255)",
+	      bodyFontColor: "#858796",
+	      titleMarginBottom: 10,
+	      titleFontColor: '#6e707e',
+	      titleFontSize: 14,
+	      borderColor: '#dddfeb',
+	      borderWidth: 1,
+	      xPadding: 15,
+	      yPadding: 15,
+	      displayColors: false,
+	      intersect: false,
+	      mode: 'index',
+	      caretPadding: 10,
+	      callbacks: {
+	        label: function(tooltipItem, chart) {
+	          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+	          return  number_format(tooltipItem.yLabel) + "time";
+	        }
+	      }
+	    }
+	  }
+	});
+
+
+</script>
+
+<script type="text/javascript">
+
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+function number_format(number, decimals, dec_point, thousands_sep) {
+  // *     example: number_format(1234.56, 2, ',', ' ');
+  // *     return: '1 234,56'
+  number = (number + '').replace(',', '').replace(' ', '');
+  var n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    s = '',
+    toFixedFix = function(n, prec) {
+      var k = Math.pow(10, prec);
+      return '' + Math.round(n * k) / k;
+    };
+  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+  if ((s[1] || '').length < prec) {
+    s[1] = s[1] || '';
+    s[1] += new Array(prec - s[1].length + 1).join('0');
+  }
+  return s.join(dec);
+}
+
+// Bar Chart Example
+var ctx = document.getElementById("myBarChart");
+var myBarChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["2/14", "2/15", "2/16", "2/17", "2/18", "2/19", "2/20"],
+    datasets: [{
+      label: "Revenue",
+      backgroundColor: "#4e73df",
+      hoverBackgroundColor: "#2e59d9",
+      borderColor: "#4e73df",
+      data: [9, 8, 6, 8, 7, 5, 7],
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 25,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'day'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        },
+        maxBarThickness: 25,
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 12,
+          maxTicksLimit: 5,
+          padding: 10,
+          // Include a dollar sign in the ticks
+          callback: function(value, index, values) {
+            return number_format(value);
+          }
+        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+      callbacks: {
+        label: function(tooltipItem, chart) {
+          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+          return number_format(tooltipItem.yLabel) + "Time";
+        }
+      }
+    },
+  }
+});
+
+</script>
+
+<script type="text/javascript">
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["오른쪽으로 기대기", "뒤로 기대기", "왼쪽으로 기대기", "정자세"],
+    datasets: [{
+      data: [<%=al.get(0).getCount()%>, <%=al.get(1).getCount()%>, <%=al.get(2).getCount()%>, <%=al.get(3).getCount()%>],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+
+
+</script>
 </body>
 
 </html>

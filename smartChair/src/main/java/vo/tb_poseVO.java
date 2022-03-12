@@ -15,6 +15,19 @@ public class tb_poseVO {
 
     // 등록자 제품번호 
  private String product_num;
+ 
+//포즈별 횟수
+private int count;
+
+
+
+public int getCount() {
+	return count;
+}
+
+public void setCount(int count) {
+	this.count = count;
+}
 
 public int getPose_seq() {
    return pose_seq;
@@ -55,6 +68,12 @@ public tb_poseVO(int pose_seq, String pose_type, String reg_date, String product
    this.pose_type = pose_type;
    this.reg_date = reg_date;
    this.product_num = product_num;
+}
+
+public tb_poseVO(String pose_type, int count) {
+	super();
+	this.pose_type = pose_type;
+	this.count = count;
 }
 
     
