@@ -88,8 +88,7 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 							<article id="intro">
 								<h2 class="major">Intro</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>우리제품 사라!</p>
-								<p>제품 자세 설명 란 </p>
+								<p> 압력센서를 통해 사용자의 앉은자세를 체크하고 사용자에게 자신의 앉은자세 정보를 제공하여 자세교정의 기회를 제공하는 제품이다.</p>
 							</article>
 							
 							<article id="content" style = "width: 1200px;">

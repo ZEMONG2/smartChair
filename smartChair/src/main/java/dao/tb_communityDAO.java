@@ -49,7 +49,7 @@ public class tb_communityDAO {
       try {
          connect();
          System.out.println("체크1");
-         String sql = "INSERT INTO tb_community (tb_article_seq.nextval, article_title, article_content, article_file, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,?,sysdate,?,?)";
+         String sql = "INSERT INTO tb_community (article_seq, article_title, article_content, article_file, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,?,sysdate,?,?)";
          
          psmt = conn.prepareStatement(sql);
          
@@ -78,7 +78,7 @@ public class tb_communityDAO {
       try {
          connect();
          System.out.println("체크1");
-         String sql = "INSERT INTO tb_community (tb_article_seq.nextval, article_title, article_content, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,sysdate,?,?)";
+         String sql = "INSERT INTO tb_community (article_seq, article_title, article_content, article_date, user_id, user_ip) values(tb_community_seq.nextval,?,?,sysdate,?,?)";
          
          psmt = conn.prepareStatement(sql);
          
