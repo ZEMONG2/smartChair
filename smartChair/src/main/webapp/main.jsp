@@ -52,8 +52,6 @@ ul li.on a {
 	<body class="is-preload">
 	
 	<%
-tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
-
 tb_communityDAO dao = new tb_communityDAO();
 ArrayList<tb_communityVO> al = dao.outputCommunity();
 %>
