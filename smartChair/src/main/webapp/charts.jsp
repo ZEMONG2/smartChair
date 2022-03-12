@@ -1,12 +1,9 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.time.format.DateTimeFormatter"%>
-<%@page import="java.time.LocalDate"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
         <%@page import="vo.tb_userVO"%>
         <%@page import="dao.tb_poseDAO"%>
         <%@page import="vo.tb_poseVO"%>
+        <%@page import="java.util.Date"%>
         <%@page import="java.util.ArrayList"%>
         <%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
@@ -44,15 +41,30 @@ System.out.println(nowTime);
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 tb_poseDAO dao = new tb_poseDAO();
 ArrayList<tb_poseVO> al = dao.pose_type(nowTime);
-int right = al.get(0).getCount();
-int back = al.get(1).getCount();
-int left = al.get(2).getCount();
-int common = al.get(3).getCount();
 
-int right_time = right*2/60/60;
-int back_time = back*2/60/60;
-int left_time = left*2/60/60;
-int common_time = common*2/60/60;
+ArrayList<tb_poseVO> al2 = dao.pose_type2();
+int jan = al2.get(0).getCount();
+int feb = al2.get(1).getCount();
+int mar = al2.get(2).getCount();
+int apr = al2.get(3).getCount();
+int may = al2.get(4).getCount();
+int jun = al2.get(5).getCount();
+int jul = al2.get(6).getCount();
+int aug = al2.get(7).getCount();
+int sep = al2.get(8).getCount();
+int oct = al2.get(9).getCount();
+int nov = al2.get(10).getCount();
+int dec = al2.get(11).getCount();
+
+
+ArrayList<tb_poseVO> al3 = dao.pose_type3();
+int mon = al3.get(0).getCount()*2/60;
+int tue = al3.get(1).getCount()*2/60;
+int wed = al3.get(2).getCount()*2/60;
+int thu = al3.get(3).getCount()*2/60;
+int fri = al3.get(4).getCount()*2/60;
+int sat = al3.get(5).getCount()*2/60;
+int sun = al3.get(6).getCount()*2/80;
 
 
 %>
@@ -531,7 +543,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 	      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
 	      pointHitRadius: 10,
 	      pointBorderWidth: 2,
-	      data: [38, 45, 54, 43, 51, 60, 52, 56, 49, 47, 50, 60],
+	      data: [<%=jan%>, <%=feb%>, <%=mar%>, <%=apr%>, <%=may%>, <%=jun%>, <%=jul%>, <%=aug%>, <%=sep%>, <%=oct%>, <%=nov%>, <%=dec%>],
 	    }],
 	  },
 	  options: {
@@ -640,13 +652,13 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["2/14", "2/15", "2/16", "2/17", "2/18", "2/19", "2/20"],
+    labels: ["3/7", "3/8", "3/9", "3/10", "3/11", "3/12", "3/13"],
     datasets: [{
       label: "Revenue",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [9, 8, 6, 8, 7, 5, 7],
+      data: [<%=mon%>, <%=tue%>, <%=wed%>, <%=thu%>, <%=fri%>, <%=sat%>, <%=sun%>],
     }],
   },
   options: {

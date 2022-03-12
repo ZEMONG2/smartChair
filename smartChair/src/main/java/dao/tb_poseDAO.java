@@ -107,7 +107,7 @@ public class tb_poseDAO {
       return al;
    }
         public ArrayList<tb_poseVO> pose_type(String nowTime) { //검색 조건 추가하기 
-        	ArrayList al = new ArrayList();
+        	ArrayList<tb_poseVO> al = new ArrayList<tb_poseVO>();
         
           try {
              connect();
@@ -136,24 +136,52 @@ public class tb_poseDAO {
           return al;
        } 
         
-        public ArrayList<tb_poseVO> pose_type2(int chartMonth) { //검색 조건 추가하기 
-        	ArrayList al = new ArrayList();
+        public ArrayList<tb_poseVO> pose_type2() { //검색 조건 추가하기 
+            ArrayList<tb_poseVO> al2 = new ArrayList<tb_poseVO>();
+         
+           try {
+              connect();
+              
+              String sql = "select count(pose_type), TO_CHAR(REG_DATE, 'YYYYMM')  from tb_pose group by TO_CHAR(REG_DATE, 'YYYYMM') order by TO_CHAR(REG_DATE, 'YYYYMM')";
+
+              psmt = conn.prepareStatement(sql);
+           
+              rs = psmt.executeQuery();
+           
+              while (rs.next()) {
+              int count = rs.getInt(1);
+              int chartMonth = rs.getInt(2);
+              tb_poseVO vo = new tb_poseVO(count ,chartMonth);
+              al2.add(vo);
+              } 
+           
+           
+           
+           } catch (Exception e) {
+              e.printStackTrace();
+           } finally {
+              close();
+           }
+           return al2;
+        }
+        public ArrayList<tb_poseVO> pose_type3() { //검색 조건 추가하기 
+        	ArrayList<tb_poseVO> al3 = new ArrayList<tb_poseVO>();
         
           try {
              connect();
              
-             String sql = "select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMM') = ? group by pose_type";
+             String sql = "select count(pose_type),TO_CHAR(REG_DATE, 'YYYYMMDD')  from tb_pose where TO_CHAR(REG_DATE, 'YYYYMMDD') > 20220306 group by TO_CHAR(REG_DATE, 'YYYYMMDD') order by TO_CHAR(REG_DATE, 'YYYYMMDD')";
 
              psmt = conn.prepareStatement(sql);
           
-             psmt.setInt(1, chartMonth);
              rs = psmt.executeQuery();
           
              while (rs.next()) {
-             String pose_type = rs.getString(1);
-             int count = rs.getInt(2);
-             tb_poseVO vo = new tb_poseVO(pose_type, count);
-             al.add(vo);
+            
+             int count = rs.getInt(1);
+             String pose_date = rs.getString(2);
+             tb_poseVO vo = new tb_poseVO(count,pose_date);
+             al3.add(vo);
              } 
           
           
@@ -163,12 +191,10 @@ public class tb_poseDAO {
           } finally {
              close();
           }
-          return al;
+          return al3;
        } 
         
-        
-        
-        
+      
 }
 
 

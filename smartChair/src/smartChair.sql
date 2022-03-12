@@ -4,9 +4,17 @@ select * from tb_pose order by pose_seq asc;
 select * from tb_comment;
 
 select pose_type, count(*)  from tb_pose group by pose_type;
-select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMMDD') = '20220312' group by pose_type having pose_type = 'RIGHT';
+select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMMDD') = '20220313' group by pose_type having pose_type = 'RIGHT';
 select pose_type, count(*)  from tb_pose group by pose_type having pose_type = 'RIGHT';
-
+select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMM') = '202102' group by pose_type
+select TO_CHAR(REG_DATE, 'YYYYMM'), count(pose_type)  from tb_pose group by TO_CHAR(REG_DATE, 'YYYYMM') order by TO_CHAR(REG_DATE, 'YYYYMM');
+select TO_CHAR(REG_DATE, 'YYYYMMDD'), count(pose_type)  from tb_pose where TO_CHAR(REG_DATE, 'YYYYMMDD') > 20220306 group by TO_CHAR(REG_DATE, 'YYYYMMDD') order by TO_CHAR(REG_DATE, 'YYYYMMDD');
+select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMMDD') = '20220313' group by pose_type
+select count(pose_type),TO_CHAR(REG_DATE, 'YYYYMMDD')  from tb_pose where TO_CHAR(REG_DATE, 'YYYYMMDD') > 20220306 group by TO_CHAR(REG_DATE, 'YYYYMMDD') order by TO_CHAR(REG_DATE, 'YYYYMMDD')
+insert into TB_POSE values (tb_pose_seq.nextval, 'COMMON', '2022/03/13', '00000001');
+insert into TB_POSE values (tb_pose_seq.nextval, 'BACK', '2022/03/13', '00000001');
+insert into TB_POSE values (tb_pose_seq.nextval, 'LEFT', '2022/03/13', '00000001');
+insert into TB_POSE values (tb_pose_seq.nextval, 'RIGHT', '2022/03/13', '00000001');
 
 DROP TABLE TB_USER CASCADE CONSTRAINTS;
 DROP TABLE TB_COMMUNITY CASCADE CONSTRAINTS;

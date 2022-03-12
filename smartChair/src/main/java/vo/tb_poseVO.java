@@ -16,10 +16,30 @@ public class tb_poseVO {
     // 등록자 제품번호 
  private String product_num;
  
+ private String pose_date;
+
+ private int chartMonth;
+ 
 //포즈별 횟수
 private int count;
 
 
+
+public int getChartMonth() {
+	return chartMonth;
+}
+
+public void setChartMonth(int chartMonth) {
+	this.chartMonth = chartMonth;
+}
+
+public String getPose_date() {
+	return pose_date;
+}
+
+public void setPose_date(String pose_date) {
+	this.pose_date = pose_date;
+}
 
 public int getCount() {
 	return count;
@@ -75,6 +95,19 @@ public tb_poseVO(String pose_type, int count) {
 	this.pose_type = pose_type;
 	this.count = count;
 }
+
+public tb_poseVO(int count, String pose_date) {
+	super();
+	this.count = count;
+	this.pose_date = pose_date;
+}
+
+public tb_poseVO(int count, int chartMonth) {
+	super();
+	this.count = count;
+	this.chartMonth = chartMonth;
+}
+
 
     
 }
