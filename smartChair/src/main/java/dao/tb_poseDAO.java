@@ -136,6 +136,35 @@ public class tb_poseDAO {
           return al;
        } 
         
+        public ArrayList<tb_poseVO> pose_type2(int chartMonth) { //검색 조건 추가하기 
+        	ArrayList al = new ArrayList();
+        
+          try {
+             connect();
+             
+             String sql = "select pose_type, count(*)  from tb_pose WHERE TO_CHAR(REG_DATE, 'YYYYMM') = ? group by pose_type";
+
+             psmt = conn.prepareStatement(sql);
+          
+             psmt.setInt(1, chartMonth);
+             rs = psmt.executeQuery();
+          
+             while (rs.next()) {
+             String pose_type = rs.getString(1);
+             int count = rs.getInt(2);
+             tb_poseVO vo = new tb_poseVO(pose_type, count);
+             al.add(vo);
+             } 
+          
+          
+          
+          } catch (Exception e) {
+             e.printStackTrace();
+          } finally {
+             close();
+          }
+          return al;
+       } 
         
         
         
