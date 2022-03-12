@@ -45,22 +45,19 @@ public class tb_poseDAO {
          e2.printStackTrace();
       }
    }
-   public int pose_date(String pose_type, long pose_time, String pose_system, String date) {
+   public int pose_date(String pose_type, long pose_time, String product_num) {
       int cnt = 0;
       
       try {
          connect();
          
-         String sql = "insert into tb_pose values(tb_pose_seq, ?, ?, ?, ?)";
-         
-         rs = psmt.executeQuery();
-         
+         String sql = "insert into tb_pose values(tb_pose_seq.nextval, ?, ?, sysdate, ?)";
+        
             psmt = conn.prepareStatement(sql);
            
             psmt.setString(1, pose_type);
             psmt.setDouble(2, pose_time);
-            psmt.setString(3, pose_system);
-            psmt.setString(4,date);
+            psmt.setString(3, product_num);
              cnt = psmt.executeUpdate();
 
          
@@ -75,27 +72,28 @@ public class tb_poseDAO {
       
       return cnt;
    }
-        public ArrayList<tb_poseVO> pose_type(String sc) { //검색 조건 추가하기 
-        	
+        public ArrayList<tb_poseVO> pose_type(String product_num) { //검색 조건 추가하기 
+           
         ArrayList al = new ArrayList();
    //   tb_poseVO vo = null;
       try {
          connect();
          
-         String sql = "select pose_seq, pose_type, pose_time, reg_date from tb_pose where sc = sc";
+         String sql = "select * from tb_pose where product_num = ?";
 
          psmt = conn.prepareStatement(sql);
-         psmt.setString(1, sc);
+         psmt.setString(1, product_num);
 
          rs = psmt.executeQuery();
       
          if (rs.next()) {
-        	int article_seq2 = rs.getInt(1);
-			String pose_type = rs.getString(2);
-			long pose_time = rs.getLong(3);
-			String reg_date = rs.getString(4);
-			tb_poseVO vo = new tb_poseVO( pose_type, pose_time, reg_date);
-			al.add(vo);
+           int pose_seq = rs.getInt(1);
+         String pose_type = rs.getString(2);
+         long pose_time = rs.getLong(3);
+         String reg_date = rs.getString(4);
+         String db_product_num = rs.getString(5);
+         tb_poseVO vo = new tb_poseVO(pose_seq, pose_type, pose_time, reg_date, db_product_num);
+         al.add(vo);
          } else {
             System.out.println("일치하는 회원 없음");
          }
