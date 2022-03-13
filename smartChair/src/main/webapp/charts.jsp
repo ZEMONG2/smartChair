@@ -41,6 +41,34 @@ System.out.println(nowTime);
 tb_userVO vo = (tb_userVO)session.getAttribute("loginVO");
 tb_poseDAO dao = new tb_poseDAO();
 ArrayList<tb_poseVO> al = dao.pose_type(nowTime);
+int right = al.get(0).getCount()*100;
+int back = al.get(0).getCount()*100;
+int left = al.get(2).getCount()*100;
+int common = al.get(3).getCount()*100;
+
+int sum = al.get(0).getCount() + al.get(1).getCount() + al.get(2).getCount() + al.get(3).getCount();
+
+
+
+int rightAvg = right/sum;
+int backAvg = back/sum;
+int leftAvg = left/sum;
+int commonAvg = common/sum;
+
+
+
+
+System.out.println("right : "+right);
+System.out.println("back : "+ back);
+System.out.println("left : "+ left);
+System.out.println("common : "+ common);
+System.out.println("sum : "+ sum);
+System.out.println("평균 : "+rightAvg);
+System.out.println("평균 수정: "+rightAvg);
+System.out.println("평균 수정: "+backAvg);
+System.out.println("평균 수정: "+leftAvg);
+System.out.println("평균 수정: "+commonAvg);
+
 
 ArrayList<tb_poseVO> al2 = dao.pose_type2();
 int jan = al2.get(0).getCount();
@@ -743,7 +771,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["오른쪽으로 기대기", "뒤로 기대기", "왼쪽으로 기대기", "정자세"],
     datasets: [{
-      data: [<%=al.get(0).getCount()%>, <%=al.get(1).getCount()%>, <%=al.get(2).getCount()%>, <%=al.get(3).getCount()%>],
+    	  data: [<%=rightAvg%>, <%=backAvg%>, <%=leftAvg%>, <%=commonAvg%>],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
