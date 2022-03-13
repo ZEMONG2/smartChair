@@ -87,8 +87,12 @@ ArrayList<tb_communityVO> al = dao.outputCommunity();
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p> 압력센서를 통해 사용자의 앉은자세를 체크하고 사용자에게 자신의 앉은자세 정보를 제공하여 자세교정의 기회를 제공하는 제품이다.</p>
+								<span class="image main"><iframe width="560" height="315" src="https://www.youtube.com/embed/5ch94AaPZRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span>
+								<h2> MESSIAH</h2>
+								<p> 저희 MESSIAH는 자세교정과 책상의 높이조절을 동시에 할 수 있는 제품입니다. 자세교정용 압력센서를 통해 사용자의 앉은자세를 체크하고 의자에 앉아 책상의 높이를 조절하고 책상의 
+									디스플레이에서도 바로 책상 높이를 제어할 수 있습니다. 사용자에게 자신의 앉은자세 정보를 웹페이지에서 한눈에 보기 쉽게 제공하고 또한 웹페이지에서도
+									책상의 높이를 조절할 수 있습니다. 이번기회에 MESSIAH를 사용함으로 당신의 안좋은 자세를 교정해보세요.
+							</p>
 							</article>
 							
 							<article id="content" style = "width: 1200px;">
