@@ -607,7 +607,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 	      callbacks: {
 	        label: function(tooltipItem, chart) {
 	          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-	          return  number_format(tooltipItem.yLabel) + "time";
+	          return  number_format(tooltipItem.yLabel) + "hour";
 	        }
 	      }
 	    }
@@ -723,7 +723,7 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return number_format(tooltipItem.yLabel) + "Time";
+          return number_format(tooltipItem.yLabel) + "hour";
         }
       }
     },

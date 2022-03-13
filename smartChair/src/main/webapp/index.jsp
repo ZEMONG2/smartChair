@@ -497,11 +497,11 @@ int total2 = (mon+tue+wed+thu+fri+sat+sun);
                                         </div>
                                        <h2>당신의 <strong>허리</strong>는 안녕하십니까?</h2>
                                        당신은 지금 목이나 허리가 아프신가요?<br>
-                                       그렇다면 당신의 지금 자세는 어떻게 생각하십니까?<br>
+                                       그렇다면 당신의 지금 자세는 어떠십니까?<br>
                                        다리를 꼬거나 의자에 걸터 앉아있거나 기대서 앉아 있지 않으신가요?<br>
-                                       좋지 않은 자세가 목과 허리에 굉장히 안좋다는것을 잘 인식하고 계신가요?<br>
-                                       우리 메시아는 당신의 자세를 실시간으로 체크하고 무의식 중에 취한 자세를 한눈에 보기 쉽게 보여줄 것입니다<br>
-                                       당신이 올바른 자세를 취하도록 도와줄 것입니다.
+                                       당신이 편하다고 생각하는 자세가 허리와 목에 무리가 가는것을 알고계신가요?<br>
+                                       우리 메시아는 당신의 자세를 실시간으로 체크하고 보기쉽게 보여주며<br>
+                                       당신이 올바른 자세를 취할 수 있도록 도와줄 것입니다.
                                     </div>
                                 </div>
                             </div>
@@ -516,7 +516,7 @@ int total2 = (mon+tue+wed+thu+fri+sat+sun);
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">⚠잘못된 자세가 몸에 주는 영향⚠</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">잘못된 자세가 몸에 주는 영향</h6>
                                    
                                 </div>
                                 <!-- Card Body -->
@@ -551,39 +551,7 @@ int total2 = (mon+tue+wed+thu+fri+sat+sun);
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">일별 사용량</h6>
-                                </div>
-                                
-                                <div class="card-body">
-                                    <div id="columnchart_material" style="width:auto; height:auto; margin-top: 40px;"></div>
-                                </div>
-                               
-                            </div>
-
-                            <!-- Color System -->
-                            
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                            CSS bloat and poor page performance. Custom CSS classes are used to create
-                                            custom components and custom utility classes.</p>
-                                        <p class="mb-0">Before working with this theme, you should become familiar with the
-                                            Bootstrap framework, especially the utility classes.</p>
-                                    </div>
-                                </div>
-                                
-                            
-
-                        </div>
-
+                       
                         <div class="col-lg-6 mb-4">
 
                             <!-- Illustrations -->
