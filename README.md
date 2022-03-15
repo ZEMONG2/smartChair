@@ -2,7 +2,6 @@
 팀명 : 보람상조
 # Challenge Point
 센서데이터 시각화
-
 # 주요기능
 - 최근 자세의 변화 확인
 - 자세 별 시간 확인
@@ -23,8 +22,9 @@
 # 사용 부품 이미지 (+제출한 부품주문서 파일 첨부)
 # 회로도 이미지(주요기능 별)
 ![image](https://user-images.githubusercontent.com/97682042/158284278-ce3cfc03-a867-4edf-a2f8-360a5184fc07.png)
-# 완성 제품 이미지 (하드웨어 / 어플리케이션)
+# 완성 제품 영상
+https://youtu.be/1M3UD1jV-d8
 # 제작일정
+![image](https://user-images.githubusercontent.com/97682042/158284475-b71222e8-0adb-4e34-957c-a17a58b1a8ac.png)
 # 팀원 업무 분장표
 ![image](https://user-images.githubusercontent.com/97682042/158284420-0fde0c50-8e92-4920-9ce9-bc939ab573c7.png)
-
