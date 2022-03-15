@@ -9,7 +9,7 @@
 - 자동 높낮이 조절
 - WEB을 통한 높낮이 조절
 # 개발환경
-- 사용언어 : Java 1.8 / HTML / CSS / Javascript / JSON
+- 사용언어 : Java 1.8 / HTML / CSS / Javascript
 - 개발도구 : eclipse / VScode
 - 서버환경 : tomcat 9.0
 - 데이터베이스 : oracle 11g
