@@ -26,3 +26,5 @@
 # 완성 제품 이미지 (하드웨어 / 어플리케이션)
 # 제작일정
 # 팀원 업무 분장표
+![image](https://user-images.githubusercontent.com/97682042/158284420-0fde0c50-8e92-4920-9ce9-bc939ab573c7.png)
+
