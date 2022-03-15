@@ -23,7 +23,7 @@
 # 회로도 이미지(주요기능 별)
 ![image](https://user-images.githubusercontent.com/97682042/158284278-ce3cfc03-a867-4edf-a2f8-360a5184fc07.png)
 # 완성 제품 영상
-https://youtu.be/1M3UD1jV-d8
+https://user-images.githubusercontent.com/97682042/158284861-513d3cd7-4cdf-471c-95f2-2be42611846e.mp4
 # 제작일정
 ![image](https://user-images.githubusercontent.com/97682042/158284475-b71222e8-0adb-4e34-957c-a17a58b1a8ac.png)
 # 팀원 업무 분장표
